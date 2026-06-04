@@ -1,0 +1,212 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/university-of-geneva/main/json-structure/university-of-geneva-aip-structure.json",
+  "name": "aip",
+  "type": "object",
+  "description": "Yareta Archival Information Package (AIP) — OAIS preservation package in the UNIGE Yareta/DLCM repository.",
+  "properties": {
+    "creation": {
+      "type": {
+        "$ref": "#/ChangeInfo"
+      }
+    },
+    "lastUpdate": {
+      "type": {
+        "$ref": "#/ChangeInfo"
+      }
+    },
+    "resId": {
+      "type": "string",
+      "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+    },
+    "dispositionApproval": {
+      "type": "boolean",
+      "description": "If the approval step the AIP disposal is mandatory."
+    },
+    "retention": {
+      "type": "int32",
+      "description": "The retention duration in days of the AIP: O means forever."
+    },
+    "archiveContainer": {
+      "type": "string",
+      "enum": [
+        "UNDEFINED",
+        "ZIP",
+        "BAG_IT"
+      ],
+      "description": "The container type of the AIP."
+    },
+    "archivalUnit": {
+      "type": "boolean",
+      "description": "if the AIP is an unit (AIU) or a collection (AIC)."
+    },
+    "archiveId": {
+      "type": "string",
+      "description": "The storage URI of the AIP."
+    },
+    "archiveFileNumber": {
+      "type": "int64",
+      "description": "The total number of files in the AIP."
+    },
+    "updateNumber": {
+      "type": "int64",
+      "description": "The number of updates in the AIP."
+    },
+    "collectionFileNumber": {
+      "type": "int64",
+      "description": "The total number of filed in the collection AIP."
+    },
+    "archiveSize": {
+      "type": "int64",
+      "description": "The size in bytes of the AIP."
+    },
+    "tombstoneSize": {
+      "type": "int64",
+      "description": "The size in bytes of the tombstone AIP."
+    },
+    "collectionArchiveSize": {
+      "type": "int64",
+      "description": "The total size in bytes of the collection AIP."
+    },
+    "checksumCheck": {
+      "type": {
+        "$ref": "#/ChecksumCheck"
+      },
+      "description": "The last checksum verification information of the AIP."
+    },
+    "checksums": {
+      "type": "array",
+      "items": {
+        "type": {
+          "$ref": "#/DataFileChecksum"
+        }
+      },
+      "description": "The checksum list of the AIP."
+    },
+    "fileFormat": {
+      "type": {
+        "$ref": "#/FileFormat"
+      },
+      "description": "The file format identification of the AIP."
+    },
+    "info": {
+      "type": {
+        "$ref": "#/RepresentationInfo"
+      },
+      "description": "The OAIS representation information of the AIP."
+    },
+    "sipIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "The source SIP list (IDs) of the AIP."
+    },
+    "virusCheck": {
+      "type": {
+        "$ref": "#/VirusCheck"
+      },
+      "description": "The file virus check of the AIP."
+    },
+    "publicationDate": {
+      "type": "date",
+      "description": "The publication date of the AIP."
+    },
+    "lastArchiving": {
+      "type": "datetime",
+      "description": "The last archiving process date of the AIP: the first archiving date or the last metadata edition."
+    },
+    "ready": {
+      "type": "boolean",
+      "description": "If AIP package is ready."
+    },
+    "dataFileNumber": {
+      "type": "int32",
+      "description": "The number of AIP data files."
+    },
+    "complianceLevel": {
+      "type": "string",
+      "enum": [
+        "NOT_ASSESSED",
+        "NO_COMPLIANCE",
+        "WEAK_COMPLIANCE",
+        "AVERAGE_COMPLIANCE",
+        "FULL_COMPLIANCE"
+      ],
+      "description": "Compliance level to define the preservation quality based on data file format:\n- NOT_ASSESSED => The format could not be evaluated\n- NO_COMPLIANCE => The format could not be determined\n- WEAK_COMPLIANCE => The format was determined: content type detected\n- AVERAGE_COMPLIANCE => The format was determined: WEAK_COMPLIANCE + PRONOM identifier detected\n- FULL_COMPLIANCE => The format was determined: AVERAGE_COMPLIANCE + the format is part of golden formats\n"
+    },
+    "smartSize": {
+      "type": "string",
+      "description": "The size in human-readable format of the AIP."
+    },
+    "collectionSize": {
+      "type": "int32",
+      "description": "The number of AIPs in collection AIP."
+    },
+    "smartTombstoneSize": {
+      "type": "string",
+      "description": "The size in human-readable format of the tombstone AIP."
+    },
+    "smartCollectionArchiveSize": {
+      "type": "string",
+      "description": "The total size in human-readable format of the collection AIP."
+    },
+    "retentionEnd": {
+      "type": "datetime",
+      "description": "The end of the AIP retention."
+    },
+    "packageStatus": {
+      "type": "string",
+      "enum": [
+        "CHECK_PENDING",
+        "CHECKING",
+        "CHECKED",
+        "CLEANING",
+        "CLEANED",
+        "COMPLETED",
+        "DOWNLOADING",
+        "IN_PREPARATION",
+        "IN_PROGRESS",
+        "STORED",
+        "INDEXING",
+        "READY",
+        "RETRIEVING",
+        "RETRIEVING_PENDING",
+        "IN_ERROR",
+        "PRESERVATION_ERROR",
+        "FIXITY_ERROR",
+        "DISPOSABLE",
+        "DISPOSAL_APPROVED_BY_ORGUNIT",
+        "DISPOSAL_APPROVED",
+        "DISPOSED",
+        "FIX_PENDING",
+        "FIXING",
+        "METADATA_EDITION_PENDING",
+        "EDITING_METADATA",
+        "UPDATING_RETENTION",
+        "METADATA_UPGRADE_PENDING",
+        "UPGRADING_METADATA",
+        "COMPLIANCE_LEVEL_UPDATE_PENDING",
+        "UPDATING_COMPLIANCE_LEVEL",
+        "COMPLIANCE_LEVEL_UPDATED",
+        "REINDEXING",
+        "RELOADED",
+        "RESUBMITTING",
+        "PACKAGE_REPLICATION_PENDING",
+        "REPLICATING_PACKAGE",
+        "TOMBSTONE_REPLICATION_PENDING",
+        "REPLICATING_TOMBSTONE"
+      ],
+      "description": "OAIS Package Status:\n- CHECKED => Checked package during archiving process\n- CHECKING => A package verification is in progress during checking process\n- CHECK_PENDING => A package verification is pending during checking process\n- CLEANED => Cleaned package during cleaning process for SIP only\n- CLEANING => A package clean is in progress during cleaning process for SIP only\n- COMPLIANCE_LEVEL_UPDATE_PENDING => A package compliance update is pending\n- COMPLIANCE_LEVEL_UPDATED => The compliance levels of the package have been updated\n- COMPLETED => Completed package\n- DISPOSABLE => The Package is candidate for disposal process for AIP only\n- DISPOSAL_APPROVED_BY_ORGUNIT => Disposal org. unit approval done during disposal process for AIP only\n- DISPOSAL_APPROVED => Disposal approval done during disposal process for AIP only\n- DISPOSED => Disposed package for AIP only\n- DOWNLOADING => A package download is in progress\n- EDITING_METADATA => A package metadata edition is in progress\n- FIXING => A package correction is in progress\n- FIXITY_ERROR => Error when checking checksums\n- FIX_PENDING => A package correction is pending\n- INDEXING => A package indexing is in progress\n- IN_ERROR => Package in error during archiving process\n- IN_PREPARATION => Package in preparation during archiving process\n- IN_PROGRESS => A package archiving process is in progress\n- METADATA_EDITION_PENDING => A metadata edition is pending\n- METADATA_UPGRADE_PENDING => A metadata version upgrade is pending\n- PACKAGE_REPLICATION_PENDING => A package replication is pending\n- PRESERVATION_ERROR => Package in error during checking process\n- READY => Package Ready\n- REINDEXING => A package re-indexing is in progress\n- RELOADED => Reloaded package from storage location\n- REPLICATING_PACKAGE => A package replication is in progress\n- REPLICATING_TOMBSTONE => A tombstone package replication is in progress\n- RESUBMITTING => A package re-submission is in progress\n- STORED => Package stored on storage location\n- TOMBSTONE_REPLICATION_PENDING => A tombstone replication is pending\n- UPDATING_COMPLIANCE_LEVEL => A package compliance update is in progress\n- UPDATING_RETENTION => A package retention update is in progress during disposal process\n- UPGRADING_METADATA => A metadata version upgrade is in progress\n"
+    },
+    "smartRetention": {
+      "type": "string",
+      "description": "The retention duration in human-readable format of the package."
+    },
+    "_links": {
+      "type": {
+        "$ref": "#/Links"
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "name": "Climate dataset DIP order",
+  "query": "resId:6f1e8c2a-1234-4abc-9def-0123456789ab",
+  "queryType": "DIRECT",
+  "metadataVersion": "5.0",
+  "publicOrder": true
+}

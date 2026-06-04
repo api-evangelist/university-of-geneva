@@ -1,0 +1,64 @@
+# Spectral ruleset for the University of Geneva (UNIGE) Yareta Research Data API.
+# Encodes patterns observed in the live DLCM/Yareta OpenAPI 3.1 definitions
+# (Yareta API v3.1.7) served from access.yareta.unige.ch and ingest.yareta.unige.ch.
+formats:
+  - oas3
+rules:
+  unige-info-contact-email:
+    description: Yareta API info block must carry the yareta@unige.ch contact email.
+    severity: warn
+    given: $.info.contact
+    then:
+      field: email
+      function: truthy
+
+  unige-servers-are-yareta-hosts:
+    description: Servers should be the official Yareta DLCM backend hosts on unige.ch.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: "^https://(access|ingest|yareta)\\.unige\\.ch"
+
+  unige-resid-uuid-identifier:
+    description: Resources expose a 'resId' identifier (UUID by default, max length 50).
+    severity: info
+    given: $.components.schemas[?(@.properties && @.properties.resId)].properties.resId
+    then:
+      field: maxLength
+      function: truthy
+
+  unige-change-info-readonly:
+    description: ChangeInfo audit fields (who/when/fullName) are read-only.
+    severity: info
+    given: $.components.schemas.ChangeInfo.properties[*]
+    then:
+      field: readOnly
+      function: truthy
+
+  unige-orcid-pattern-present:
+    description: Person ORCID values must declare the ORCID format pattern.
+    severity: warn
+    given: $.components.schemas.Person.properties.orcid
+    then:
+      field: pattern
+      function: truthy
+
+  unige-operation-tagged:
+    description: Every operation should be tagged (Access, Ingest, or OAI-PMH).
+    severity: warn
+    given: $.paths[*][get,post,put,delete,patch]
+    then:
+      field: tags
+      function: truthy
+
+  unige-oais-package-descriptions:
+    description: OAIS package schemas (AIP/DIP) should be documented with a description.
+    severity: info
+    given:
+      - $.components.schemas.ArchivalInfoPackage
+      - $.components.schemas.DisseminationInfoPackage
+    then:
+      field: description
+      function: truthy

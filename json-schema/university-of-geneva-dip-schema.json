@@ -1,0 +1,331 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/university-of-geneva/main/json-schema/university-of-geneva-dip-schema.json",
+  "title": "Yareta Dissemination Information Package (DIP)",
+  "description": "Dissemination Information Package (DIP)",
+  "type": "object",
+  "properties": {
+    "creation": {
+      "$ref": "#/$defs/ChangeInfo"
+    },
+    "lastUpdate": {
+      "$ref": "#/$defs/ChangeInfo"
+    },
+    "resId": {
+      "type": "string",
+      "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).",
+      "maxLength": 50,
+      "minLength": 0
+    },
+    "info": {
+      "$ref": "#/$defs/RepresentationInfo",
+      "description": "The OAIS representation information of the DIP."
+    },
+    "ready": {
+      "type": "boolean",
+      "description": "If DIP package is ready.",
+      "readOnly": true
+    },
+    "aipIds": {
+      "type": "array",
+      "description": "The source AIP identifier list of the DIP.",
+      "items": {
+        "type": "string"
+      },
+      "readOnly": true
+    },
+    "packageStatus": {
+      "type": "string",
+      "description": "OAIS Package Status:\n- CHECKED => Checked package during archiving process\n- CHECKING => A package verification is in progress during checking process\n- CHECK_PENDING => A package verification is pending during checking process\n- CLEANED => Cleaned package during cleaning process for SIP only\n- CLEANING => A package clean is in progress during cleaning process for SIP only\n- COMPLIANCE_LEVEL_UPDATE_PENDING => A package compliance update is pending\n- COMPLIANCE_LEVEL_UPDATED => The compliance levels of the package have been updated\n- COMPLETED => Completed package\n- DISPOSABLE => The Package is candidate for disposal process for AIP only\n- DISPOSAL_APPROVED_BY_ORGUNIT => Disposal org. unit approval done during disposal process for AIP only\n- DISPOSAL_APPROVED => Disposal approval done during disposal process for AIP only\n- DISPOSED => Disposed package for AIP only\n- DOWNLOADING => A package download is in progress\n- EDITING_METADATA => A package metadata edition is in progress\n- FIXING => A package correction is in progress\n- FIXITY_ERROR => Error when checking checksums\n- FIX_PENDING => A package correction is pending\n- INDEXING => A package indexing is in progress\n- IN_ERROR => Package in error during archiving process\n- IN_PREPARATION => Package in preparation during archiving process\n- IN_PROGRESS => A package archiving process is in progress\n- METADATA_EDITION_PENDING => A metadata edition is pending\n- METADATA_UPGRADE_PENDING => A metadata version upgrade is pending\n- PACKAGE_REPLICATION_PENDING => A package replication is pending\n- PRESERVATION_ERROR => Package in error during checking process\n- READY => Package Ready\n- REINDEXING => A package re-indexing is in progress\n- RELOADED => Reloaded package from storage location\n- REPLICATING_PACKAGE => A package replication is in progress\n- REPLICATING_TOMBSTONE => A tombstone package replication is in progress\n- RESUBMITTING => A package re-submission is in progress\n- STORED => Package stored on storage location\n- TOMBSTONE_REPLICATION_PENDING => A tombstone replication is pending\n- UPDATING_COMPLIANCE_LEVEL => A package compliance update is in progress\n- UPDATING_RETENTION => A package retention update is in progress during disposal process\n- UPGRADING_METADATA => A metadata version upgrade is in progress\n",
+      "enum": [
+        "CHECK_PENDING",
+        "CHECKING",
+        "CHECKED",
+        "CLEANING",
+        "CLEANED",
+        "COMPLETED",
+        "DOWNLOADING",
+        "IN_PREPARATION",
+        "IN_PROGRESS",
+        "STORED",
+        "INDEXING",
+        "READY",
+        "RETRIEVING",
+        "RETRIEVING_PENDING",
+        "IN_ERROR",
+        "PRESERVATION_ERROR",
+        "FIXITY_ERROR",
+        "DISPOSABLE",
+        "DISPOSAL_APPROVED_BY_ORGUNIT",
+        "DISPOSAL_APPROVED",
+        "DISPOSED",
+        "FIX_PENDING",
+        "FIXING",
+        "METADATA_EDITION_PENDING",
+        "EDITING_METADATA",
+        "UPDATING_RETENTION",
+        "METADATA_UPGRADE_PENDING",
+        "UPGRADING_METADATA",
+        "COMPLIANCE_LEVEL_UPDATE_PENDING",
+        "UPDATING_COMPLIANCE_LEVEL",
+        "COMPLIANCE_LEVEL_UPDATED",
+        "REINDEXING",
+        "RELOADED",
+        "RESUBMITTING",
+        "PACKAGE_REPLICATION_PENDING",
+        "REPLICATING_PACKAGE",
+        "TOMBSTONE_REPLICATION_PENDING",
+        "REPLICATING_TOMBSTONE"
+      ],
+      "writeOnly": true
+    },
+    "_links": {
+      "$ref": "#/$defs/Links"
+    }
+  },
+  "$defs": {
+    "RepresentationInfo": {
+      "type": "object",
+      "description": "OAIS Information Package: SIP, AIP or DIP.",
+      "properties": {
+        "access": {
+          "type": "string",
+          "description": "The final access level of the package.",
+          "enum": [
+            "PUBLIC",
+            "RESTRICTED",
+            "CLOSED"
+          ]
+        },
+        "dataSensitivity": {
+          "type": "string",
+          "description": "The data sensitivity of the package.",
+          "enum": [
+            "UNDEFINED",
+            "BLUE",
+            "GREEN",
+            "YELLOW",
+            "ORANGE",
+            "RED",
+            "CRIMSON"
+          ]
+        },
+        "dataUsePolicy": {
+          "type": "string",
+          "description": "The data use policy type of the package.",
+          "enum": [
+            "NONE",
+            "LICENSE",
+            "CLICK_THROUGH_DUA",
+            "SIGNED_DUA",
+            "EXTERNAL_DUA"
+          ]
+        },
+        "complianceLevel": {
+          "type": "string",
+          "description": "The compliance level of the package.",
+          "enum": [
+            "NOT_ASSESSED",
+            "NO_COMPLIANCE",
+            "WEAK_COMPLIANCE",
+            "AVERAGE_COMPLIANCE",
+            "FULL_COMPLIANCE"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "description": "The description of the package.",
+          "maxLength": 1024,
+          "minLength": 0
+        },
+        "embargo": {
+          "$ref": "#/$defs/EmbargoInfo"
+        },
+        "licenseId": {
+          "type": "string",
+          "description": "The license identifier of the package."
+        },
+        "metadataVersion": {
+          "type": "string",
+          "description": "The metadata version of the package.",
+          "enum": [
+            "1.0",
+            "1.1",
+            "2.0",
+            "2.1",
+            "3.0",
+            "3.1",
+            "4.0",
+            "5.0"
+          ]
+        },
+        "name": {
+          "type": "string",
+          "description": "The name of the package.",
+          "maxLength": 255,
+          "minLength": 1
+        },
+        "organizationalUnitId": {
+          "type": "string",
+          "description": "The organizational Unit ID of the package.",
+          "maxLength": 50,
+          "minLength": 1
+        },
+        "status": {
+          "type": "string",
+          "description": "The status of the package.",
+          "enum": [
+            "CHECK_PENDING",
+            "CHECKING",
+            "CHECKED",
+            "CLEANING",
+            "CLEANED",
+            "COMPLETED",
+            "DOWNLOADING",
+            "IN_PREPARATION",
+            "IN_PROGRESS",
+            "STORED",
+            "INDEXING",
+            "READY",
+            "RETRIEVING",
+            "RETRIEVING_PENDING",
+            "IN_ERROR",
+            "PRESERVATION_ERROR",
+            "FIXITY_ERROR",
+            "DISPOSABLE",
+            "DISPOSAL_APPROVED_BY_ORGUNIT",
+            "DISPOSAL_APPROVED",
+            "DISPOSED",
+            "FIX_PENDING",
+            "FIXING",
+            "METADATA_EDITION_PENDING",
+            "EDITING_METADATA",
+            "UPDATING_RETENTION",
+            "METADATA_UPGRADE_PENDING",
+            "UPGRADING_METADATA",
+            "COMPLIANCE_LEVEL_UPDATE_PENDING",
+            "UPDATING_COMPLIANCE_LEVEL",
+            "COMPLIANCE_LEVEL_UPDATED",
+            "REINDEXING",
+            "RELOADED",
+            "RESUBMITTING",
+            "PACKAGE_REPLICATION_PENDING",
+            "REPLICATING_PACKAGE",
+            "TOMBSTONE_REPLICATION_PENDING",
+            "REPLICATING_TOMBSTONE"
+          ]
+        },
+        "statusMessage": {
+          "type": "string",
+          "description": "The detailed message related to the package status.",
+          "maxLength": 1024,
+          "minLength": 0
+        },
+        "containsUpdatedMetadata": {
+          "type": "boolean",
+          "description": "If the package contains updated metadata."
+        },
+        "contentStructurePublic": {
+          "type": "boolean",
+          "description": "If the archive structure content is public."
+        },
+        "accessCurrentlyPublic": {
+          "type": "boolean",
+          "description": "If the current access level is public"
+        },
+        "currentAccess": {
+          "type": "string",
+          "description": "The current access level of the package, deducted from the final access level and an eventual embargo.",
+          "enum": [
+            "PUBLIC",
+            "RESTRICTED",
+            "CLOSED"
+          ],
+          "readOnly": true
+        }
+      }
+    },
+    "EmbargoInfo": {
+      "type": "object",
+      "description": "Embargo information.",
+      "properties": {
+        "access": {
+          "type": "string",
+          "description": "The access level during the embargo.",
+          "enum": [
+            "PUBLIC",
+            "RESTRICTED",
+            "CLOSED"
+          ]
+        },
+        "months": {
+          "type": "integer",
+          "format": "int32",
+          "description": "The month number of the embargo duration."
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The starting date of the embargo period."
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "hreflang": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "deprecation": {
+          "type": "string"
+        },
+        "profile": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "templated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ChangeInfo": {
+      "type": "object",
+      "description": "The change information of an action.",
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "The full name of the user who did the action on the resource.",
+          "readOnly": true
+        },
+        "who": {
+          "type": "string",
+          "description": "The user who did the action on the resource.",
+          "readOnly": true
+        },
+        "when": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date when the action was done on the resources.",
+          "readOnly": true
+        }
+      }
+    },
+    "Links": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/Link"
+      }
+    }
+  }
+}

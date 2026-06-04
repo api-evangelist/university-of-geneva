@@ -1,0 +1,71 @@
+vocabulary:
+  name: University of Geneva Research Data API Vocabulary
+  description: >-
+    Controlled vocabulary for the University of Geneva (UNIGE) research-data and
+    open-science APIs, derived from the live Yareta / DLCM (Data Life Cycle
+    Management) OpenAPI 3.1 definitions (Yareta API v3.1.7) and the Archive
+    ouverte UNIGE OAI-PMH interface. Terms reflect OAIS preservation concepts and
+    the real object model exposed by the Yareta access and ingest modules.
+  version: 1.0.0
+  terms:
+    - term: AIP
+      definition: >-
+        Archival Information Package. The OAIS preservation package stored in the
+        Yareta repository; may be an archival unit (AIU) or a collection (AIC).
+      tags: [oais, preservation, yareta]
+    - term: DIP
+      definition: >-
+        Dissemination Information Package. The package produced by Yareta for
+        download and access, generated from one or more source AIPs.
+      tags: [oais, access, yareta]
+    - term: SIP
+      definition: >-
+        Submission Information Package. The deposit submitted through the
+        pre-ingest/ingest module before it is archived as an AIP.
+      tags: [oais, ingest, yareta]
+    - term: Deposit
+      definition: >-
+        A pre-ingest working object in the ingest module holding data files,
+        contributors, licenses and metadata prior to submission for approval.
+      tags: [ingest, deposit, yareta]
+    - term: Order
+      definition: >-
+        A request that prepares an archive download (DIP) from one or more
+        archives (AIP), via SIMPLE, ADVANCED or DIRECT query types.
+      tags: [access, order, yareta]
+    - term: OrganizationalUnit
+      definition: >-
+        A logical entity representing a research project, laboratory, or group of
+        researchers that owns deposits and archives in Yareta.
+      tags: [organization, yareta, governance]
+    - term: Person
+      definition: >-
+        An individual associated with a platform user, carrying ORCID,
+        institution and organizational-unit affiliations.
+      tags: [identity, orcid, yareta]
+    - term: resId
+      definition: >-
+        The resource identifier, by default a Universally Unique IDentifier
+        (UUID), used to address any Yareta resource.
+      tags: [identifier, uuid, yareta]
+    - term: ComplianceLevel
+      definition: >-
+        Preservation-quality rating of a data file format ranging from
+        NOT_ASSESSED through NO/WEAK/AVERAGE/FULL_COMPLIANCE.
+      tags: [preservation, file-format, quality]
+    - term: ChangeInfo
+      definition: >-
+        Read-only audit information (who, when, fullName) recording an action on
+        a resource.
+      tags: [audit, metadata, yareta]
+    - term: OAI-PMH
+      definition: >-
+        Open Archives Initiative Protocol for Metadata Harvesting; the Archive
+        ouverte UNIGE repository exposes publication metadata via an OAI-PMH 2.0
+        provider, and Yareta surfaces OAI sets and metadata prefixes.
+      tags: [oai-pmh, metadata, harvesting, archive-ouverte]
+    - term: DLCM
+      definition: >-
+        Data Life Cycle Management — the Swiss software stack on which Yareta is
+        built, providing the RESTful preservation and access web services.
+      tags: [platform, dlcm, research-data]

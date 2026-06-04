@@ -1,0 +1,123 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/university-of-geneva/main/json-structure/university-of-geneva-order-structure.json",
+  "name": "order",
+  "type": "object",
+  "description": "Yareta Order — request preparing an archive download (DIP) from archives (AIP).",
+  "properties": {
+    "creation": {
+      "type": {
+        "$ref": "#/ChangeInfo"
+      }
+    },
+    "lastUpdate": {
+      "type": {
+        "$ref": "#/ChangeInfo"
+      }
+    },
+    "resId": {
+      "type": "string",
+      "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+    },
+    "publicOrder": {
+      "type": "boolean",
+      "description": "If the order is public, false otherwise."
+    },
+    "subsetItems": {
+      "type": "array",
+      "items": {
+        "type": {
+          "$ref": "#/OrderSubsetItem"
+        }
+      }
+    },
+    "metadataVersion": {
+      "type": "string",
+      "enum": [
+        "1.0",
+        "1.1",
+        "2.0",
+        "2.1",
+        "3.0",
+        "3.1",
+        "4.0",
+        "5.0"
+      ],
+      "description": "The metadata version of the order query."
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the order query."
+    },
+    "query": {
+      "type": "string",
+      "description": "The query of the order query."
+    },
+    "queryType": {
+      "type": "string",
+      "enum": [
+        "ADVANCED",
+        "DIRECT",
+        "SIMPLE"
+      ],
+      "description": "The type of the order query."
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "DOWNLOADING",
+        "IN_DISSEMINATION_PREPARATION",
+        "IN_ERROR",
+        "IN_PREPARATION",
+        "IN_PROGRESS",
+        "READY",
+        "SUBMITTED"
+      ],
+      "description": "The status of the order query."
+    },
+    "statusMessage": {
+      "type": "string",
+      "description": "The message related to the status of the order query."
+    },
+    "disseminationPolicyId": {
+      "type": "string",
+      "description": "The dissemination policy identifier linked to the order."
+    },
+    "organizationalUnitDisseminationPolicyId": {
+      "type": "string",
+      "description": "The dissemination policy identifier linked to the orgunit."
+    },
+    "subitemsChecksum": {
+      "type": "string",
+      "description": "The checksum of the order subitems list."
+    },
+    "orderStatus": {
+      "type": "string",
+      "enum": [
+        "DOWNLOADING",
+        "IN_DISSEMINATION_PREPARATION",
+        "IN_ERROR",
+        "IN_PREPARATION",
+        "IN_PROGRESS",
+        "READY",
+        "SUBMITTED"
+      ]
+    },
+    "errorStatus": {
+      "type": "string"
+    },
+    "dipNumber": {
+      "type": "int32",
+      "description": "The DIP number of the order query."
+    },
+    "aipNumber": {
+      "type": "int32",
+      "description": "The AIP number of the order query."
+    },
+    "_links": {
+      "type": {
+        "$ref": "#/Links"
+      }
+    }
+  }
+}

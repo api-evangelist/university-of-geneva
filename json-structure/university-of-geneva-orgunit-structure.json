@@ -1,0 +1,53 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/university-of-geneva/main/json-structure/university-of-geneva-orgunit-structure.json",
+  "name": "orgunit",
+  "type": "object",
+  "description": "Yareta Organizational Unit — public research project, laboratory or group.",
+  "properties": {
+    "resId": {
+      "type": "string"
+    },
+    "creation": {
+      "type": {
+        "$ref": "#/ChangeInfo"
+      }
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the organizational unit."
+    },
+    "lastUpdate": {
+      "type": {
+        "$ref": "#/ChangeInfo"
+      }
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the organizational unit."
+    },
+    "url": {
+      "type": "string",
+      "description": "The URL of the organizational unit."
+    },
+    "openingDate": {
+      "type": "date",
+      "description": "The opening date of the organizational unit."
+    },
+    "closingDate": {
+      "type": "date",
+      "description": "The closing date of the organizational unit."
+    },
+    "logo": {
+      "type": {
+        "$ref": "#/OrganizationalUnitLogo"
+      },
+      "description": "The logo of the organizational unit."
+    },
+    "_links": {
+      "type": {
+        "$ref": "#/Links"
+      }
+    }
+  }
+}

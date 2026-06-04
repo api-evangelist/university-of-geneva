@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/university-of-geneva/main/json-schema/university-of-geneva-orgunit-schema.json",
+  "title": "Yareta Organizational Unit",
+  "description": "A organizational unit is a logical entity which could represent a research project or laboratory or all other organizational group of researchers. This entity contains public information of a organizational unit.",
+  "type": "object",
+  "properties": {
+    "resId": {
+      "type": "string"
+    },
+    "creation": {
+      "$ref": "#/$defs/ChangeInfo"
+    },
+    "description": {
+      "type": "string",
+      "description": "The description of the organizational unit."
+    },
+    "lastUpdate": {
+      "$ref": "#/$defs/ChangeInfo"
+    },
+    "name": {
+      "type": "string",
+      "description": "The name of the organizational unit."
+    },
+    "url": {
+      "type": "string",
+      "format": "url",
+      "description": "The URL of the organizational unit."
+    },
+    "openingDate": {
+      "type": "string",
+      "format": "date",
+      "description": "The opening date of the organizational unit."
+    },
+    "closingDate": {
+      "type": "string",
+      "format": "date",
+      "description": "The closing date of the organizational unit."
+    },
+    "logo": {
+      "$ref": "#/$defs/OrganizationalUnitLogo",
+      "description": "The logo of the organizational unit."
+    },
+    "_links": {
+      "$ref": "#/$defs/Links"
+    }
+  },
+  "$defs": {
+    "OrganizationalUnitLogo": {
+      "type": "object",
+      "properties": {
+        "creation": {
+          "$ref": "#/$defs/ChangeInfo"
+        },
+        "lastUpdate": {
+          "$ref": "#/$defs/ChangeInfo"
+        },
+        "resId": {
+          "type": "string",
+          "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).",
+          "maxLength": 50,
+          "minLength": 0
+        },
+        "fileName": {
+          "type": "string",
+          "description": "The file name.",
+          "maxLength": 2024,
+          "minLength": 0
+        },
+        "fileSize": {
+          "type": "integer",
+          "format": "int64",
+          "description": "The file size in bytes."
+        },
+        "mimeType": {
+          "type": "string",
+          "description": "The content type of the file. It could be named as MIME type or media type."
+        },
+        "_links": {
+          "$ref": "#/$defs/Links"
+        }
+      }
+    },
+    "Link": {
+      "type": "object",
+      "properties": {
+        "href": {
+          "type": "string"
+        },
+        "hreflang": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "deprecation": {
+          "type": "string"
+        },
+        "profile": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "templated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "ChangeInfo": {
+      "type": "object",
+      "description": "The change information of an action.",
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "The full name of the user who did the action on the resource.",
+          "readOnly": true
+        },
+        "who": {
+          "type": "string",
+          "description": "The user who did the action on the resource.",
+          "readOnly": true
+        },
+        "when": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date when the action was done on the resources.",
+          "readOnly": true
+        }
+      }
+    },
+    "Links": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "#/$defs/Link"
+      }
+    }
+  }
+}

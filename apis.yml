@@ -61,6 +61,30 @@ apis:
     properties:
       - type: Documentation
         url: https://www.unige.ch/eresearch/en/services/yareta/
+      - type: OpenAPI
+        url: openapi/university-of-geneva-yareta.yaml
+      - type: JSONSchema
+        url: json-schema/university-of-geneva-aip-schema.json
+      - type: JSONSchema
+        url: json-schema/university-of-geneva-dip-schema.json
+      - type: JSONSchema
+        url: json-schema/university-of-geneva-order-schema.json
+      - type: JSONSchema
+        url: json-schema/university-of-geneva-orgunit-schema.json
+      - type: JSONStructure
+        url: json-structure/university-of-geneva-aip-structure.json
+      - type: JSONStructure
+        url: json-structure/university-of-geneva-order-structure.json
+      - type: JSONStructure
+        url: json-structure/university-of-geneva-orgunit-structure.json
+      - type: Examples
+        url: examples/university-of-geneva-order-response-example.json
+      - type: Rules
+        url: rules/university-of-geneva-rules.yml
+      - type: Vocabulary
+        url: vocabulary/university-of-geneva-vocabulary.yml
+      - type: JSONLD
+        url: json-ld/university-of-geneva-context.jsonld
   - aid: university-of-geneva:terminus
     name: Terminus Protein Prediction API
     description: >-

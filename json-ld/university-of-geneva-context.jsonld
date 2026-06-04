@@ -1,0 +1,57 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "schema": "https://schema.org/",
+    "unige": "https://archive-ouverte.unige.ch/aou/v1#",
+    "yareta": "https://yareta.unige.ch/ns#",
+    "@vocab": "https://yareta.unige.ch/ns#",
+
+    "id": "@id",
+    "type": "@type",
+
+    "CollegeOrUniversity": "schema:CollegeOrUniversity",
+    "Dataset": "schema:Dataset",
+    "Person": "schema:Person",
+    "Organization": "schema:Organization",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": { "@id": "schema:url", "@type": "@id" },
+
+    "ArchivalInfoPackage": "yareta:ArchivalInfoPackage",
+    "DisseminationInfoPackage": "yareta:DisseminationInfoPackage",
+    "Order": "yareta:Order",
+    "OrganizationalUnit": "yareta:OrganizationalUnit",
+
+    "resId": "schema:identifier",
+    "archiveContainer": "yareta:archiveContainer",
+    "archivalUnit": "yareta:archivalUnit",
+    "archiveFileNumber": "yareta:archiveFileNumber",
+    "archiveSize": "yareta:archiveSize",
+    "retention": "yareta:retention",
+    "complianceLevel": "yareta:complianceLevel",
+    "dataCategory": "yareta:dataCategory",
+
+    "orcid": { "@id": "schema:identifier", "@type": "@id" },
+    "firstName": "schema:givenName",
+    "lastName": "schema:familyName",
+    "fullName": "schema:name",
+
+    "openingDate": { "@id": "schema:startDate", "@type": "schema:Date" },
+    "closingDate": { "@id": "schema:endDate", "@type": "schema:Date" },
+
+    "creation": "yareta:creation",
+    "lastUpdate": "yareta:lastUpdate",
+    "who": "yareta:actor",
+    "when": { "@id": "schema:dateModified", "@type": "schema:DateTime" },
+
+    "query": "yareta:query",
+    "queryType": "yareta:queryType",
+    "status": "yareta:status",
+    "metadataVersion": "schema:version"
+  },
+  "@type": "CollegeOrUniversity",
+  "name": "University of Geneva",
+  "url": "https://www.unige.ch/",
+  "description": "Public research university in Geneva, Switzerland, whose open-science APIs include the Archive ouverte UNIGE OAI-PMH repository and the Yareta research-data preservation platform (DLCM stack)."
+}

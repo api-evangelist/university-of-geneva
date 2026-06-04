@@ -1,0 +1,13 @@
+{
+  "resId": "6f1e8c2a-1234-4abc-9def-0123456789ab",
+  "archiveContainer": "BAG_IT",
+  "archivalUnit": true,
+  "retention": 0,
+  "dispositionApproval": false,
+  "archiveFileNumber": 42,
+  "creation": {
+    "who": "u67890",
+    "fullName": "Marc Dubois",
+    "when": "2025-11-12T14:05:00Z"
+  }
+}
