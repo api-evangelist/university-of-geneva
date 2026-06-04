@@ -1,0 +1,52 @@
+---
+name: University of Geneva
+description: University of Geneva public developer/API footprint review for APIs.json cataloging.
+url: https://raw.githubusercontent.com/api-evangelist/university-of-geneva/refs/heads/main/review.yml
+created: '2026-06-03'
+modified: '2026-06-03'
+reviews:
+  - date: '2026-06-03'
+    rating: 3
+    summary: >-
+      UNIGE has a real but decentralized public API footprint focused on open
+      science. Verified live: the Archive ouverte OAI-PMH endpoint returned a
+      valid Identify response, the Yareta e-Research data platform and its REST
+      API base are reachable, the Terminus protein-prediction API documentation
+      is live, and the official dis-unige GitHub organization (Division of
+      Scientific Information) is active. No single unified developer portal
+      exists. The LogAir API host did not resolve at review time and was
+      excluded. No endpoints were fabricated; only URLs probed live are listed.
+    endpoints:
+      - url: https://www.unige.ch/
+        status: 200
+        note: Official institution website.
+      - url: https://archive-ouverte.unige.ch/
+        status: 200
+        note: Institutional repository portal.
+      - url: https://archive-ouverte.unige.ch/oai?verb=Identify
+        status: 200
+        note: Live OAI-PMH 2.0 endpoint; valid Identify XML returned.
+      - url: https://www.unige.ch/eresearch/en/services/yareta/
+        status: 200
+        note: Yareta research-data service page.
+      - url: https://yareta.unige.ch/api
+        status: 200
+        note: Yareta REST API base reachable.
+      - url: https://admin.yareta.unige.ch/administration/docs/DLCM-IntegrationGuide.html
+        status: 401
+        note: DLCM integration guide exists but is access-gated.
+      - url: https://terminus.unige.ch/info/API
+        status: 200
+        note: Terminus protein-prediction API docs (POST FASTA/JSON).
+      - url: https://github.com/dis-unige
+        status: 200
+        note: Official UNIGE Division of Scientific Information GitHub org (~31 repos).
+      - url: https://catalogue-si.unige.ch/en
+        status: 200
+        note: IT service catalog.
+      - url: https://api.logair.unige.ch/docs/
+        status: 0
+        note: Host did not resolve / connection refused; excluded from catalog.
+      - url: https://www.linkedin.com/school/university-of-geneva/
+        status: 999
+        note: LinkedIn school page; 999 is LinkedIn bot-block, page exists.

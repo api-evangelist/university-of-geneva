@@ -1,0 +1,95 @@
+---
+aid: university-of-geneva
+name: University of Geneva
+description: >-
+  The University of Geneva (Université de Genève, UNIGE) is a public research
+  university in Geneva, Switzerland, founded in 1559, and ranked #93 in the QS
+  World University Rankings 2025. Its public developer and API footprint is
+  centered on open science and research infrastructure operated by the Division
+  of Scientific Information (DIS) and the e-Research services: the Archive
+  ouverte UNIGE institutional repository exposes metadata via a live OAI-PMH
+  endpoint, the Yareta research-data-management platform (built on the DLCM
+  stack) offers a REST API for preservation and access, and domain research
+  groups publish specialized services such as the Terminus protein-prediction
+  API. UNIGE maintains a public GitHub organization (dis-unige) for library and
+  data tooling. There is no single unified public developer portal; most APIs
+  are research- or service-specific.
+type: Index
+position: Consumer
+access: 3rd-Party
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+url: https://raw.githubusercontent.com/api-evangelist/university-of-geneva/refs/heads/main/apis.yml
+tags:
+  - Education
+  - Higher Education
+  - University
+  - Open Science
+  - Research Data
+  - Institutional Repository
+  - Switzerland
+  - Europe
+created: '2026-06-03'
+modified: '2026-06-03'
+specificationVersion: '0.19'
+apis:
+  - aid: university-of-geneva:archive-ouverte-oai
+    name: Archive ouverte UNIGE OAI-PMH
+    description: >-
+      OAI-PMH 2.0 metadata-harvesting interface for the Archive ouverte UNIGE
+      institutional repository, exposing the University's scientific
+      publications and records in multiple metadata formats (Dublin Core and
+      UNIGE-specific schemas). Verified live with a working Identify response.
+    humanURL: https://archive-ouverte.unige.ch/
+    baseURL: https://archive-ouverte.unige.ch/oai
+    tags: [ OAI-PMH, Institutional Repository, Open Access, Metadata, Publications ]
+    properties:
+      - type: Documentation
+        url: https://archive-ouverte.unige.ch/
+      - type: GitHub
+        url: https://github.com/dis-unige
+  - aid: university-of-geneva:yareta
+    name: Yareta Research Data API
+    description: >-
+      Yareta is the University of Geneva e-Research long-term research-data
+      preservation and access platform, built on the DLCM (Data Life Cycle
+      Management) software stack. It provides a REST API for depositing,
+      managing, and accessing research data archives; public archives are
+      downloadable and an integration guide is published for programmatic use.
+    humanURL: https://www.unige.ch/eresearch/en/services/yareta/
+    baseURL: https://yareta.unige.ch/api
+    tags: [ Research Data, Preservation, DLCM, REST, Open Data ]
+    properties:
+      - type: Documentation
+        url: https://www.unige.ch/eresearch/en/services/yareta/
+  - aid: university-of-geneva:terminus
+    name: Terminus Protein Prediction API
+    description: >-
+      Terminus is a UNIGE-developed prediction service for protein N-terminal
+      modifications (initial methionine cleavage and N-terminal acetylation)
+      across taxonomic groups. It accepts protein sequences via HTTP POST in
+      FASTA-to-CSV or JSON-to-JSON modes and returns prediction results.
+    humanURL: https://terminus.unige.ch/info/API
+    tags: [ Bioinformatics, Research, Proteins, Prediction ]
+    properties:
+      - type: Documentation
+        url: https://terminus.unige.ch/info/API
+common:
+  - type: Website
+    url: https://www.unige.ch/
+  - type: GitHub
+    url: https://github.com/dis-unige
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/university-of-geneva/
+  - type: DeveloperPortal
+    url: https://www.unige.ch/eresearch/en/
+  - type: Plans
+    url: plans/university-of-geneva-plans-pricing.yml
+  - type: RateLimits
+    url: rate-limits/university-of-geneva-rate-limits.yml
+  - type: FinOps
+    url: finops/university-of-geneva-finops.yml
+  - type: Review
+    url: review.yml
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
