@@ -98,6 +98,8 @@ apis:
       - type: Documentation
         url: https://terminus.unige.ch/info/API
 common:
+  - type: DomainSecurity
+    url: security/university-of-geneva-domain-security.yml
   - type: Website
     url: https://www.unige.ch/
   - type: GitHub
@@ -114,6 +116,8 @@ common:
     url: finops/university-of-geneva-finops.yml
   - type: Review
     url: review.yml
+  - url: https://www.unige.ch/feed/rss
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
