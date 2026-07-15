@@ -1,0 +1,4416 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/university-of-geneva-yareta.yaml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 337
+  by_action_class:
+    connected: 189
+    acting: 148
+  by_consequence:
+    read: 189
+    write: 77
+    physical: 71
+  human_in_the_loop_required: 0
+operations:
+- path: /oai-info/oai-sets
+  method: get
+  operationId: oai-info_oai-sets_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /oai-info/oai-sets
+  method: post
+  operationId: oai-info_oai-sets_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /oai-info/oai-sets
+  method: delete
+  operationId: oai-info_oai-sets_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /oai-info/oai-sets/search
+  method: get
+  operationId: oai-info_oai-sets_search_advancedSearch_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /oai-info/oai-sets/search
+  method: post
+  operationId: oai-info_oai-sets_search_advancedSearch_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /oai-info/oai-provider/oai
+  method: get
+  operationId: oai-info_oai-provider_oai_process
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /oai-info/oai-provider/oai
+  method: post
+  operationId: oai-info_oai-provider_oai_processPost
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /oai-info/oai-metadata-prefixes
+  method: get
+  operationId: oai-info_oai-metadata-prefixes_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /oai-info/oai-metadata-prefixes
+  method: post
+  operationId: oai-info_oai-metadata-prefixes_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /oai-info/oai-metadata-prefixes
+  method: delete
+  operationId: oai-info_oai-metadata-prefixes_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /oai-info/oai-metadata-prefixes/search
+  method: get
+  operationId: oai-info_oai-metadata-prefixes_search_advancedSearch_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /oai-info/oai-metadata-prefixes/search
+  method: post
+  operationId: oai-info_oai-metadata-prefixes_search_advancedSearch_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/refresh/{aipId}
+  method: post
+  operationId: access_refresh_by_id_refresh
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/private-metadata/{aipId}/prepare-download
+  method: post
+  operationId: access_private-metadata_by_id_prepare-download
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/private-metadata/search
+  method: get
+  operationId: access_private-metadata_search_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/private-metadata/search
+  method: post
+  operationId: access_private-metadata_search_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders
+  method: get
+  operationId: access_orders_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders
+  method: post
+  operationId: access_orders_create
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders
+  method: delete
+  operationId: access_orders_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{parentid}/dip
+  method: get
+  operationId: access_orders_by_id_dip_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/{parentid}/dip
+  method: post
+  operationId: access_orders_by_id_dip_create
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{parentid}/dip
+  method: delete
+  operationId: access_orders_by_id_dip_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{parentid}/aip
+  method: get
+  operationId: access_orders_by_id_aip_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/{parentid}/aip
+  method: post
+  operationId: access_orders_by_id_aip_create
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{parentid}/aip
+  method: delete
+  operationId: access_orders_by_id_aip_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{id}/submit
+  method: post
+  operationId: access_orders_by_id_submit
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{id}/save
+  method: post
+  operationId: access_orders_by_id_save
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{id}/resume
+  method: post
+  operationId: access_orders_by_id_resume
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{id}/put-in-error
+  method: post
+  operationId: access_orders_by_id_put-in-error
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/search
+  method: get
+  operationId: access_orders_search_advancedSearch_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/search
+  method: post
+  operationId: access_orders_search_advancedSearch_post
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/metadata/{parentid}/ratings
+  method: get
+  operationId: access_metadata_by_id_ratings_getArchiveUserRating
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{parentid}/ratings
+  method: post
+  operationId: access_metadata_by_id_ratings_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/metadata/{parentid}/ratings
+  method: delete
+  operationId: access_metadata_by_id_ratings_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/metadata/{parentid}/ratings
+  method: patch
+  operationId: access_metadata_by_id_ratings_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/metadata/{aipId}/prepare-download
+  method: post
+  operationId: access_metadata_by_id_prepare-download
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/metadata/search
+  method: get
+  operationId: access_metadata_search_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/search
+  method: post
+  operationId: access_metadata_search_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip
+  method: get
+  operationId: access_dip_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip
+  method: post
+  operationId: access_dip_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip
+  method: delete
+  operationId: access_dip_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/{parentid}/data
+  method: get
+  operationId: access_dip_by_id_data_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/{parentid}/data
+  method: post
+  operationId: access_dip_by_id_data_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/{parentid}/data
+  method: delete
+  operationId: access_dip_by_id_data_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/{parentid}/data/{id}/resume
+  method: post
+  operationId: access_dip_by_id_data_by_id_resume
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/{parentid}/aip
+  method: get
+  operationId: access_dip_by_id_aip_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/{parentid}/aip
+  method: post
+  operationId: access_dip_by_id_aip_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/{parentid}/aip
+  method: delete
+  operationId: access_dip_by_id_aip_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/{id}/resume
+  method: post
+  operationId: access_dip_by_id_resume
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/{id}/put-in-error
+  method: post
+  operationId: access_dip_by_id_put-in-error
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/search
+  method: get
+  operationId: access_dip_search_advancedSearch_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/search
+  method: post
+  operationId: access_dip_search_advancedSearch_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/all-metadata/{aipId}/prepare-download
+  method: post
+  operationId: access_all-metadata_by_id_prepare-download
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/all-metadata/search
+  method: get
+  operationId: access_all-metadata_search_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/all-metadata/search
+  method: post
+  operationId: access_all-metadata_search_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip
+  method: get
+  operationId: access_aip_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip
+  method: post
+  operationId: access_aip_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip
+  method: delete
+  operationId: access_aip_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{parentid}/data
+  method: get
+  operationId: access_aip_by_id_data_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/{parentid}/data
+  method: post
+  operationId: access_aip_by_id_data_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{parentid}/data
+  method: delete
+  operationId: access_aip_by_id_data_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{parentid}/data/{id}/resume
+  method: post
+  operationId: access_aip_by_id_data_by_id_resume
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{parentid}/data/{id}/put-in-error
+  method: post
+  operationId: access_aip_by_id_data_by_id_put-in-error
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{parentid}/aip
+  method: get
+  operationId: access_aip_by_id_aip_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/{parentid}/aip
+  method: post
+  operationId: access_aip_by_id_aip_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{parentid}/aip
+  method: delete
+  operationId: access_aip_by_id_aip_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{id}/resume
+  method: post
+  operationId: access_aip_by_id_resume
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{id}/put-in-error
+  method: post
+  operationId: access_aip_by_id_put-in-error
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/search
+  method: get
+  operationId: access_aip_search_advancedSearch_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/search
+  method: post
+  operationId: access_aip_search_advancedSearch_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /oai-info/oai-sets/{id}
+  method: get
+  operationId: oai-info_oai-sets_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /oai-info/oai-sets/{id}
+  method: delete
+  operationId: oai-info_oai-sets_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /oai-info/oai-sets/{id}
+  method: patch
+  operationId: oai-info_oai-sets_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /oai-info/oai-metadata-prefixes/{id}
+  method: get
+  operationId: oai-info_oai-metadata-prefixes_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /oai-info/oai-metadata-prefixes/{id}
+  method: delete
+  operationId: oai-info_oai-metadata-prefixes_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /oai-info/oai-metadata-prefixes/{id}
+  method: patch
+  operationId: oai-info_oai-metadata-prefixes_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{parentid}/dip/{id}
+  method: get
+  operationId: access_orders_by_id_dip_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/{parentid}/dip/{id}
+  method: delete
+  operationId: access_orders_by_id_dip_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{parentid}/dip/{id}
+  method: patch
+  operationId: access_orders_by_id_dip_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{parentid}/aip/{id}
+  method: get
+  operationId: access_orders_by_id_aip_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/{parentid}/aip/{id}
+  method: delete
+  operationId: access_orders_by_id_aip_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{parentid}/aip/{id}
+  method: patch
+  operationId: access_orders_by_id_aip_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{id}
+  method: get
+  operationId: access_orders_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/{id}
+  method: delete
+  operationId: access_orders_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/orders/{id}
+  method: patch
+  operationId: access_orders_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/{parentid}/data/{id}
+  method: get
+  operationId: access_dip_by_id_data_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/{parentid}/data/{id}
+  method: delete
+  operationId: access_dip_by_id_data_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/{parentid}/data/{id}
+  method: patch
+  operationId: access_dip_by_id_data_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/{parentid}/aip/{id}
+  method: get
+  operationId: access_dip_by_id_aip_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/{parentid}/aip/{id}
+  method: delete
+  operationId: access_dip_by_id_aip_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/{parentid}/aip/{id}
+  method: patch
+  operationId: access_dip_by_id_aip_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/{id}
+  method: get
+  operationId: access_dip_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/{id}
+  method: delete
+  operationId: access_dip_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/dip/{id}
+  method: patch
+  operationId: access_dip_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{parentid}/data/{id}
+  method: get
+  operationId: access_aip_by_id_data_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/{parentid}/data/{id}
+  method: delete
+  operationId: access_aip_by_id_data_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{parentid}/data/{id}
+  method: patch
+  operationId: access_aip_by_id_data_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{parentid}/aip/{id}
+  method: get
+  operationId: access_aip_by_id_aip_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/{parentid}/aip/{id}
+  method: delete
+  operationId: access_aip_by_id_aip_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{parentid}/aip/{id}
+  method: patch
+  operationId: access_aip_by_id_aip_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{id}
+  method: get
+  operationId: access_aip_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/{id}
+  method: delete
+  operationId: access_aip_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /access/aip/{id}
+  method: patch
+  operationId: access_aip_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /sso-user
+  method: get
+  operationId: sso-user_user
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sitemap.xml
+  method: get
+  operationId: sitemap.xml_getSitemapIndex
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /sitemap-{name}.xml
+  method: get
+  operationId: sitemap-by_id.xml_getSitemap
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /resource-srv
+  method: get
+  operationId: resource-srv_home
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /resource-srv/checkTool
+  method: get
+  operationId: resource-srv_checkTool
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /oai-info
+  method: get
+  operationId: oai-info_home
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /oai-info/oai-provider
+  method: get
+  operationId: oai-info_oai-provider_status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /oai-info/oai-provider/oai/xsl
+  method: get
+  operationId: oai-info_oai-provider_oai_xsl
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /oai-info/oai-provider/oai/schema
+  method: get
+  operationId: oai-info_oai-provider_oai_schema_xsd
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /default-configuration
+  method: get
+  operationId: default-configuration_getDefaultConfiguration
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /current-configuration
+  method: get
+  operationId: current-configuration_getCurrentConfiguration
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access
+  method: get
+  operationId: access_home
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/system-properties
+  method: get
+  operationId: access_system-properties
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/private-metadata
+  method: get
+  operationId: access_private-metadata_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/private-metadata/{orderId}/download-status
+  method: get
+  operationId: access_private-metadata_by_id_download-status_getDownloadStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/private-metadata/{id}
+  method: get
+  operationId: access_private-metadata_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/private-metadata/{id}/citations
+  method: get
+  operationId: access_private-metadata_by_id_citations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/private-metadata/{id}/bibliographies
+  method: get
+  operationId: access_private-metadata_by_id_bibliographies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/private-metadata/{dipName}/download
+  method: get
+  operationId: access_private-metadata_by_id_download
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/private-metadata/list-download-status
+  method: get
+  operationId: access_private-metadata_list-download-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/organizational-units
+  method: get
+  operationId: access_organizational-units_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/organizational-units/{parentid}/archives
+  method: get
+  operationId: access_organizational-units_by_id_archives_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/organizational-units/{parentid}/archives/{id}
+  method: get
+  operationId: access_organizational-units_by_id_archives_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/organizational-units/{id}
+  method: get
+  operationId: access_organizational-units_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/organizational-units/{id}/download-logo
+  method: get
+  operationId: access_organizational-units_by_id_download-logo
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/{id}/view
+  method: get
+  operationId: access_orders_by_id_view
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/{id}/history
+  method: get
+  operationId: access_orders_by_id_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/{id}/download
+  method: get
+  operationId: access_orders_by_id_download_getFiles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/{id}/download-token
+  method: get
+  operationId: access_orders_by_id_download-token_getTokenForOrder
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/list-status
+  method: get
+  operationId: access_orders_list-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/list-query-types
+  method: get
+  operationId: access_orders_list-query-types
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/list-public
+  method: get
+  operationId: access_orders_list-public
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/orders/list-created-by-user
+  method: get
+  operationId: access_orders_list-created-by-user
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata
+  method: get
+  operationId: access_metadata_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{parentid}/ratings/list-for-user
+  method: get
+  operationId: access_metadata_by_id_ratings_list-for-user_getUserRating
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{parentid}/data/{id}
+  method: get
+  operationId: access_metadata_by_id_data_by_id_getDataFile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{parentid}/data/{id}/ready-for-download
+  method: get
+  operationId: access_metadata_by_id_data_by_id_ready-for-download_checkDataFileIfIsReadyDownload
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{parentid}/data/{id}/download
+  method: get
+  operationId: access_metadata_by_id_data_by_id_download
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{parentid}/data/{id}/download-token
+  method: get
+  operationId: access_metadata_by_id_data_by_id_download-token_getTokenForDataFile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{orderId}/download-status
+  method: get
+  operationId: access_metadata_by_id_download-status_getDownloadStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{id}
+  method: get
+  operationId: access_metadata_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{id}/thumbnail
+  method: get
+  operationId: access_metadata_by_id_thumbnail_downloadThumbnail
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{id}/statistics
+  method: get
+  operationId: access_metadata_by_id_statistics_getStatistics
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{id}/readme
+  method: get
+  operationId: access_metadata_by_id_readme_downloadReadme
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{id}/packages
+  method: get
+  operationId: access_metadata_by_id_packages_getPackages
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{id}/list-folders
+  method: get
+  operationId: access_metadata_by_id_list-folders
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{id}/dua
+  method: get
+  operationId: access_metadata_by_id_dua_downloadDua
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{id}/data
+  method: get
+  operationId: access_metadata_by_id_data_getDataFiles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{id}/citations
+  method: get
+  operationId: access_metadata_by_id_citations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{id}/bibliographies
+  method: get
+  operationId: access_metadata_by_id_bibliographies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{id}/aip
+  method: get
+  operationId: access_metadata_by_id_aip_getAip
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{dipName}/download
+  method: get
+  operationId: access_metadata_by_id_download
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{dipName}/download-token
+  method: get
+  operationId: access_metadata_by_id_download-token_getTokenForArchive
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/search-doi
+  method: get
+  operationId: access_metadata_search-doi
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/list-download-status
+  method: get
+  operationId: access_metadata_list-download-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/{parentid}/data/{id}/history
+  method: get
+  operationId: access_dip_by_id_data_by_id_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/{parentid}/data/{id}/download
+  method: get
+  operationId: access_dip_by_id_data_by_id_download
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/{parentid}/data/{id}/download-token
+  method: get
+  operationId: access_dip_by_id_data_by_id_download-token_getTokenForDipDataFile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/{parentid}/data/list-status
+  method: get
+  operationId: access_dip_by_id_data_list-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/{parentid}/aip/status
+  method: get
+  operationId: access_dip_by_id_aip_status_listStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/{id}/history
+  method: get
+  operationId: access_dip_by_id_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/{id}/download
+  method: get
+  operationId: access_dip_by_id_download_getFiles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/{id}/download-token
+  method: get
+  operationId: access_dip_by_id_download-token_getTokenDip
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/total-for-completed-order
+  method: get
+  operationId: access_dip_total-for-completed-order_getCountForCompletedOrders
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/schema
+  method: get
+  operationId: access_dip_schema
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/profile
+  method: get
+  operationId: access_dip_profile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/list-status
+  method: get
+  operationId: access_dip_list-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/list-metadata-versions
+  method: get
+  operationId: access_dip_list-metadata-versions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/list-data-types
+  method: get
+  operationId: access_dip_list-data-types
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/list-data-categories
+  method: get
+  operationId: access_dip_list-data-categories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/dip/get-by-aip-id/{id}
+  method: get
+  operationId: access_dip_get-by-aip-id_by_id_getDipContainingAip
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/archives/metadata/**
+  method: get
+  operationId: access_archives_metadata_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/all-metadata
+  method: get
+  operationId: access_all-metadata_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/all-metadata/{orderId}/download-status
+  method: get
+  operationId: access_all-metadata_by_id_download-status_getDownloadStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/all-metadata/{id}
+  method: get
+  operationId: access_all-metadata_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/all-metadata/{id}/citations
+  method: get
+  operationId: access_all-metadata_by_id_citations
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/all-metadata/{id}/bibliographies
+  method: get
+  operationId: access_all-metadata_by_id_bibliographies
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/all-metadata/{dipName}/download
+  method: get
+  operationId: access_all-metadata_by_id_download
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/all-metadata/list-download-status
+  method: get
+  operationId: access_all-metadata_list-download-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/{parentid}/data/{id}/history
+  method: get
+  operationId: access_aip_by_id_data_by_id_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/{parentid}/data/{id}/download
+  method: get
+  operationId: access_aip_by_id_data_by_id_download
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/{parentid}/data/{id}/download-token
+  method: get
+  operationId: access_aip_by_id_data_by_id_download-token_getTokenForAipDownloadedDataFile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/{parentid}/data/list-status
+  method: get
+  operationId: access_aip_by_id_data_list-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/{parentid}/aip/status
+  method: get
+  operationId: access_aip_by_id_aip_status_listStatus
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/{id}/history
+  method: get
+  operationId: access_aip_by_id_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/{id}/download
+  method: get
+  operationId: access_aip_by_id_download_getFiles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/{id}/download-token
+  method: get
+  operationId: access_aip_by_id_download-token_getTokenAip
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/total-for-completed-order
+  method: get
+  operationId: access_aip_total-for-completed-order_getCountForCompletedOrders
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/profile
+  method: get
+  operationId: access_aip_profile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/list-status
+  method: get
+  operationId: access_aip_list-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/list-metadata-versions
+  method: get
+  operationId: access_aip_list-metadata-versions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/list-data-types
+  method: get
+  operationId: access_aip_list-data-types
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/aip/list-data-categories
+  method: get
+  operationId: access_aip_list-data-categories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /
+  method: get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /access/metadata/{parentid}/ratings/by-rating
+  method: delete
+  operationId: access_metadata_by_id_ratings_by-rating_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits
+  method: get
+  operationId: preingest_deposits_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits
+  method: post
+  operationId: preingest_deposits_create
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits
+  method: delete
+  operationId: preingest_deposits_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/submission-agreements
+  method: get
+  operationId: preingest_deposits_by_id_submission-agreements_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/submission-agreements
+  method: post
+  operationId: preingest_deposits_by_id_submission-agreements_create
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/submission-agreements
+  method: delete
+  operationId: preingest_deposits_by_id_submission-agreements_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/subject-areas
+  method: get
+  operationId: preingest_deposits_by_id_subject-areas_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/subject-areas
+  method: post
+  operationId: preingest_deposits_by_id_subject-areas_create
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/subject-areas
+  method: delete
+  operationId: preingest_deposits_by_id_subject-areas_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/licenses
+  method: get
+  operationId: preingest_deposits_by_id_licenses_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/licenses
+  method: post
+  operationId: preingest_deposits_by_id_licenses_create
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/licenses
+  method: delete
+  operationId: preingest_deposits_by_id_licenses_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/data
+  method: get
+  operationId: preingest_deposits_by_id_data_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/data
+  method: post
+  operationId: preingest_deposits_by_id_data_create
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/data
+  method: delete
+  operationId: preingest_deposits_by_id_data_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/data/{id}/validate
+  method: post
+  operationId: preingest_deposits_by_id_data_by_id_validate
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/data/{id}/resume
+  method: post
+  operationId: preingest_deposits_by_id_data_by_id_resume
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/data/validate
+  method: post
+  operationId: preingest_deposits_by_id_data_validate
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/data/resume
+  method: post
+  operationId: preingest_deposits_by_id_data_resume
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/data/resume-all
+  method: post
+  operationId: preingest_deposits_by_id_data_resume-all_resumeList
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/data/delete-folder
+  method: post
+  operationId: preingest_deposits_by_id_data_delete-folder
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/contributors
+  method: get
+  operationId: preingest_deposits_by_id_contributors_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/contributors
+  method: post
+  operationId: preingest_deposits_by_id_contributors_create
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/contributors
+  method: delete
+  operationId: preingest_deposits_by_id_contributors_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/aip
+  method: get
+  operationId: preingest_deposits_by_id_aip_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/aip
+  method: post
+  operationId: preingest_deposits_by_id_aip_create
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/aip
+  method: delete
+  operationId: preingest_deposits_by_id_aip_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/upload
+  method: post
+  operationId: preingest_deposits_by_id_upload
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/upload-metadata
+  method: post
+  operationId: preingest_deposits_by_id_upload-metadata
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/upload-archive
+  method: post
+  operationId: preingest_deposits_by_id_upload-archive
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/submit-for-approval
+  method: post
+  operationId: preingest_deposits_by_id_submit-for-approval
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/start-metadata-upgrade
+  method: post
+  operationId: preingest_deposits_by_id_start-metadata-upgrade_putInMetadataUpgrading
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/start-metadata-editing
+  method: post
+  operationId: preingest_deposits_by_id_start-metadata-editing_putInMetadataEditing
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/reserve-doi
+  method: post
+  operationId: preingest_deposits_by_id_reserve-doi
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/reject
+  method: post
+  operationId: preingest_deposits_by_id_reject
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/put-in-error
+  method: post
+  operationId: preingest_deposits_by_id_put-in-error
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/generate-anonymized-deposit-page
+  method: post
+  operationId: preingest_deposits_by_id_generate-anonymized-deposit-page
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/enable-revision
+  method: post
+  operationId: preingest_deposits_by_id_enable-revision
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/clean
+  method: post
+  operationId: preingest_deposits_by_id_clean
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/check-submission-agreement
+  method: post
+  operationId: preingest_deposits_by_id_check-submission-agreement
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/check-compliance
+  method: post
+  operationId: preingest_deposits_by_id_check-compliance
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/cancel-metadata-editing
+  method: post
+  operationId: preingest_deposits_by_id_cancel-metadata-editing
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/approve
+  method: post
+  operationId: preingest_deposits_by_id_approve
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/approve-submission-agreement
+  method: post
+  operationId: preingest_deposits_by_id_approve-submission-agreement
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/search
+  method: get
+  operationId: preingest_deposits_search_advancedSearch_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/search
+  method: post
+  operationId: preingest_deposits_search_advancedSearch_post
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip
+  method: get
+  operationId: ingest_sip_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip
+  method: post
+  operationId: ingest_sip_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip
+  method: delete
+  operationId: ingest_sip_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{parentid}/data
+  method: get
+  operationId: ingest_sip_by_id_data_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{parentid}/data
+  method: post
+  operationId: ingest_sip_by_id_data_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{parentid}/data
+  method: delete
+  operationId: ingest_sip_by_id_data_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{parentid}/data/{id}/resume
+  method: post
+  operationId: ingest_sip_by_id_data_by_id_resume
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{parentid}/data/{id}/put-in-error
+  method: post
+  operationId: ingest_sip_by_id_data_by_id_put-in-error
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{parentid}/aip
+  method: get
+  operationId: ingest_sip_by_id_aip_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{parentid}/aip
+  method: post
+  operationId: ingest_sip_by_id_aip_create
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{parentid}/aip
+  method: delete
+  operationId: ingest_sip_by_id_aip_deleteList
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{id}/upload
+  method: post
+  operationId: ingest_sip_by_id_upload_sendFile
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{id}/start-metadata-upgrade
+  method: post
+  operationId: ingest_sip_by_id_start-metadata-upgrade_putInMetadataUpgrading
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{id}/start-metadata-editing
+  method: post
+  operationId: ingest_sip_by_id_start-metadata-editing_putInMetadataEditing
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{id}/resume
+  method: post
+  operationId: ingest_sip_by_id_resume
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{id}/resubmit
+  method: post
+  operationId: ingest_sip_by_id_resubmit
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{id}/put-in-error
+  method: post
+  operationId: ingest_sip_by_id_put-in-error
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{id}/clean
+  method: post
+  operationId: ingest_sip_by_id_clean
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/search
+  method: get
+  operationId: ingest_sip_search_advancedSearch_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/search
+  method: post
+  operationId: ingest_sip_search_advancedSearch_post
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/submission-agreements/{id}
+  method: get
+  operationId: preingest_deposits_by_id_submission-agreements_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/submission-agreements/{id}
+  method: delete
+  operationId: preingest_deposits_by_id_submission-agreements_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/submission-agreements/{id}
+  method: patch
+  operationId: preingest_deposits_by_id_submission-agreements_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/subject-areas/{id}
+  method: get
+  operationId: preingest_deposits_by_id_subject-areas_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/subject-areas/{id}
+  method: delete
+  operationId: preingest_deposits_by_id_subject-areas_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/subject-areas/{id}
+  method: patch
+  operationId: preingest_deposits_by_id_subject-areas_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/licenses/{id}
+  method: get
+  operationId: preingest_deposits_by_id_licenses_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/licenses/{id}
+  method: delete
+  operationId: preingest_deposits_by_id_licenses_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/licenses/{id}
+  method: patch
+  operationId: preingest_deposits_by_id_licenses_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/data/{id}
+  method: get
+  operationId: preingest_deposits_by_id_data_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/data/{id}
+  method: delete
+  operationId: preingest_deposits_by_id_data_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/data/{id}
+  method: patch
+  operationId: preingest_deposits_by_id_data_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/contributors/{id}
+  method: get
+  operationId: preingest_deposits_by_id_contributors_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/contributors/{id}
+  method: delete
+  operationId: preingest_deposits_by_id_contributors_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/contributors/{id}
+  method: patch
+  operationId: preingest_deposits_by_id_contributors_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/aip/{id}
+  method: get
+  operationId: preingest_deposits_by_id_aip_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/aip/{id}
+  method: delete
+  operationId: preingest_deposits_by_id_aip_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{parentid}/aip/{id}
+  method: patch
+  operationId: preingest_deposits_by_id_aip_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}
+  method: get
+  operationId: preingest_deposits_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{id}
+  method: delete
+  operationId: preingest_deposits_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}
+  method: patch
+  operationId: preingest_deposits_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{parentid}/data/{id}
+  method: get
+  operationId: ingest_sip_by_id_data_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{parentid}/data/{id}
+  method: delete
+  operationId: ingest_sip_by_id_data_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{parentid}/data/{id}
+  method: patch
+  operationId: ingest_sip_by_id_data_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{parentid}/aip/{id}
+  method: get
+  operationId: ingest_sip_by_id_aip_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{parentid}/aip/{id}
+  method: delete
+  operationId: ingest_sip_by_id_aip_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{parentid}/aip/{id}
+  method: patch
+  operationId: ingest_sip_by_id_aip_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{id}
+  method: get
+  operationId: ingest_sip_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{id}
+  method: delete
+  operationId: ingest_sip_by_id_delete
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/{id}
+  method: patch
+  operationId: ingest_sip_by_id_update
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest
+  method: get
+  operationId: preingest_home
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/data/{id}/history
+  method: get
+  operationId: preingest_deposits_by_id_data_by_id_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/data/{id}/download
+  method: get
+  operationId: preingest_deposits_by_id_data_by_id_download
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/data/{id}/download-token
+  method: get
+  operationId: preingest_deposits_by_id_data_by_id_download-token_getTokenForDepositDataFile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/data/search
+  method: get
+  operationId: preingest_deposits_by_id_data_search_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/data/list-status
+  method: get
+  operationId: preingest_deposits_by_id_data_list-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/data/list-folders
+  method: get
+  operationId: preingest_deposits_by_id_data_list-folders
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{parentid}/data/list-current-status
+  method: get
+  operationId: preingest_deposits_by_id_data_list-current-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{id}/sip-package
+  method: get
+  operationId: preingest_deposits_by_id_sip-package_getSIP
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{id}/sip-package
+  method: delete
+  operationId: preingest_deposits_by_id_sip-package_deleteSIP
+  x-agentic-access:
+    action-class: acting
+    consequence: physical
+    subject: required
+    audience: null
+    token:
+      max-ttl: 300
+      exchange: true
+      purpose-required: true
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /preingest/deposits/{id}/history
+  method: get
+  operationId: preingest_deposits_by_id_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{id}/download
+  method: get
+  operationId: preingest_deposits_by_id_download_getFiles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{id}/download-token
+  method: get
+  operationId: preingest_deposits_by_id_download-token_getTokenForDeposit
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/{id}/download-anonymized-deposit
+  method: get
+  operationId: preingest_deposits_by_id_download-anonymized-deposit
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/schema
+  method: get
+  operationId: preingest_deposits_schema
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/profile
+  method: get
+  operationId: preingest_deposits_profile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/list-status
+  method: get
+  operationId: preingest_deposits_list-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/list-metadata-versions
+  method: get
+  operationId: preingest_deposits_list-metadata-versions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/list-ignore-files
+  method: get
+  operationId: preingest_deposits_list-ignore-files_ignoreList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/list-exclude-files
+  method: get
+  operationId: preingest_deposits_list-exclude-files_excludeList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/list-data-types
+  method: get
+  operationId: preingest_deposits_list-data-types
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/list-data-categories
+  method: get
+  operationId: preingest_deposits_list-data-categories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/deposits/list-accesses
+  method: get
+  operationId: preingest_deposits_list-accesses
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/contributors
+  method: get
+  operationId: preingest_contributors_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/contributors/{parentid}/deposits
+  method: get
+  operationId: preingest_contributors_by_id_deposits_list
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/contributors/{parentid}/deposits/{id}
+  method: get
+  operationId: preingest_contributors_by_id_deposits_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /preingest/contributors/{id}
+  method: get
+  operationId: preingest_contributors_by_id_get
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest
+  method: get
+  operationId: ingest_home
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{parentid}/data/{id}/history
+  method: get
+  operationId: ingest_sip_by_id_data_by_id_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{parentid}/data/{id}/download
+  method: get
+  operationId: ingest_sip_by_id_data_by_id_download
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{parentid}/data/{id}/download-token
+  method: get
+  operationId: ingest_sip_by_id_data_by_id_download-token_getTokenForSipDataFile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{parentid}/data/list-status
+  method: get
+  operationId: ingest_sip_by_id_data_list-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{id}/history
+  method: get
+  operationId: ingest_sip_by_id_history
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{id}/download
+  method: get
+  operationId: ingest_sip_by_id_download_getFiles
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{id}/download-token
+  method: get
+  operationId: ingest_sip_by_id_download-token_getTokenForSip
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{id}/aip-package
+  method: get
+  operationId: ingest_sip_by_id_aip-package_getAIP
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/{id}/aip-package
+  method: delete
+  operationId: ingest_sip_by_id_aip-package_deleteAIP
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /ingest/sip/schema
+  method: get
+  operationId: ingest_sip_schema
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/profile
+  method: get
+  operationId: ingest_sip_profile
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/list-status
+  method: get
+  operationId: ingest_sip_list-status
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/list-metadata-versions
+  method: get
+  operationId: ingest_sip_list-metadata-versions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/list-data-types
+  method: get
+  operationId: ingest_sip_list-data-types
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /ingest/sip/list-data-categories
+  method: get
+  operationId: ingest_sip_list-data-categories
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
