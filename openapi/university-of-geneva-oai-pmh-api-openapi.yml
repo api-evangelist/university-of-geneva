@@ -1,0 +1,1171 @@
+openapi: 3.0.3
+info:
+  title: Yareta Research Data Access OAI-PMH API
+  description: 'Yareta is the University of Geneva (UNIGE) e-Research long-term research-data preservation and access platform, built on the DLCM (Data Life Cycle Management) software stack. This OpenAPI description merges the public DLCM/Yareta backend modules: the Accession/Access service (https://access.yareta.unige.ch) for discovering, ordering and downloading archives (AIP/DIP), and the Ingestion/Pre-ingest service (https://ingest.yareta.unige.ch) for depositing and submitting research data. Faithfully converted from the live OpenAPI 3.1 definitions (Yareta API v3.1.7); only real paths and schemas are retained.'
+  version: 3.1.7
+  contact:
+    email: yareta-admin@unige.ch
+servers:
+- url: https://access.yareta.unige.ch
+  description: Accession / Access module (discovery, orders, DIP download)
+- url: https://ingest.yareta.unige.ch
+  description: Pre-ingest / Ingestion module (deposits, submission)
+tags:
+- name: OAI-PMH
+  description: OAI-PMH provider information and metadata formats.
+paths:
+  /oai-info/oai-sets:
+    get:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-sets_list
+      parameters:
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        schema:
+          type: integer
+          default: 0
+          minimum: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        schema:
+          type: integer
+          default: 20
+          minimum: 1
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RestCollectionOAISet'
+      security:
+      - tokenAuth: []
+      - auth: []
+    post:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-sets_create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAISet'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OAISet'
+      security:
+      - tokenAuth: []
+      - auth: []
+    delete:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-sets_deleteList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+      security:
+      - tokenAuth: []
+      - auth: []
+  /oai-info/oai-sets/search:
+    get:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-sets_search_advancedSearch_get
+      parameters:
+      - name: search
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: match
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        schema:
+          type: integer
+          default: 0
+          minimum: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        schema:
+          type: integer
+          default: 20
+          minimum: 1
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RestCollectionOAISet'
+      security:
+      - tokenAuth: []
+      - auth: []
+    post:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-sets_search_advancedSearch_post
+      parameters:
+      - name: match
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        schema:
+          type: integer
+          default: 0
+          minimum: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        schema:
+          type: integer
+          default: 20
+          minimum: 1
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAISet'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RestCollectionOAISet'
+      security:
+      - tokenAuth: []
+      - auth: []
+  /oai-info/oai-provider/oai:
+    get:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-provider_oai_process
+      parameters:
+      - name: verb
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: identifier
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: metadataPrefix
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: from
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: until
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: set
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: resumptionToken
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: smartView
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+    post:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-provider_oai_processPost
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/MultiValueMapStringString'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /oai-info/oai-metadata-prefixes:
+    get:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-metadata-prefixes_list
+      parameters:
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        schema:
+          type: integer
+          default: 0
+          minimum: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        schema:
+          type: integer
+          default: 20
+          minimum: 1
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RestCollectionOAIMetadataPrefix'
+      security:
+      - tokenAuth: []
+      - auth: []
+    post:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-metadata-prefixes_create
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAIMetadataPrefix'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OAIMetadataPrefix'
+      security:
+      - tokenAuth: []
+      - auth: []
+    delete:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-metadata-prefixes_deleteList
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                type: string
+        required: true
+      responses:
+        '200':
+          description: OK
+      security:
+      - tokenAuth: []
+      - auth: []
+  /oai-info/oai-metadata-prefixes/search:
+    get:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-metadata-prefixes_search_advancedSearch_get
+      parameters:
+      - name: search
+        in: query
+        required: true
+        schema:
+          type: string
+      - name: match
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        schema:
+          type: integer
+          default: 0
+          minimum: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        schema:
+          type: integer
+          default: 20
+          minimum: 1
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RestCollectionOAIMetadataPrefix'
+      security:
+      - tokenAuth: []
+      - auth: []
+    post:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-metadata-prefixes_search_advancedSearch_post
+      parameters:
+      - name: match
+        in: query
+        required: false
+        schema:
+          type: string
+      - name: page
+        in: query
+        description: Zero-based page index (0..N)
+        required: false
+        schema:
+          type: integer
+          default: 0
+          minimum: 0
+      - name: size
+        in: query
+        description: The size of the page to be returned
+        required: false
+        schema:
+          type: integer
+          default: 20
+          minimum: 1
+      - name: sort
+        in: query
+        description: 'Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported.'
+        required: false
+        schema:
+          type: array
+          items:
+            type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OAIMetadataPrefix'
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/RestCollectionOAIMetadataPrefix'
+      security:
+      - tokenAuth: []
+      - auth: []
+  /oai-info/oai-sets/{id}:
+    get:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-sets_by_id_get
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OAISet'
+      security:
+      - tokenAuth: []
+      - auth: []
+    delete:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-sets_by_id_delete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+      security:
+      - tokenAuth: []
+      - auth: []
+    patch:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-sets_by_id_update
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OAISet'
+      security:
+      - tokenAuth: []
+      - auth: []
+  /oai-info/oai-metadata-prefixes/{id}:
+    get:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-metadata-prefixes_by_id_get
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OAIMetadataPrefix'
+      security:
+      - tokenAuth: []
+      - auth: []
+    delete:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-metadata-prefixes_by_id_delete
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+      security:
+      - tokenAuth: []
+      - auth: []
+    patch:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-metadata-prefixes_by_id_update
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+        required: true
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OAIMetadataPrefix'
+      security:
+      - tokenAuth: []
+      - auth: []
+  /oai-info:
+    get:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_home
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/Module'
+  /oai-info/oai-provider:
+    get:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-provider_status
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: '#/components/schemas/OAIPMH'
+  /oai-info/oai-provider/oai/xsl:
+    get:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-provider_oai_xsl
+      parameters:
+      - name: smartView
+        in: query
+        required: false
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+  /oai-info/oai-provider/oai/schema:
+    get:
+      tags:
+      - OAI-PMH
+      operationId: oai-info_oai-provider_oai_schema_xsd
+      responses:
+        '200':
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: string
+components:
+  schemas:
+    GetRecordType:
+      type: object
+      properties:
+        record:
+          $ref: '#/components/schemas/RecordType'
+    Module:
+      type: object
+      description: The functional module.
+      properties:
+        name:
+          type: string
+          description: The name of the module.
+        _links:
+          $ref: '#/components/schemas/Links'
+    MetadataType:
+      type: object
+      description: The metadata type allow to define custom metadata.
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        description:
+          type: string
+          description: The description of the metadata type.
+          maxLength: 1024
+          minLength: 0
+        metadataFormat:
+          type: string
+          description: The format of the metadata type.
+          enum:
+          - CUSTOM
+          - JSON
+          - SCHEMA_LESS
+          - XML
+        metadataSchema:
+          type: string
+          description: The schema of the metadata type.
+        name:
+          type: string
+          description: The name of the metadata type.
+          maxLength: 255
+          minLength: 1
+        url:
+          type: string
+          format: uri
+          description: The URL of the metadata type.
+        version:
+          type: string
+          description: The version of the metadata type.
+          maxLength: 50
+          minLength: 1
+        fullName:
+          type: string
+          description: The name and the version of the metadata type.
+          readOnly: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    RestCollectionOAISet:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAISet'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    ChangeInfo:
+      type: object
+      description: The change information of an action.
+      properties:
+        fullName:
+          type: string
+          description: The full name of the user who did the action on the resource.
+          readOnly: true
+        who:
+          type: string
+          description: The user who did the action on the resource.
+          readOnly: true
+        when:
+          type: string
+          format: date-time
+          description: The date when the action was done on the resources.
+          readOnly: true
+    OAIPMHerrorType:
+      type: object
+      properties:
+        value:
+          type: string
+        code:
+          type: string
+          enum:
+          - CANNOT_DISSEMINATE_FORMAT
+          - ID_DOES_NOT_EXIST
+          - BAD_ARGUMENT
+          - BAD_VERB
+          - NO_METADATA_FORMATS
+          - NO_RECORDS_MATCH
+          - BAD_RESUMPTION_TOKEN
+          - NO_SET_HIERARCHY
+          xml:
+            attribute: true
+    DescriptionType:
+      type: object
+      properties:
+        any: {}
+    RecordType:
+      type: object
+      properties:
+        header:
+          $ref: '#/components/schemas/HeaderType'
+        metadata:
+          $ref: '#/components/schemas/MetadataType'
+        about:
+          type: array
+          items:
+            $ref: '#/components/schemas/AboutType'
+    ResumptionTokenType:
+      type: object
+      properties:
+        value:
+          type: string
+        expirationDate:
+          type: string
+          format: date-time
+          xml:
+            attribute: true
+        completeListSize:
+          type: integer
+          xml:
+            attribute: true
+        cursor:
+          type: integer
+          xml:
+            attribute: true
+    SetType:
+      type: object
+      properties:
+        setSpec:
+          type: string
+        setName:
+          type: string
+        setDescription:
+          type: array
+          items:
+            $ref: '#/components/schemas/DescriptionType'
+    ListRecordsType:
+      type: object
+      properties:
+        record:
+          type: array
+          items:
+            $ref: '#/components/schemas/RecordType'
+        resumptionToken:
+          $ref: '#/components/schemas/ResumptionTokenType'
+    OAIMetadataPrefix:
+      type: object
+      description: The OAI metadata prefixes defined the metadata formats supported by OAI-PMH provider. The default metadata prefix is oai_dc, derived from Dublin Core.
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        prefix:
+          type: string
+          description: The name of the OAI metadata prefix.
+          maxLength: 255
+          minLength: 1
+        schemaUrl:
+          type: string
+          format: uri
+          description: The XML schema URL of the OAI metadata prefix.
+        schemaNamespace:
+          type: string
+          description: The XML schema namespace of the OAI metadata prefix.
+        name:
+          type: string
+          description: The name of the OAI metadata prefix.
+          maxLength: 255
+          minLength: 1
+        description:
+          type: string
+          description: The description of the OAI metadata prefix.
+          maxLength: 1024
+          minLength: 1
+        enabled:
+          type: boolean
+          description: If the OAI metadata prefix is enable.
+        reference:
+          type: boolean
+          description: If the OAI metadata prefix is the reference prefix.
+        xmlClass:
+          type: string
+          description: The XML class of the OAI metadata prefix..
+        metadataSchema:
+          type: string
+          description: The XML schema content of the OAI metadata prefix.
+          maxLength: 102400
+          minLength: 0
+        metadataXmlTransformation:
+          type: string
+          description: The XML transformation from reference prefix to the OAI metadata prefix.
+          maxLength: 102400
+          minLength: 0
+        _links:
+          $ref: '#/components/schemas/Links'
+    RequestType:
+      type: object
+      properties:
+        value:
+          type: string
+        verb:
+          type: string
+          enum:
+          - IDENTIFY
+          - LIST_METADATA_FORMATS
+          - LIST_SETS
+          - GET_RECORD
+          - LIST_IDENTIFIERS
+          - LIST_RECORDS
+          xml:
+            attribute: true
+        identifier:
+          type: string
+          xml:
+            attribute: true
+        metadataPrefix:
+          type: string
+          xml:
+            attribute: true
+        from:
+          type: string
+          xml:
+            attribute: true
+        until:
+          type: string
+          xml:
+            attribute: true
+        set:
+          type: string
+          xml:
+            attribute: true
+        resumptionToken:
+          type: string
+          xml:
+            attribute: true
+    MetadataFormatType:
+      type: object
+      properties:
+        metadataPrefix:
+          type: string
+        schema:
+          type: string
+        metadataNamespace:
+          type: string
+    ListSetsType:
+      type: object
+      properties:
+        set:
+          type: array
+          items:
+            $ref: '#/components/schemas/SetType'
+        resumptionToken:
+          $ref: '#/components/schemas/ResumptionTokenType'
+    OAIPMHtype:
+      type: object
+      properties:
+        responseDate:
+          type: string
+          format: date-time
+        request:
+          $ref: '#/components/schemas/RequestType'
+        error:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAIPMHerrorType'
+        identify:
+          $ref: '#/components/schemas/IdentifyType'
+          xml:
+            name: Identify
+        listMetadataFormats:
+          $ref: '#/components/schemas/ListMetadataFormatsType'
+          xml:
+            name: ListMetadataFormats
+        listSets:
+          $ref: '#/components/schemas/ListSetsType'
+          xml:
+            name: ListSets
+        getRecord:
+          $ref: '#/components/schemas/GetRecordType'
+          xml:
+            name: GetRecord
+        listIdentifiers:
+          $ref: '#/components/schemas/ListIdentifiersType'
+          xml:
+            name: ListIdentifiers
+        listRecords:
+          $ref: '#/components/schemas/ListRecordsType'
+          xml:
+            name: ListRecords
+    IdentifyType:
+      type: object
+      properties:
+        repositoryName:
+          type: string
+        baseURL:
+          type: string
+        protocolVersion:
+          type: string
+        adminEmail:
+          type: array
+          items:
+            type: string
+        earliestDatestamp:
+          type: string
+        deletedRecord:
+          type: string
+          enum:
+          - 'NO'
+          - PERSISTENT
+          - TRANSIENT
+        granularity:
+          type: string
+          enum:
+          - YYYY_MM_DD
+          - YYYY_MM_DD_THH_MM_SS_Z
+        compression:
+          type: array
+          items:
+            type: string
+        description:
+          type: array
+          items:
+            $ref: '#/components/schemas/DescriptionType'
+    ListMetadataFormatsType:
+      type: object
+      properties:
+        metadataFormat:
+          type: array
+          items:
+            $ref: '#/components/schemas/MetadataFormatType'
+    OAISet:
+      type: object
+      description: OAI set.
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        description:
+          type: string
+          description: The description of the OAI set.
+          maxLength: 1024
+          minLength: 1
+        enabled:
+          type: boolean
+          description: If the OAI set is enable.
+        name:
+          type: string
+          description: The name of the OAI set.
+          maxLength: 2147483647
+          minLength: 1
+        query:
+          type: string
+          description: 'The criteria to define the OAI set: query compliant with indexing search.'
+          maxLength: 1024
+          minLength: 1
+        spec:
+          type: string
+          description: The spec of OAI set, which is an unique identifier for the set.
+          maxLength: 2147483647
+          minLength: 1
+        _links:
+          $ref: '#/components/schemas/Links'
+    HeaderType:
+      type: object
+      properties:
+        identifier:
+          type: string
+        datestamp:
+          type: string
+        setSpec:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+          enum:
+          - DELETED
+          xml:
+            attribute: true
+    RestCollectionPage:
+      type: object
+      properties:
+        currentPage:
+          type: integer
+          format: int64
+        sizePage:
+          type: integer
+          format: int64
+        totalItems:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int64
+    AboutType:
+      type: object
+      properties:
+        any: {}
+    ListIdentifiersType:
+      type: object
+      properties:
+        header:
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderType'
+        resumptionToken:
+          $ref: '#/components/schemas/ResumptionTokenType'
+    MultiValueMapStringString:
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          type: string
+      properties:
+        all:
+          type: object
+          additionalProperties:
+            type: string
+          writeOnly: true
+        empty:
+          type: boolean
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+        hreflang:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+        deprecation:
+          type: string
+        profile:
+          type: string
+        name:
+          type: string
+        templated:
+          type: boolean
+    OAIPMH:
+      type: object
+      description: 'OAI-PMH Provider
+
+        Specifications: http://www.openarchives.org/OAI/openarchivesprotocol.html
+
+        '
+      properties:
+        oai:
+          $ref: '#/components/schemas/OAIPMHtype'
+        _links:
+          $ref: '#/components/schemas/Links'
+    RestCollectionOAIMetadataPrefix:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAIMetadataPrefix'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    Links:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/Link'
+    FacetResultValue:
+      type: object
+      properties:
+        value:
+          type: string
+        count:
+          type: integer
+          format: int64
+    FacetResult:
+      type: object
+      properties:
+        name:
+          type: string
+        field:
+          type: string
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResultValue'
