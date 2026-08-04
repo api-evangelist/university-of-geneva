@@ -1,0 +1,18 @@
+{
+  "provider": "university-of-geneva",
+  "sources": [
+    "university-of-geneva-access-api-openapi.yml",
+    "university-of-geneva-ingest-api-openapi.yml",
+    "university-of-geneva-oai-pmh-api-openapi.yml"
+  ],
+  "outputs": [
+    "university-of-geneva-access-api-openapi.yml",
+    "university-of-geneva-ingest-api-openapi.yml",
+    "university-of-geneva-oai-pmh-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
