@@ -1,0 +1,4435 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Yareta Research Data Access API",
+    "version": "3.1.7"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Access",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "access_refresh_by_id_refresh",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/refresh/:aipId",
+            "params": [
+              {
+                "name": "aipId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_private-metadata_by_id_prepare-download",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/private-metadata/:aipId/prepare-download",
+            "params": [
+              {
+                "name": "aipId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_private-metadata_search_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/private-metadata/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_private-metadata_search_post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/private-metadata/search",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders",
+            "params": [
+              {
+                "name": "disseminationPolicyId",
+                "value": "",
+                "type": "query",
+                "description": "The dissemination policy identifier linked to the order."
+              },
+              {
+                "name": "metadataVersion",
+                "value": "",
+                "type": "query",
+                "description": "The metadata version of the order query."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "The name of the order query."
+              },
+              {
+                "name": "organizationalUnitDisseminationPolicyId",
+                "value": "",
+                "type": "query",
+                "description": "The dissemination policy identifier linked to the orgunit."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "publicOrder",
+                "value": "",
+                "type": "query",
+                "description": "If the order is public, false otherwise."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "The query of the order query."
+              },
+              {
+                "name": "queryType",
+                "value": "",
+                "type": "query",
+                "description": "The type of the order query."
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status of the order query."
+              },
+              {
+                "name": "statusMessage",
+                "value": "",
+                "type": "query",
+                "description": "The message related to the status of the order query."
+              },
+              {
+                "name": "subitemsChecksum",
+                "value": "",
+                "type": "query",
+                "description": "The checksum of the order subitems list."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/orders",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_dip_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/:parentid/dip",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_dip_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/orders/:parentid/dip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_dip_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/orders/:parentid/dip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_aip_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/:parentid/aip",
+            "params": [
+              {
+                "name": "archivalUnit",
+                "value": "",
+                "type": "query",
+                "description": "if the AIP is an unit (AIU) or a collection (AIC)."
+              },
+              {
+                "name": "archiveContainer",
+                "value": "",
+                "type": "query",
+                "description": "The container type of the AIP."
+              },
+              {
+                "name": "archiveFileNumber",
+                "value": "",
+                "type": "query",
+                "description": "The total number of files in the AIP."
+              },
+              {
+                "name": "archiveId",
+                "value": "",
+                "type": "query",
+                "description": "The storage URI of the AIP."
+              },
+              {
+                "name": "archiveSize",
+                "value": "",
+                "type": "query",
+                "description": "The size in bytes of the AIP."
+              },
+              {
+                "name": "collectionArchiveSize",
+                "value": "",
+                "type": "query",
+                "description": "The total size in bytes of the collection AIP."
+              },
+              {
+                "name": "collectionFileNumber",
+                "value": "",
+                "type": "query",
+                "description": "The total number of filed in the collection AIP."
+              },
+              {
+                "name": "dispositionApproval",
+                "value": "",
+                "type": "query",
+                "description": "If the approval step the AIP disposal is mandatory."
+              },
+              {
+                "name": "lastArchiving",
+                "value": "",
+                "type": "query",
+                "description": "The last archiving process date of the AIP: the first archiving date or the last metadata edition."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "publicationDate",
+                "value": "",
+                "type": "query",
+                "description": "The publication date of the AIP."
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "retention",
+                "value": "",
+                "type": "query",
+                "description": "The retention duration in days of the AIP: O means forever."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              },
+              {
+                "name": "tombstoneSize",
+                "value": "",
+                "type": "query",
+                "description": "The size in bytes of the tombstone AIP."
+              },
+              {
+                "name": "updateNumber",
+                "value": "",
+                "type": "query",
+                "description": "The number of updates in the AIP."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_aip_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/orders/:parentid/aip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_aip_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/orders/:parentid/aip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_submit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/orders/:id/submit",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_save",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/orders/:id/save",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/orders/:id/resume",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_put-in-error",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/orders/:id/put-in-error",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_search_advancedSearch_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/search",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_search_advancedSearch_post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/orders/search",
+            "params": [
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_ratings_getArchiveUserRating",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:parentid/ratings",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_ratings_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/metadata/:parentid/ratings",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "ratingType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "grade",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_ratings_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/access/metadata/:parentid/ratings",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_ratings_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/metadata/:parentid/ratings",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_prepare-download",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/metadata/:aipId/prepare-download",
+            "params": [
+              {
+                "name": "aipId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_search_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_search_post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/metadata/search",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/dip",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/dip",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_data_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/data",
+            "params": [
+              {
+                "name": "complianceLevel",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataCategory",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fileName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fileSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "finalData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "relativeLocation",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              },
+              {
+                "name": "sourceData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "statusMessage",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_data_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/data",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_data_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/data",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_data_by_id_resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/data/:id/resume",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_aip_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/aip",
+            "params": [
+              {
+                "name": "archivalUnit",
+                "value": "",
+                "type": "query",
+                "description": "if the AIP is an unit (AIU) or a collection (AIC)."
+              },
+              {
+                "name": "archiveContainer",
+                "value": "",
+                "type": "query",
+                "description": "The container type of the AIP."
+              },
+              {
+                "name": "archiveFileNumber",
+                "value": "",
+                "type": "query",
+                "description": "The total number of files in the AIP."
+              },
+              {
+                "name": "archiveId",
+                "value": "",
+                "type": "query",
+                "description": "The storage URI of the AIP."
+              },
+              {
+                "name": "archiveSize",
+                "value": "",
+                "type": "query",
+                "description": "The size in bytes of the AIP."
+              },
+              {
+                "name": "collectionArchiveSize",
+                "value": "",
+                "type": "query",
+                "description": "The total size in bytes of the collection AIP."
+              },
+              {
+                "name": "collectionFileNumber",
+                "value": "",
+                "type": "query",
+                "description": "The total number of filed in the collection AIP."
+              },
+              {
+                "name": "dispositionApproval",
+                "value": "",
+                "type": "query",
+                "description": "If the approval step the AIP disposal is mandatory."
+              },
+              {
+                "name": "lastArchiving",
+                "value": "",
+                "type": "query",
+                "description": "The last archiving process date of the AIP: the first archiving date or the last metadata edition."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "publicationDate",
+                "value": "",
+                "type": "query",
+                "description": "The publication date of the AIP."
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "retention",
+                "value": "",
+                "type": "query",
+                "description": "The retention duration in days of the AIP: O means forever."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              },
+              {
+                "name": "tombstoneSize",
+                "value": "",
+                "type": "query",
+                "description": "The size in bytes of the tombstone AIP."
+              },
+              {
+                "name": "updateNumber",
+                "value": "",
+                "type": "query",
+                "description": "The number of updates in the AIP."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_aip_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/aip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_aip_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/aip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/dip/:id/resume",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_put-in-error",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/dip/:id/put-in-error",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_search_advancedSearch_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/search",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_search_advancedSearch_post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/dip/search",
+            "params": [
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_all-metadata_by_id_prepare-download",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/all-metadata/:aipId/prepare-download",
+            "params": [
+              {
+                "name": "aipId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_all-metadata_search_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/all-metadata/search",
+            "params": [
+              {
+                "name": "query",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_all-metadata_search_post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/all-metadata/search",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip",
+            "params": [
+              {
+                "name": "archivalUnit",
+                "value": "",
+                "type": "query",
+                "description": "if the AIP is an unit (AIU) or a collection (AIC)."
+              },
+              {
+                "name": "archiveContainer",
+                "value": "",
+                "type": "query",
+                "description": "The container type of the AIP."
+              },
+              {
+                "name": "archiveFileNumber",
+                "value": "",
+                "type": "query",
+                "description": "The total number of files in the AIP."
+              },
+              {
+                "name": "archiveId",
+                "value": "",
+                "type": "query",
+                "description": "The storage URI of the AIP."
+              },
+              {
+                "name": "archiveSize",
+                "value": "",
+                "type": "query",
+                "description": "The size in bytes of the AIP."
+              },
+              {
+                "name": "collectionArchiveSize",
+                "value": "",
+                "type": "query",
+                "description": "The total size in bytes of the collection AIP."
+              },
+              {
+                "name": "collectionFileNumber",
+                "value": "",
+                "type": "query",
+                "description": "The total number of filed in the collection AIP."
+              },
+              {
+                "name": "dispositionApproval",
+                "value": "",
+                "type": "query",
+                "description": "If the approval step the AIP disposal is mandatory."
+              },
+              {
+                "name": "lastArchiving",
+                "value": "",
+                "type": "query",
+                "description": "The last archiving process date of the AIP: the first archiving date or the last metadata edition."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "publicationDate",
+                "value": "",
+                "type": "query",
+                "description": "The publication date of the AIP."
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "retention",
+                "value": "",
+                "type": "query",
+                "description": "The retention duration in days of the AIP: O means forever."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              },
+              {
+                "name": "tombstoneSize",
+                "value": "",
+                "type": "query",
+                "description": "The size in bytes of the tombstone AIP."
+              },
+              {
+                "name": "updateNumber",
+                "value": "",
+                "type": "query",
+                "description": "The number of updates in the AIP."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/aip",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/aip",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_data_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/data",
+            "params": [
+              {
+                "name": "complianceLevel",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataCategory",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fileName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fileSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "finalData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "relativeLocation",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              },
+              {
+                "name": "sourceData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "statusMessage",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_data_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/data",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_data_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/data",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_data_by_id_resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/data/:id/resume",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_data_by_id_put-in-error",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/data/:id/put-in-error",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_aip_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/aip",
+            "params": [
+              {
+                "name": "archivalUnit",
+                "value": "",
+                "type": "query",
+                "description": "if the AIP is an unit (AIU) or a collection (AIC)."
+              },
+              {
+                "name": "archiveContainer",
+                "value": "",
+                "type": "query",
+                "description": "The container type of the AIP."
+              },
+              {
+                "name": "archiveFileNumber",
+                "value": "",
+                "type": "query",
+                "description": "The total number of files in the AIP."
+              },
+              {
+                "name": "archiveId",
+                "value": "",
+                "type": "query",
+                "description": "The storage URI of the AIP."
+              },
+              {
+                "name": "archiveSize",
+                "value": "",
+                "type": "query",
+                "description": "The size in bytes of the AIP."
+              },
+              {
+                "name": "collectionArchiveSize",
+                "value": "",
+                "type": "query",
+                "description": "The total size in bytes of the collection AIP."
+              },
+              {
+                "name": "collectionFileNumber",
+                "value": "",
+                "type": "query",
+                "description": "The total number of filed in the collection AIP."
+              },
+              {
+                "name": "dispositionApproval",
+                "value": "",
+                "type": "query",
+                "description": "If the approval step the AIP disposal is mandatory."
+              },
+              {
+                "name": "lastArchiving",
+                "value": "",
+                "type": "query",
+                "description": "The last archiving process date of the AIP: the first archiving date or the last metadata edition."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "publicationDate",
+                "value": "",
+                "type": "query",
+                "description": "The publication date of the AIP."
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "retention",
+                "value": "",
+                "type": "query",
+                "description": "The retention duration in days of the AIP: O means forever."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              },
+              {
+                "name": "tombstoneSize",
+                "value": "",
+                "type": "query",
+                "description": "The size in bytes of the tombstone AIP."
+              },
+              {
+                "name": "updateNumber",
+                "value": "",
+                "type": "query",
+                "description": "The number of updates in the AIP."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_aip_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/aip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_aip_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/aip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/aip/:id/resume",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_put-in-error",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/aip/:id/put-in-error",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_search_advancedSearch_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/search",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_search_advancedSearch_post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/access/aip/search",
+            "params": [
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_dip_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/:parentid/dip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_dip_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/access/orders/:parentid/dip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_dip_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/orders/:parentid/dip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_aip_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_aip_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/access/orders/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_aip_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/orders/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/access/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/orders/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_data_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/data/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_data_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/data/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_data_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/data/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_aip_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_aip_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_aip_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/access/dip/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/dip/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_data_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/data/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_data_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/data/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_data_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/data/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_aip_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_aip_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_aip_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/access/aip/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/aip/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "sso-user_user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/sso-user"
+          }
+        },
+        {
+          "info": {
+            "name": "sitemap.xml_getSitemapIndex",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/sitemap.xml",
+            "params": [
+              {
+                "name": "extra",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "sitemap-by_id.xml_getSitemap",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/sitemap-:name.xml",
+            "params": [
+              {
+                "name": "name",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "resource-srv_home",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/resource-srv"
+          }
+        },
+        {
+          "info": {
+            "name": "resource-srv_checkTool",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/resource-srv/checkTool",
+            "params": [
+              {
+                "name": "toolName",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "default-configuration_getDefaultConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/default-configuration"
+          }
+        },
+        {
+          "info": {
+            "name": "current-configuration_getCurrentConfiguration",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/current-configuration"
+          }
+        },
+        {
+          "info": {
+            "name": "access_home",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access"
+          }
+        },
+        {
+          "info": {
+            "name": "access_system-properties",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/system-properties"
+          }
+        },
+        {
+          "info": {
+            "name": "access_private-metadata_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/private-metadata",
+            "params": [
+              {
+                "name": "index",
+                "value": "",
+                "type": "query",
+                "description": "Name of the index"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_private-metadata_by_id_download-status_getDownloadStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/private-metadata/:orderId/download-status",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_private-metadata_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/private-metadata/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_private-metadata_by_id_citations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/private-metadata/:id/citations",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_private-metadata_by_id_bibliographies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/private-metadata/:id/bibliographies",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_private-metadata_by_id_download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/private-metadata/:dipName/download",
+            "params": [
+              {
+                "name": "dipName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_private-metadata_list-download-status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/private-metadata/list-download-status"
+          }
+        },
+        {
+          "info": {
+            "name": "access_organizational-units_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/organizational-units",
+            "params": [
+              {
+                "name": "closingDate",
+                "value": "",
+                "type": "query",
+                "description": "The closing date of the organizational unit."
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query",
+                "description": "The description of the organizational unit."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "The name of the organizational unit."
+              },
+              {
+                "name": "openingDate",
+                "value": "",
+                "type": "query",
+                "description": "The opening date of the organizational unit."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_organizational-units_by_id_archives_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/organizational-units/:parentid/archives",
+            "params": [
+              {
+                "name": "index",
+                "value": "",
+                "type": "query",
+                "description": "Name of the index"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_organizational-units_by_id_archives_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/organizational-units/:parentid/archives/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_organizational-units_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/organizational-units/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Download Logo of an organizational unit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/organizational-units/:id/download-logo",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a binary stream (image or file) for the given organizational unit ID."
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_view",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/:id/view",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "allInfo",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/:id/history",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_download_getFiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_by_id_download-token_getTokenForOrder",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/:id/download-token",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_list-status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/list-status"
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_list-query-types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/list-query-types"
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_list-public",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/list-public",
+            "params": [
+              {
+                "name": "disseminationPolicyId",
+                "value": "",
+                "type": "query",
+                "description": "The dissemination policy identifier linked to the order."
+              },
+              {
+                "name": "metadataVersion",
+                "value": "",
+                "type": "query",
+                "description": "The metadata version of the order query."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "The name of the order query."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "organizationalUnitDisseminationPolicyId",
+                "value": "",
+                "type": "query",
+                "description": "The dissemination policy identifier linked to the orgunit."
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "publicOrder",
+                "value": "",
+                "type": "query",
+                "description": "If the order is public, false otherwise."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "The query of the order query."
+              },
+              {
+                "name": "queryType",
+                "value": "",
+                "type": "query",
+                "description": "The type of the order query."
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status of the order query."
+              },
+              {
+                "name": "statusMessage",
+                "value": "",
+                "type": "query",
+                "description": "The message related to the status of the order query."
+              },
+              {
+                "name": "subitemsChecksum",
+                "value": "",
+                "type": "query",
+                "description": "The checksum of the order subitems list."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_orders_list-created-by-user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/orders/list-created-by-user",
+            "params": [
+              {
+                "name": "disseminationPolicyId",
+                "value": "",
+                "type": "query",
+                "description": "The dissemination policy identifier linked to the order."
+              },
+              {
+                "name": "metadataVersion",
+                "value": "",
+                "type": "query",
+                "description": "The metadata version of the order query."
+              },
+              {
+                "name": "name",
+                "value": "",
+                "type": "query",
+                "description": "The name of the order query."
+              },
+              {
+                "name": "order",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "organizationalUnitDisseminationPolicyId",
+                "value": "",
+                "type": "query",
+                "description": "The dissemination policy identifier linked to the orgunit."
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "publicOrder",
+                "value": "",
+                "type": "query",
+                "description": "If the order is public, false otherwise."
+              },
+              {
+                "name": "query",
+                "value": "",
+                "type": "query",
+                "description": "The query of the order query."
+              },
+              {
+                "name": "queryType",
+                "value": "",
+                "type": "query",
+                "description": "The type of the order query."
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status of the order query."
+              },
+              {
+                "name": "statusMessage",
+                "value": "",
+                "type": "query",
+                "description": "The message related to the status of the order query."
+              },
+              {
+                "name": "subitemsChecksum",
+                "value": "",
+                "type": "query",
+                "description": "The checksum of the order subitems list."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata",
+            "params": [
+              {
+                "name": "index",
+                "value": "",
+                "type": "query",
+                "description": "Name of the index"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_ratings_list-for-user_getUserRating",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:parentid/ratings/list-for-user",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_data_by_id_getDataFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:parentid/data/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_data_by_id_ready-for-download_checkDataFileIfIsReadyDownload",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:parentid/data/:id/ready-for-download",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Download data file",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:parentid/data/:id/download",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a binary stream (file)."
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_data_by_id_download-token_getTokenForDataFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:parentid/data/:id/download-token",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_download-status_getDownloadStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:orderId/download-status",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Download thumbnail of an archive",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:id/thumbnail",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a binary stream (image or file) for the given archive ID."
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_statistics_getStatistics",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:id/statistics",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Download readme of an archive",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:id/readme",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a binary stream (file) for the given archive ID."
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_packages_getPackages",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:id/packages",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_list-folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:id/list-folders",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Download DUA of an archive",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:id/dua",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Returns a binary stream (image or file) for the given archive ID."
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_data_getDataFiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:id/data",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "path",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "file",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "minSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_citations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:id/citations",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_bibliographies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:id/bibliographies",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_aip_getAip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:id/aip",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "minSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "maxSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:dipName/download",
+            "params": [
+              {
+                "name": "dipName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_download-token_getTokenForArchive",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/:dipName/download-token",
+            "params": [
+              {
+                "name": "dipName",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_search-doi",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/search-doi",
+            "params": [
+              {
+                "name": "doi",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_list-download-status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/metadata/list-download-status"
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_data_by_id_history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/data/:id/history",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_data_by_id_download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/data/:id/download",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_data_by_id_download-token_getTokenForDipDataFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/data/:id/download-token",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_data_list-status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/data/list-status",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_aip_status_listStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/:parentid/aip/status",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/:id/history",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_download_getFiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_by_id_download-token_getTokenDip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/:id/download-token",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_total-for-completed-order_getCountForCompletedOrders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/total-for-completed-order"
+          }
+        },
+        {
+          "info": {
+            "name": "Download schema of a DIP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/schema",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "disseminationPolicy",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a binary stream (file) for the given DIP ID."
+        },
+        {
+          "info": {
+            "name": "Download profile of a package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/profile",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a binary stream (file)."
+        },
+        {
+          "info": {
+            "name": "access_dip_list-status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/list-status"
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_list-metadata-versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/list-metadata-versions"
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_list-data-types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/list-data-types",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_list-data-categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/list-data-categories"
+          }
+        },
+        {
+          "info": {
+            "name": "access_dip_get-by-aip-id_by_id_getDipContainingAip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/dip/get-by-aip-id/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_archives_metadata_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/archives/metadata/**"
+          }
+        },
+        {
+          "info": {
+            "name": "access_all-metadata_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/all-metadata",
+            "params": [
+              {
+                "name": "index",
+                "value": "",
+                "type": "query",
+                "description": "Name of the index"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_all-metadata_by_id_download-status_getDownloadStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/all-metadata/:orderId/download-status",
+            "params": [
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_all-metadata_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/all-metadata/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_all-metadata_by_id_citations",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/all-metadata/:id/citations",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_all-metadata_by_id_bibliographies",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/all-metadata/:id/bibliographies",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_all-metadata_by_id_download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/all-metadata/:dipName/download",
+            "params": [
+              {
+                "name": "dipName",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "orderId",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_all-metadata_list-download-status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/all-metadata/list-download-status"
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_data_by_id_history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/data/:id/history",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_data_by_id_download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/data/:id/download",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_data_by_id_download-token_getTokenForAipDownloadedDataFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/data/:id/download-token",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_data_list-status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/data/list-status",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_aip_status_listStatus",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/:parentid/aip/status",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/:id/history",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_download_getFiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_by_id_download-token_getTokenAip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/:id/download-token",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_total-for-completed-order_getCountForCompletedOrders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/total-for-completed-order"
+          }
+        },
+        {
+          "info": {
+            "name": "Download profile of a package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/profile",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a binary stream (file)."
+        },
+        {
+          "info": {
+            "name": "access_aip_list-status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/list-status"
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_list-metadata-versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/list-metadata-versions"
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_list-data-types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/list-data-types",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "access_aip_list-data-categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/access/aip/list-data-categories"
+          }
+        },
+        {
+          "info": {
+            "name": "GET /",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/"
+          }
+        },
+        {
+          "info": {
+            "name": "access_metadata_by_id_ratings_by-rating_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/access/metadata/:parentid/ratings/by-rating",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

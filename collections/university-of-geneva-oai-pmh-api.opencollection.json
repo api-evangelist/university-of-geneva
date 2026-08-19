@@ -1,0 +1,515 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Yareta Research Data Access OAI-PMH API",
+    "version": "3.1.7"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "OAI-PMH",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "oai-info_oai-sets_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-sets",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-sets_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-sets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-sets_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-sets",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-sets_search_advancedSearch_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-sets/search",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-sets_search_advancedSearch_post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-sets/search",
+            "params": [
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-provider_oai_process",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-provider/oai",
+            "params": [
+              {
+                "name": "verb",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "identifier",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metadataPrefix",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "from",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "until",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "set",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resumptionToken",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "smartView",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-provider_oai_processPost",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-provider/oai",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-metadata-prefixes_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-metadata-prefixes",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-metadata-prefixes_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-metadata-prefixes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-metadata-prefixes_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-metadata-prefixes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-metadata-prefixes_search_advancedSearch_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-metadata-prefixes/search",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-metadata-prefixes_search_advancedSearch_post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-metadata-prefixes/search",
+            "params": [
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-sets_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-sets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-sets_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-sets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-sets_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-sets/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-metadata-prefixes_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-metadata-prefixes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-metadata-prefixes_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-metadata-prefixes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-metadata-prefixes_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-metadata-prefixes/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_home",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/oai-info"
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-provider_status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-provider"
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-provider_oai_xsl",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-provider/oai/xsl",
+            "params": [
+              {
+                "name": "smartView",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "oai-info_oai-provider_oai_schema_xsd",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/oai-info/oai-provider/oai/schema"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

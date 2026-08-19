@@ -1,0 +1,3671 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Yareta Research Data Access Ingest API",
+    "version": "3.1.7"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ingest",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "preingest_deposits_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits",
+            "params": [
+              {
+                "name": "access",
+                "value": "",
+                "type": "query",
+                "description": "The access level of the deposit."
+              },
+              {
+                "name": "additionalFieldsFormId",
+                "value": "",
+                "type": "query",
+                "description": "The additional fields form ID used to generate the additional fields values."
+              },
+              {
+                "name": "additionalFieldsValues",
+                "value": "",
+                "type": "query",
+                "description": "Some eventual additional fields values generated through an additional fields form."
+              },
+              {
+                "name": "archiveTypeId",
+                "value": "",
+                "type": "query",
+                "description": "The archive type identifier of the deposit."
+              },
+              {
+                "name": "ark",
+                "value": "",
+                "type": "query",
+                "description": "The ARK Identifier of the deposit."
+              },
+              {
+                "name": "collectionBegin",
+                "value": "",
+                "type": "query",
+                "description": "The start date of the deposit for collecting data."
+              },
+              {
+                "name": "collectionEnd",
+                "value": "",
+                "type": "query",
+                "description": "The end date of the deposit for collecting data."
+              },
+              {
+                "name": "containsUpdatedMetadata",
+                "value": "",
+                "type": "query",
+                "description": "If the package contains updated metadata."
+              },
+              {
+                "name": "contentStructurePublic",
+                "value": "",
+                "type": "query",
+                "description": "If the archive structure content is public."
+              },
+              {
+                "name": "dataSensitivity",
+                "value": "",
+                "type": "query",
+                "description": "The data sensitivity of the deposit."
+              },
+              {
+                "name": "dataUsePolicy",
+                "value": "",
+                "type": "query",
+                "description": "The data use policy of the deposit."
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query",
+                "description": "The description of the deposit."
+              },
+              {
+                "name": "doi",
+                "value": "",
+                "type": "query",
+                "description": "The Digital Object Identifier (DOI) of the deposit."
+              },
+              {
+                "name": "isIdenticalTo",
+                "value": "",
+                "type": "query",
+                "description": "DOI indicates that Archive A is identical to B, used to register two separate instances of the same resource."
+              },
+              {
+                "name": "isObsoletedBy",
+                "value": "",
+                "type": "query",
+                "description": "DOI indicates A is replaced by B."
+              },
+              {
+                "name": "languageId",
+                "value": "",
+                "type": "query",
+                "description": "The language identifier of the deposit."
+              },
+              {
+                "name": "licenseId",
+                "value": "",
+                "type": "query",
+                "description": "The license identifier of the deposit."
+              },
+              {
+                "name": "metadataVersion",
+                "value": "",
+                "type": "query",
+                "description": "The metadata version of the deposit."
+              },
+              {
+                "name": "organizationalUnitId",
+                "value": "",
+                "type": "query",
+                "description": "The organizational unit identifier of the deposit."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "preparationId",
+                "value": "",
+                "type": "query",
+                "description": "The preparation identifier of the deposit."
+              },
+              {
+                "name": "preservationPolicyId",
+                "value": "",
+                "type": "query",
+                "description": "The preservation policy identifier of the deposit."
+              },
+              {
+                "name": "publicationDate",
+                "value": "",
+                "type": "query",
+                "description": "The publication date of the deposit."
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "sipId",
+                "value": "",
+                "type": "query",
+                "description": "The generated SIP identifier of the deposit."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status of the deposit."
+              },
+              {
+                "name": "statusMessage",
+                "value": "",
+                "type": "query",
+                "description": "The detailed message related to the deposit status."
+              },
+              {
+                "name": "submissionPolicyId",
+                "value": "",
+                "type": "query",
+                "description": "The submission policy identifier of the deposit."
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "The title of the deposit."
+              },
+              {
+                "name": "lightVersion",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_submission-agreements_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/submission-agreements",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_submission-agreements_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/submission-agreements",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_submission-agreements_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/submission-agreements",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_subject-areas_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/subject-areas",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_subject-areas_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/subject-areas",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_subject-areas_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/subject-areas",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_licenses_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/licenses",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_licenses_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/licenses",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_licenses_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/licenses",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data",
+            "params": [
+              {
+                "name": "complianceLevel",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataCategory",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fileName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fileSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "finalData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "relativeLocation",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              },
+              {
+                "name": "sourceData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "statusMessage",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_by_id_validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/:id/validate",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_by_id_resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/:id/resume",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_validate",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/validate",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/resume",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_resume-all_resumeList",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/resume-all",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_delete-folder",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/delete-folder",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "relativeLocation",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_contributors_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/contributors",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_contributors_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/contributors",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_contributors_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/contributors",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_aip_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/aip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_aip_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/aip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_aip_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/aip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_upload",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/upload",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "folder",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metadataType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "checksumMd5",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "checksumMd5Origin",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "checksumSha1",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "checksumSha1Origin",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "checksumSha256",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "checksumSha256Origin",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "checksumSha512",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "checksumSha512Origin",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "checksumCrc32",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "checksumCrc32Origin",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_upload-metadata",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/upload-metadata",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_upload-archive",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/upload-archive",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "category",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "type",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metadataType",
+                "value": "",
+                "type": "query"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_submit-for-approval",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/submit-for-approval",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_start-metadata-upgrade_putInMetadataUpgrading",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/start-metadata-upgrade",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_start-metadata-editing_putInMetadataEditing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/start-metadata-editing",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_reserve-doi",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/reserve-doi",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_reject",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/reject",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "reason",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_put-in-error",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/put-in-error",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_generate-anonymized-deposit-page",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/generate-anonymized-deposit-page",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_enable-revision",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/enable-revision",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_clean",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/clean",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_check-submission-agreement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/check-submission-agreement",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_check-compliance",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/check-compliance",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_cancel-metadata-editing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/cancel-metadata-editing",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_approve",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/approve",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_approve-submission-agreement",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/approve-submission-agreement",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_search_advancedSearch_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/search",
+            "params": [
+              {
+                "name": "access",
+                "value": "",
+                "type": "query",
+                "description": "The access level of the deposit."
+              },
+              {
+                "name": "additionalFieldsFormId",
+                "value": "",
+                "type": "query",
+                "description": "The additional fields form ID used to generate the additional fields values."
+              },
+              {
+                "name": "additionalFieldsValues",
+                "value": "",
+                "type": "query",
+                "description": "Some eventual additional fields values generated through an additional fields form."
+              },
+              {
+                "name": "archiveTypeId",
+                "value": "",
+                "type": "query",
+                "description": "The archive type identifier of the deposit."
+              },
+              {
+                "name": "ark",
+                "value": "",
+                "type": "query",
+                "description": "The ARK Identifier of the deposit."
+              },
+              {
+                "name": "collectionBegin",
+                "value": "",
+                "type": "query",
+                "description": "The start date of the deposit for collecting data."
+              },
+              {
+                "name": "collectionEnd",
+                "value": "",
+                "type": "query",
+                "description": "The end date of the deposit for collecting data."
+              },
+              {
+                "name": "containsUpdatedMetadata",
+                "value": "",
+                "type": "query",
+                "description": "If the package contains updated metadata."
+              },
+              {
+                "name": "contentStructurePublic",
+                "value": "",
+                "type": "query",
+                "description": "If the archive structure content is public."
+              },
+              {
+                "name": "dataSensitivity",
+                "value": "",
+                "type": "query",
+                "description": "The data sensitivity of the deposit."
+              },
+              {
+                "name": "dataUsePolicy",
+                "value": "",
+                "type": "query",
+                "description": "The data use policy of the deposit."
+              },
+              {
+                "name": "description",
+                "value": "",
+                "type": "query",
+                "description": "The description of the deposit."
+              },
+              {
+                "name": "doi",
+                "value": "",
+                "type": "query",
+                "description": "The Digital Object Identifier (DOI) of the deposit."
+              },
+              {
+                "name": "isIdenticalTo",
+                "value": "",
+                "type": "query",
+                "description": "DOI indicates that Archive A is identical to B, used to register two separate instances of the same resource."
+              },
+              {
+                "name": "isObsoletedBy",
+                "value": "",
+                "type": "query",
+                "description": "DOI indicates A is replaced by B."
+              },
+              {
+                "name": "languageId",
+                "value": "",
+                "type": "query",
+                "description": "The language identifier of the deposit."
+              },
+              {
+                "name": "licenseId",
+                "value": "",
+                "type": "query",
+                "description": "The license identifier of the deposit."
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metadataVersion",
+                "value": "",
+                "type": "query",
+                "description": "The metadata version of the deposit."
+              },
+              {
+                "name": "organizationalUnitId",
+                "value": "",
+                "type": "query",
+                "description": "The organizational unit identifier of the deposit."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "preparationId",
+                "value": "",
+                "type": "query",
+                "description": "The preparation identifier of the deposit."
+              },
+              {
+                "name": "preservationPolicyId",
+                "value": "",
+                "type": "query",
+                "description": "The preservation policy identifier of the deposit."
+              },
+              {
+                "name": "publicationDate",
+                "value": "",
+                "type": "query",
+                "description": "The publication date of the deposit."
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "sipId",
+                "value": "",
+                "type": "query",
+                "description": "The generated SIP identifier of the deposit."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query",
+                "description": "The status of the deposit."
+              },
+              {
+                "name": "statusMessage",
+                "value": "",
+                "type": "query",
+                "description": "The detailed message related to the deposit status."
+              },
+              {
+                "name": "submissionPolicyId",
+                "value": "",
+                "type": "query",
+                "description": "The submission policy identifier of the deposit."
+              },
+              {
+                "name": "title",
+                "value": "",
+                "type": "query",
+                "description": "The title of the deposit."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_search_advancedSearch_post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/search",
+            "params": [
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip",
+            "params": [
+              {
+                "name": "aipId",
+                "value": "",
+                "type": "query",
+                "description": "The generated AIP identifier of the SIP."
+              },
+              {
+                "name": "depositId",
+                "value": "",
+                "type": "query",
+                "description": "The source deposit identifier of the SIP."
+              },
+              {
+                "name": "dispositionApproval",
+                "value": "",
+                "type": "query",
+                "description": "If the approval step the AIP disposal is mandatory."
+              },
+              {
+                "name": "mainStorage",
+                "value": "",
+                "type": "query",
+                "description": "The main storage indice in configuration if the SIP. O means default storage (first one)."
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "publicationDate",
+                "value": "",
+                "type": "query",
+                "description": "The publication date of the deposit."
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "retention",
+                "value": "",
+                "type": "query",
+                "description": "The retention duration in days of the AIP: O means forever."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              },
+              {
+                "name": "submissionPolicyId",
+                "value": "",
+                "type": "query",
+                "description": "The submission policy identifier of the SIP."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/ingest/sip",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/ingest/sip",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_data_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/data",
+            "params": [
+              {
+                "name": "complianceLevel",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataCategory",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fileName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fileSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "finalData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "relativeLocation",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              },
+              {
+                "name": "sourceData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "statusMessage",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_data_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/data",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_data_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/data",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_data_by_id_resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/data/:id/resume",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_data_by_id_put-in-error",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/data/:id/put-in-error",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_aip_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/aip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_aip_create",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/aip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_aip_deleteList",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/aip",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_upload_sendFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id/upload",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "multipart-form",
+              "data": [
+                {
+                  "name": "file",
+                  "type": "text",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_start-metadata-upgrade_putInMetadataUpgrading",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id/start-metadata-upgrade",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_start-metadata-editing_putInMetadataEditing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id/start-metadata-editing",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_resume",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id/resume",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_resubmit",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id/resubmit",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_put-in-error",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id/put-in-error",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_clean",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id/clean",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_search_advancedSearch_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/search",
+            "params": [
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_search_advancedSearch_post",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://access.yareta.unige.ch/ingest/sip/search",
+            "params": [
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_submission-agreements_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/submission-agreements/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_submission-agreements_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/submission-agreements/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_submission-agreements_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/submission-agreements/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_subject-areas_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/subject-areas/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_subject-areas_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/subject-areas/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_subject-areas_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/subject-areas/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_licenses_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/licenses/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_licenses_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/licenses/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_licenses_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/licenses/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_contributors_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/contributors/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_contributors_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/contributors/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_contributors_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/contributors/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_aip_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_aip_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_aip_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_data_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/data/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_data_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/data/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_data_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/data/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_aip_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_aip_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_aip_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/aip/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_update",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_delete",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_home",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest"
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_by_id_history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/:id/history",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_by_id_download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/:id/download",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_by_id_download-token_getTokenForDepositDataFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/:id/download-token",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_search_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/search",
+            "params": [
+              {
+                "name": "complianceLevel",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataCategory",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fileName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fileSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "finalData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "match",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "relativeLocation",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "search",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              },
+              {
+                "name": "sourceData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "statusMessage",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_list-status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/list-status",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_list-folders",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/list-folders",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_data_list-current-status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:parentid/data/list-current-status",
+            "params": [
+              {
+                "name": "complianceLevel",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataCategory",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "dataType",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fileName",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "fileSize",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "finalData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "relativeLocation",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "resId",
+                "value": "",
+                "type": "query",
+                "description": "The identifier of the resource. The default format is a Universally Unique IDentifier (UUID)."
+              },
+              {
+                "name": "sourceData",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "status",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "statusMessage",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_sip-package_getSIP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/sip-package",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_sip-package_deleteSIP",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/sip-package",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/history",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_download_getFiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "folder",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_download-token_getTokenForDeposit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/download-token",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_by_id_download-anonymized-deposit",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/:id/download-anonymized-deposit",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_schema",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/schema",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Download profile of a package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/profile",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a binary stream (file)."
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_list-status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/list-status"
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_list-metadata-versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/list-metadata-versions"
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_list-ignore-files_ignoreList",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/list-ignore-files"
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_list-exclude-files_excludeList",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/list-exclude-files"
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_list-data-types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/list-data-types",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_list-data-categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/list-data-categories"
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_deposits_list-accesses",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/deposits/list-accesses"
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_contributors_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/contributors",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_contributors_by_id_deposits_list",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/contributors/:parentid/deposits",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "filterItem",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Zero-based page index (0..N)"
+              },
+              {
+                "name": "size",
+                "value": "",
+                "type": "query",
+                "description": "The size of the page to be returned"
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_contributors_by_id_deposits_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/contributors/:parentid/deposits/:id",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "preingest_contributors_by_id_get",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/preingest/contributors/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_home",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest"
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_data_by_id_history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/data/:id/history",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_data_by_id_download",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/data/:id/download",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_data_by_id_download-token_getTokenForSipDataFile",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/data/:id/download-token",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_data_list-status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:parentid/data/list-status",
+            "params": [
+              {
+                "name": "parentid",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_history",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id/history",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "pageable",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_download_getFiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id/download",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_download-token_getTokenForSip",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id/download-token",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_aip-package_getAIP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id/aip-package",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_by_id_aip-package_deleteAIP",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://access.yareta.unige.ch/ingest/sip/:id/aip-package",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "Download schema of a SIP",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/schema",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a binary stream (file) for the given SIP ID."
+        },
+        {
+          "info": {
+            "name": "Download profile of a package",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/profile",
+            "params": [
+              {
+                "name": "version",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Returns a binary stream (file)."
+        },
+        {
+          "info": {
+            "name": "ingest_sip_list-status",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/list-status"
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_list-metadata-versions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/list-metadata-versions"
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_list-data-types",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/list-data-types",
+            "params": [
+              {
+                "name": "category",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          }
+        },
+        {
+          "info": {
+            "name": "ingest_sip_list-data-categories",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://access.yareta.unige.ch/ingest/sip/list-data-categories"
+          }
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

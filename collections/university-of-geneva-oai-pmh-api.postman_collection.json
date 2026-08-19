@@ -1,0 +1,2220 @@
+{
+  "item": [
+    {
+      "id": "0f9a089c-754d-4fa2-b74c-4875a395b184",
+      "name": "OAI-PMH",
+      "description": {
+        "content": "OAI-PMH provider information and metadata formats.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "cbad9bde-6548-414e-9ed5-a1e75430aebe",
+          "name": "oai-info oai-sets list",
+          "request": {
+            "name": "oai-info oai-sets list",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-sets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Zero-based page index (0..N)"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "20",
+                  "description": "The size of the page to be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "5b4b80d5-c504-42ae-b39a-78ac642af348",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-sets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"string\",\n      \"hreflang\": \"string\",\n      \"title\": \"string\",\n      \"type\": \"string\",\n      \"deprecation\": \"string\",\n      \"profile\": \"string\",\n      \"name\": \"string\",\n      \"templated\": true\n    },\n    \"key_1\": {\n      \"href\": \"string\",\n      \"hreflang\": \"string\",\n      \"title\": \"string\",\n      \"type\": \"string\",\n      \"deprecation\": \"string\",\n      \"profile\": \"string\",\n      \"name\": \"string\",\n      \"templated\": true\n    }\n  },\n  \"_data\": [\n    {\n      \"creation\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"2006-05-05T04:42:30.015Z\"\n      },\n      \"lastUpdate\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"2024-05-03T07:21:10.976Z\"\n      },\n      \"resId\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": true,\n      \"name\": \"string\",\n      \"query\": \"string\",\n      \"spec\": \"string\",\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"string\",\n          \"hreflang\": \"string\",\n          \"title\": \"string\",\n          \"type\": \"string\",\n          \"deprecation\": \"string\",\n          \"profile\": \"string\",\n          \"name\": \"string\",\n          \"templated\": true\n        }\n      }\n    },\n    {\n      \"creation\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1949-02-03T06:15:22.174Z\"\n      },\n      \"lastUpdate\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1973-01-11T20:03:28.148Z\"\n      },\n      \"resId\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": true,\n      \"name\": \"string\",\n      \"query\": \"string\",\n      \"spec\": \"string\",\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"string\",\n          \"hreflang\": \"string\",\n          \"title\": \"string\",\n          \"type\": \"string\",\n          \"deprecation\": \"string\",\n          \"profile\": \"string\",\n          \"name\": \"string\",\n          \"templated\": true\n        }\n      }\n    }\n  ],\n  \"_facets\": [\n    {\n      \"name\": \"string\",\n      \"field\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": 8333\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 2511\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"field\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": 4672\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 8407\n        }\n      ]\n    }\n  ],\n  \"_page\": {\n    \"currentPage\": 12,\n    \"sizePage\": 1598,\n    \"totalItems\": 921,\n    \"totalPages\": 8609\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "13332a95-48c2-4105-b718-c55544885e2b",
+          "name": "oai-info oai-sets create",
+          "request": {
+            "name": "oai-info oai-sets create",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-sets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"creation\": {},\n  \"lastUpdate\": {},\n  \"resId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"query\": \"<string>\",\n  \"spec\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "3ecbbabd-b262-4d5c-8d28-aafeb65d4f56",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-sets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"creation\": {},\n  \"lastUpdate\": {},\n  \"resId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"query\": \"<string>\",\n  \"spec\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_1\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_2\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_3\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"creation\": {\n    \"fullName\": \"string\",\n    \"who\": \"string\",\n    \"when\": \"1982-04-11T05:22:10.936Z\"\n  },\n  \"lastUpdate\": {\n    \"fullName\": \"string\",\n    \"who\": \"string\",\n    \"when\": \"1958-05-24T18:05:08.123Z\"\n  },\n  \"resId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"query\": \"<string>\",\n  \"spec\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_1\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_2\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5888ca12-abd7-4aec-a5c0-8acf7f54ca23",
+          "name": "oai-info oai-sets delete List",
+          "request": {
+            "name": "oai-info oai-sets delete List",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-sets"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cef26e2c-161f-4873-97f7-20d80cdaa871",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-sets"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b5d6fe54-b9c8-4308-9952-f05316639f96",
+          "name": "oai-info oai-sets search advanced Search get",
+          "request": {
+            "name": "oai-info oai-sets search advanced Search get",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-sets",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "match",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Zero-based page index (0..N)"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "20",
+                  "description": "The size of the page to be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "a866bfbb-4df3-4ecb-b565-6ea55aee78a0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-sets",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  },\n  \"_data\": [\n    {\n      \"creation\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"2010-08-10T02:06:35.082Z\"\n      },\n      \"lastUpdate\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"2011-03-31T21:08:17.052Z\"\n      },\n      \"resId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"query\": \"<string>\",\n      \"spec\": \"<string>\",\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        }\n      }\n    },\n    {\n      \"creation\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1992-07-23T11:13:22.281Z\"\n      },\n      \"lastUpdate\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1986-03-18T20:54:09.483Z\"\n      },\n      \"resId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"query\": \"<string>\",\n      \"spec\": \"<string>\",\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_1\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        }\n      }\n    }\n  ],\n  \"_facets\": [\n    {\n      \"name\": \"string\",\n      \"field\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": 6174\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 3069\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"field\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": 5917\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 8537\n        }\n      ]\n    }\n  ],\n  \"_page\": {\n    \"currentPage\": 8664,\n    \"sizePage\": 7661,\n    \"totalItems\": 9171,\n    \"totalPages\": 6279\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "71a90326-c466-4b1d-8a69-54b5455a44d7",
+          "name": "oai-info oai-sets search advanced Search post",
+          "request": {
+            "name": "oai-info oai-sets search advanced Search post",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-sets",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "match",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Zero-based page index (0..N)"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "20",
+                  "description": "The size of the page to be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"creation\": {},\n  \"lastUpdate\": {},\n  \"resId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"query\": \"<string>\",\n  \"spec\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bc58d5a0-bd42-4ca3-a70a-6b5f137e7904",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-sets",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"creation\": {},\n  \"lastUpdate\": {},\n  \"resId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"query\": \"<string>\",\n  \"spec\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_1\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_2\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_3\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  },\n  \"_data\": [\n    {\n      \"creation\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"2010-08-10T02:06:35.082Z\"\n      },\n      \"lastUpdate\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"2011-03-31T21:08:17.052Z\"\n      },\n      \"resId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"query\": \"<string>\",\n      \"spec\": \"<string>\",\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        }\n      }\n    },\n    {\n      \"creation\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1992-07-23T11:13:22.281Z\"\n      },\n      \"lastUpdate\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1986-03-18T20:54:09.483Z\"\n      },\n      \"resId\": \"<string>\",\n      \"description\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"name\": \"<string>\",\n      \"query\": \"<string>\",\n      \"spec\": \"<string>\",\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_1\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        }\n      }\n    }\n  ],\n  \"_facets\": [\n    {\n      \"name\": \"string\",\n      \"field\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": 6174\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 3069\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"field\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": 5917\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 8537\n        }\n      ]\n    }\n  ],\n  \"_page\": {\n    \"currentPage\": 8664,\n    \"sizePage\": 7661,\n    \"totalItems\": 9171,\n    \"totalPages\": 6279\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "36f863d9-60c6-4174-a221-accca03f456b",
+          "name": "oai-info oai-provider oai process",
+          "request": {
+            "name": "oai-info oai-provider oai process",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-provider",
+                "oai"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "verb",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "identifier",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "metadataPrefix",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "from",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "until",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "set",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "resumptionToken",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "smartView",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6b70408d-6ffa-4ff7-b6f5-5cd8d2c2ac71",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-provider",
+                    "oai"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "verb",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "identifier",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "metadataPrefix",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "from",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "until",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "set",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "resumptionToken",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "smartView",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eb99f616-19b8-4040-b420-14ad948f8075",
+          "name": "oai-info oai-provider oai process Post",
+          "request": {
+            "name": "oai-info oai-provider oai process Post",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-provider",
+                "oai"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "key_0",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "empty",
+                  "value": "<boolean>"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "a9ee50d1-922a-43df-912f-b34d4f572fa8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-provider",
+                    "oai"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "empty",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "key": "key_0",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bfbd4377-8c6d-4604-ada1-143f0966a2d1",
+          "name": "oai-info oai-metadata-prefixes list",
+          "request": {
+            "name": "oai-info oai-metadata-prefixes list",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-metadata-prefixes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Zero-based page index (0..N)"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "20",
+                  "description": "The size of the page to be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "2d3a8608-4b7e-4374-9bca-ce1849872119",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-metadata-prefixes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  },\n  \"_data\": [\n    {\n      \"creation\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1986-08-15T06:39:34.210Z\"\n      },\n      \"lastUpdate\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"2016-01-05T22:31:43.567Z\"\n      },\n      \"resId\": \"string\",\n      \"prefix\": \"string\",\n      \"schemaUrl\": \"http://FseP.zosfZ35MFZsc\",\n      \"schemaNamespace\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": true,\n      \"reference\": true,\n      \"xmlClass\": \"string\",\n      \"metadataSchema\": \"string\",\n      \"metadataXmlTransformation\": \"string\",\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_1\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_2\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_3\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        }\n      }\n    },\n    {\n      \"creation\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1950-03-05T06:38:22.179Z\"\n      },\n      \"lastUpdate\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1949-05-01T16:32:36.917Z\"\n      },\n      \"resId\": \"string\",\n      \"prefix\": \"string\",\n      \"schemaUrl\": \"https://oCiaSChheZ.gxrhP7tPR1ov4n3eXDK0IoRfFjP-Q.t3oSUeHKhvwx8P+hBseklIdR0g-\",\n      \"schemaNamespace\": \"string\",\n      \"name\": \"string\",\n      \"description\": \"string\",\n      \"enabled\": true,\n      \"reference\": true,\n      \"xmlClass\": \"string\",\n      \"metadataSchema\": \"string\",\n      \"metadataXmlTransformation\": \"string\",\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_1\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        }\n      }\n    }\n  ],\n  \"_facets\": [\n    {\n      \"name\": \"string\",\n      \"field\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": 5710\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 1501\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"field\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": 3671\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 8090\n        }\n      ]\n    }\n  ],\n  \"_page\": {\n    \"currentPage\": 3040,\n    \"sizePage\": 4890,\n    \"totalItems\": 5640,\n    \"totalPages\": 5112\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "cbb448c4-6443-442f-838f-7eebb2bb82c9",
+          "name": "oai-info oai-metadata-prefixes create",
+          "request": {
+            "name": "oai-info oai-metadata-prefixes create",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-metadata-prefixes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"creation\": {},\n  \"lastUpdate\": {},\n  \"resId\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"schemaUrl\": \"<uri>\",\n  \"schemaNamespace\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"reference\": \"<boolean>\",\n  \"xmlClass\": \"<string>\",\n  \"metadataSchema\": \"<string>\",\n  \"metadataXmlTransformation\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_1\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "658007de-7e97-4e42-89e4-d034335ee79f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-metadata-prefixes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"creation\": {},\n  \"lastUpdate\": {},\n  \"resId\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"schemaUrl\": \"<uri>\",\n  \"schemaNamespace\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"reference\": \"<boolean>\",\n  \"xmlClass\": \"<string>\",\n  \"metadataSchema\": \"<string>\",\n  \"metadataXmlTransformation\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"creation\": {\n    \"fullName\": \"string\",\n    \"who\": \"string\",\n    \"when\": \"2019-04-01T15:19:03.431Z\"\n  },\n  \"lastUpdate\": {\n    \"fullName\": \"string\",\n    \"who\": \"string\",\n    \"when\": \"2002-12-02T23:33:09.997Z\"\n  },\n  \"resId\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"schemaUrl\": \"<uri>\",\n  \"schemaNamespace\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"reference\": \"<boolean>\",\n  \"xmlClass\": \"<string>\",\n  \"metadataSchema\": \"<string>\",\n  \"metadataXmlTransformation\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_1\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f50197b5-2ffd-466b-af94-ee9adb298280",
+          "name": "oai-info oai-metadata-prefixes delete List",
+          "request": {
+            "name": "oai-info oai-metadata-prefixes delete List",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-metadata-prefixes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "body": {
+              "mode": "raw",
+              "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "43a200d0-3c32-4521-979b-2850fc7f35af",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-metadata-prefixes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "method": "DELETE",
+                "body": {
+                  "mode": "raw",
+                  "raw": "[\n  \"<string>\",\n  \"<string>\"\n]",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "90291eba-d6c5-4194-b6ef-e65887f4e6a9",
+          "name": "oai-info oai-metadata-prefixes search advanced Search get",
+          "request": {
+            "name": "oai-info oai-metadata-prefixes search advanced Search get",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-metadata-prefixes",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "search",
+                  "value": "<string>",
+                  "description": "(Required) "
+                },
+                {
+                  "disabled": false,
+                  "key": "match",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Zero-based page index (0..N)"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "20",
+                  "description": "The size of the page to be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "b46df65c-11f1-42da-93f9-5a18a59ece66",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-metadata-prefixes",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "search",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  },\n  \"_data\": [\n    {\n      \"creation\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1998-12-29T05:06:42.761Z\"\n      },\n      \"lastUpdate\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1977-05-17T08:32:28.140Z\"\n      },\n      \"resId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"schemaUrl\": \"<uri>\",\n      \"schemaNamespace\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"reference\": \"<boolean>\",\n      \"xmlClass\": \"<string>\",\n      \"metadataSchema\": \"<string>\",\n      \"metadataXmlTransformation\": \"<string>\",\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_1\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        }\n      }\n    },\n    {\n      \"creation\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1980-01-31T06:31:27.888Z\"\n      },\n      \"lastUpdate\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1983-04-22T22:14:17.780Z\"\n      },\n      \"resId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"schemaUrl\": \"<uri>\",\n      \"schemaNamespace\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"reference\": \"<boolean>\",\n      \"xmlClass\": \"<string>\",\n      \"metadataSchema\": \"<string>\",\n      \"metadataXmlTransformation\": \"<string>\",\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_1\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_2\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_3\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        }\n      }\n    }\n  ],\n  \"_facets\": [\n    {\n      \"name\": \"string\",\n      \"field\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": 4950\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 8981\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"field\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": 3958\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 7227\n        }\n      ]\n    }\n  ],\n  \"_page\": {\n    \"currentPage\": 5959,\n    \"sizePage\": 2733,\n    \"totalItems\": 4953,\n    \"totalPages\": 1093\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5d6fd730-52f8-4872-9953-aab8097fbc26",
+          "name": "oai-info oai-metadata-prefixes search advanced Search post",
+          "request": {
+            "name": "oai-info oai-metadata-prefixes search advanced Search post",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-metadata-prefixes",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "match",
+                  "value": "<string>"
+                },
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "0",
+                  "description": "Zero-based page index (0..N)"
+                },
+                {
+                  "disabled": false,
+                  "key": "size",
+                  "value": "20",
+                  "description": "The size of the page to be returned"
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Sorting criteria in the format: property,(asc|desc). Default sort order is ascending. Multiple sort criteria are supported."
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "POST",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"creation\": {},\n  \"lastUpdate\": {},\n  \"resId\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"schemaUrl\": \"<uri>\",\n  \"schemaNamespace\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"reference\": \"<boolean>\",\n  \"xmlClass\": \"<string>\",\n  \"metadataSchema\": \"<string>\",\n  \"metadataXmlTransformation\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_1\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9caa0998-67c3-4fdf-8658-d9376cec258c",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-metadata-prefixes",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "match",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "page",
+                      "value": "0"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"creation\": {},\n  \"lastUpdate\": {},\n  \"resId\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"schemaUrl\": \"<uri>\",\n  \"schemaNamespace\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"reference\": \"<boolean>\",\n  \"xmlClass\": \"<string>\",\n  \"metadataSchema\": \"<string>\",\n  \"metadataXmlTransformation\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  },\n  \"_data\": [\n    {\n      \"creation\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1998-12-29T05:06:42.761Z\"\n      },\n      \"lastUpdate\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1977-05-17T08:32:28.140Z\"\n      },\n      \"resId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"schemaUrl\": \"<uri>\",\n      \"schemaNamespace\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"reference\": \"<boolean>\",\n      \"xmlClass\": \"<string>\",\n      \"metadataSchema\": \"<string>\",\n      \"metadataXmlTransformation\": \"<string>\",\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_1\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        }\n      }\n    },\n    {\n      \"creation\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1980-01-31T06:31:27.888Z\"\n      },\n      \"lastUpdate\": {\n        \"fullName\": \"string\",\n        \"who\": \"string\",\n        \"when\": \"1983-04-22T22:14:17.780Z\"\n      },\n      \"resId\": \"<string>\",\n      \"prefix\": \"<string>\",\n      \"schemaUrl\": \"<uri>\",\n      \"schemaNamespace\": \"<string>\",\n      \"name\": \"<string>\",\n      \"description\": \"<string>\",\n      \"enabled\": \"<boolean>\",\n      \"reference\": \"<boolean>\",\n      \"xmlClass\": \"<string>\",\n      \"metadataSchema\": \"<string>\",\n      \"metadataXmlTransformation\": \"<string>\",\n      \"_links\": {\n        \"key_0\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_1\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_2\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        },\n        \"key_3\": {\n          \"href\": \"<string>\",\n          \"hreflang\": \"<string>\",\n          \"title\": \"<string>\",\n          \"type\": \"<string>\",\n          \"deprecation\": \"<string>\",\n          \"profile\": \"<string>\",\n          \"name\": \"<string>\",\n          \"templated\": \"<boolean>\"\n        }\n      }\n    }\n  ],\n  \"_facets\": [\n    {\n      \"name\": \"string\",\n      \"field\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": 4950\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 8981\n        }\n      ]\n    },\n    {\n      \"name\": \"string\",\n      \"field\": \"string\",\n      \"values\": [\n        {\n          \"value\": \"string\",\n          \"count\": 3958\n        },\n        {\n          \"value\": \"string\",\n          \"count\": 7227\n        }\n      ]\n    }\n  ],\n  \"_page\": {\n    \"currentPage\": 5959,\n    \"sizePage\": 2733,\n    \"totalItems\": 4953,\n    \"totalPages\": 1093\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c9efb76c-c9b8-4282-b565-b1830e2c4236",
+          "name": "oai-info oai-sets by id get",
+          "request": {
+            "name": "oai-info oai-sets by id get",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-sets",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "9d76ce4a-74b4-4bf7-a3b9-81bb0bdab2f1",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-sets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"creation\": {\n    \"fullName\": \"string\",\n    \"who\": \"string\",\n    \"when\": \"1982-04-11T05:22:10.936Z\"\n  },\n  \"lastUpdate\": {\n    \"fullName\": \"string\",\n    \"who\": \"string\",\n    \"when\": \"1958-05-24T18:05:08.123Z\"\n  },\n  \"resId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"query\": \"<string>\",\n  \"spec\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_1\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_2\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "ba42e0bc-d9c9-48d1-9178-9f6597a7c8a5",
+          "name": "oai-info oai-sets by id delete",
+          "request": {
+            "name": "oai-info oai-sets by id delete",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-sets",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "1dab2916-3197-430b-acff-fee121c3c23e",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-sets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "3c5c8835-e99d-4d0a-985a-6e45f4f057c8",
+          "name": "oai-info oai-sets by id update",
+          "request": {
+            "name": "oai-info oai-sets by id update",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-sets",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "5949013d-3153-4f9a-ba5d-8df9be405eb9",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-sets",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": 243.89339560335733\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"creation\": {\n    \"fullName\": \"string\",\n    \"who\": \"string\",\n    \"when\": \"1982-04-11T05:22:10.936Z\"\n  },\n  \"lastUpdate\": {\n    \"fullName\": \"string\",\n    \"who\": \"string\",\n    \"when\": \"1958-05-24T18:05:08.123Z\"\n  },\n  \"resId\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"query\": \"<string>\",\n  \"spec\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_1\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_2\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "eef15b0f-026a-427a-90c4-b1c070dc3b88",
+          "name": "oai-info oai-metadata-prefixes by id get",
+          "request": {
+            "name": "oai-info oai-metadata-prefixes by id get",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-metadata-prefixes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET"
+          },
+          "response": [
+            {
+              "id": "9ea6e3fc-cbeb-43f2-b85e-a5fd1d74f3b0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-metadata-prefixes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"creation\": {\n    \"fullName\": \"string\",\n    \"who\": \"string\",\n    \"when\": \"2019-04-01T15:19:03.431Z\"\n  },\n  \"lastUpdate\": {\n    \"fullName\": \"string\",\n    \"who\": \"string\",\n    \"when\": \"2002-12-02T23:33:09.997Z\"\n  },\n  \"resId\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"schemaUrl\": \"<uri>\",\n  \"schemaNamespace\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"reference\": \"<boolean>\",\n  \"xmlClass\": \"<string>\",\n  \"metadataSchema\": \"<string>\",\n  \"metadataXmlTransformation\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_1\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7a6dd7f5-9ff2-488a-a0ad-3ff4d6f1800b",
+          "name": "oai-info oai-metadata-prefixes by id delete",
+          "request": {
+            "name": "oai-info oai-metadata-prefixes by id delete",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-metadata-prefixes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE"
+          },
+          "response": [
+            {
+              "id": "71669a4d-a2e5-465b-91ad-c89b626eb79f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-metadata-prefixes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "a5c3d08e-637c-4ec5-8333-62e66a184880",
+          "name": "oai-info oai-metadata-prefixes by id update",
+          "request": {
+            "name": "oai-info oai-metadata-prefixes by id update",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-metadata-prefixes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "PATCH",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"key_0\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cc0a76a2-3bc9-4f29-811f-103b451c1b95",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-metadata-prefixes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"key_0\": 243.89339560335733\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"creation\": {\n    \"fullName\": \"string\",\n    \"who\": \"string\",\n    \"when\": \"2019-04-01T15:19:03.431Z\"\n  },\n  \"lastUpdate\": {\n    \"fullName\": \"string\",\n    \"who\": \"string\",\n    \"when\": \"2002-12-02T23:33:09.997Z\"\n  },\n  \"resId\": \"<string>\",\n  \"prefix\": \"<string>\",\n  \"schemaUrl\": \"<uri>\",\n  \"schemaNamespace\": \"<string>\",\n  \"name\": \"<string>\",\n  \"description\": \"<string>\",\n  \"enabled\": \"<boolean>\",\n  \"reference\": \"<boolean>\",\n  \"xmlClass\": \"<string>\",\n  \"metadataSchema\": \"<string>\",\n  \"metadataXmlTransformation\": \"<string>\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_1\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "76844e60-6585-42de-a3fd-f346b43d9b33",
+          "name": "oai-info home",
+          "request": {
+            "name": "oai-info home",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "f417b47a-3a6b-4ddc-8a02-3e2e5ec978bb",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"name\": \"string\",\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "01dd54f5-ec94-4674-aab5-9d4921cec2ac",
+          "name": "oai-info oai-provider status",
+          "request": {
+            "name": "oai-info oai-provider status",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-provider"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "898b00dc-d5fa-4e35-9a16-43feb84bb347",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-provider"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "{\n  \"oai\": {\n    \"responseDate\": \"1955-04-30T09:16:05.476Z\",\n    \"request\": {\n      \"value\": \"string\",\n      \"verb\": \"GET_RECORD\",\n      \"identifier\": \"string\",\n      \"metadataPrefix\": \"string\",\n      \"from\": \"string\",\n      \"until\": \"string\",\n      \"set\": \"string\",\n      \"resumptionToken\": \"string\"\n    },\n    \"error\": [\n      {\n        \"value\": \"string\",\n        \"code\": \"ID_DOES_NOT_EXIST\"\n      },\n      {\n        \"value\": \"string\",\n        \"code\": \"BAD_VERB\"\n      }\n    ],\n    \"identify\": {\n      \"repositoryName\": \"string\",\n      \"baseURL\": \"string\",\n      \"protocolVersion\": \"string\",\n      \"adminEmail\": [\n        \"string\",\n        \"string\"\n      ],\n      \"earliestDatestamp\": \"string\",\n      \"deletedRecord\": \"TRANSIENT\",\n      \"granularity\": \"YYYY_MM_DD\",\n      \"compression\": [\n        \"string\",\n        \"string\"\n      ],\n      \"description\": [\n        {\n          \"any\": \"\"\n        },\n        {\n          \"any\": \"\"\n        }\n      ]\n    },\n    \"listMetadataFormats\": {\n      \"metadataFormat\": [\n        {\n          \"metadataPrefix\": \"string\",\n          \"schema\": \"string\",\n          \"metadataNamespace\": \"string\"\n        },\n        {\n          \"metadataPrefix\": \"string\",\n          \"schema\": \"string\",\n          \"metadataNamespace\": \"string\"\n        }\n      ]\n    },\n    \"listSets\": {\n      \"set\": [\n        {\n          \"setSpec\": \"string\",\n          \"setName\": \"string\",\n          \"setDescription\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"setSpec\": \"string\",\n          \"setName\": \"string\",\n          \"setDescription\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"resumptionToken\": {\n        \"value\": \"string\",\n        \"expirationDate\": \"1952-10-10T08:02:15.920Z\",\n        \"completeListSize\": 8038,\n        \"cursor\": 5073\n      }\n    },\n    \"getRecord\": {\n      \"record\": {\n        \"header\": {\n          \"identifier\": \"string\",\n          \"datestamp\": \"string\",\n          \"setSpec\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ],\n          \"status\": \"DELETED\"\n        },\n        \"metadata\": {\n          \"creation\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"lastUpdate\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          },\n          \"resId\": \"string\",\n          \"description\": \"string\",\n          \"metadataFormat\": \"JSON\",\n          \"metadataSchema\": \"string\",\n          \"name\": \"string\",\n          \"url\": \"http://JBaKluwBAMyxxXNMxcUAkOZBPaGlvT.zrmmzQE58FLfwoxO-3D4Urw8+IKqHJSI\",\n          \"version\": \"string\",\n          \"fullName\": \"string\",\n          \"_links\": {\n            \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n          }\n        },\n        \"about\": [\n          {\n            \"any\": \"\"\n          },\n          {\n            \"any\": \"\"\n          }\n        ]\n      }\n    },\n    \"listIdentifiers\": {\n      \"header\": [\n        {\n          \"identifier\": \"string\",\n          \"datestamp\": \"string\",\n          \"setSpec\": [\n            \"string\",\n            \"string\"\n          ],\n          \"status\": \"DELETED\"\n        },\n        {\n          \"identifier\": \"string\",\n          \"datestamp\": \"string\",\n          \"setSpec\": [\n            \"string\",\n            \"string\"\n          ],\n          \"status\": \"DELETED\"\n        }\n      ],\n      \"resumptionToken\": {\n        \"value\": \"string\",\n        \"expirationDate\": \"2015-06-25T08:09:40.240Z\",\n        \"completeListSize\": 5004,\n        \"cursor\": 8303\n      }\n    },\n    \"listRecords\": {\n      \"record\": [\n        {\n          \"header\": {\n            \"identifier\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"datestamp\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"setSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"metadata\": {\n            \"creation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastUpdate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"metadataFormat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"metadataSchema\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fullName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"_links\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"about\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        },\n        {\n          \"header\": {\n            \"identifier\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"datestamp\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"setSpec\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"status\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"metadata\": {\n            \"creation\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"lastUpdate\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"resId\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"description\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"metadataFormat\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"metadataSchema\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"name\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"url\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"version\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"fullName\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            \"_links\": {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          },\n          \"about\": [\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            },\n            {\n              \"value\": \"<Error: Too many levels of nesting to fake this schema>\"\n            }\n          ]\n        }\n      ],\n      \"resumptionToken\": {\n        \"value\": \"string\",\n        \"expirationDate\": \"2001-10-07T00:35:55.882Z\",\n        \"completeListSize\": 4937,\n        \"cursor\": 2923\n      }\n    }\n  },\n  \"_links\": {\n    \"key_0\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    },\n    \"key_1\": {\n      \"href\": \"<string>\",\n      \"hreflang\": \"<string>\",\n      \"title\": \"<string>\",\n      \"type\": \"<string>\",\n      \"deprecation\": \"<string>\",\n      \"profile\": \"<string>\",\n      \"name\": \"<string>\",\n      \"templated\": \"<boolean>\"\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "59ad6800-4b4e-4838-b69e-4a7c9cba6588",
+          "name": "oai-info oai-provider oai xsl",
+          "request": {
+            "name": "oai-info oai-provider oai xsl",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-provider",
+                "oai",
+                "xsl"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "smartView",
+                  "value": "<string>"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0e251d24-873a-42eb-ab65-c18c29f12db0",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-provider",
+                    "oai",
+                    "xsl"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "smartView",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "461751e6-ab0f-45bf-bdd4-c7d0fa6f381a",
+          "name": "oai-info oai-provider oai schema xsd",
+          "request": {
+            "name": "oai-info oai-provider oai schema xsd",
+            "description": {},
+            "url": {
+              "path": [
+                "oai-info",
+                "oai-provider",
+                "oai",
+                "schema"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "*/*"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "437bbbe1-93f7-4f90-86d3-82eef84aec1b",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "oai-info",
+                    "oai-provider",
+                    "oai",
+                    "schema"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "*/*"
+                }
+              ],
+              "body": "string",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://access.yareta.unige.ch",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "e362825a-1b22-4ace-ae48-96af5008b409",
+    "name": "Yareta Research Data Access OAI-PMH API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Yareta is the University of Geneva (UNIGE) e-Research long-term research-data preservation and access platform, built on the DLCM (Data Life Cycle Management) software stack. This OpenAPI description merges the public DLCM/Yareta backend modules: the Accession/Access service (https://access.yareta.unige.ch) for discovering, ordering and downloading archives (AIP/DIP), and the Ingestion/Pre-ingest service (https://ingest.yareta.unige.ch) for depositing and submitting research data. Faithfully converted from the live OpenAPI 3.1 definitions (Yareta API v3.1.7); only real paths and schemas are retained.\n\nContact Support:\n Email: yareta-admin@unige.ch",
+      "type": "text/plain"
+    }
+  }
+}
