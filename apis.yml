@@ -1,44 +1,54 @@
 ---
 aid: university-of-geneva
 name: University of Geneva
+x-type: university
+x-category: Public Research University
 description: >-
-  The University of Geneva (Université de Genève, UNIGE) is a public research
-  university in Geneva, Switzerland, founded in 1559, and ranked #93 in the QS
-  World University Rankings 2025. Its public developer and API footprint is
-  centered on open science and research infrastructure operated by the Division
-  of Scientific Information (DIS) and the e-Research services: the Archive
-  ouverte UNIGE institutional repository exposes metadata via a live OAI-PMH
-  endpoint, the Yareta research-data-management platform (built on the DLCM
-  stack) offers a REST API for preservation and access, and domain research
-  groups publish specialized services such as the Terminus protein-prediction
-  API. UNIGE maintains a public GitHub organization (dis-unige) for library and
-  data tooling. There is no single unified public developer portal; most APIs
-  are research- or service-specific.
+  The University of Geneva (Université de Genève, UNIGE) is a public research university in
+  Geneva, Switzerland, founded in 1559 and ranked #93 in the QS World University Rankings 2025.
+  Like almost every university it is a federation of buyers rather than an API producer, and it
+  operates no central developer portal, no API gateway, no public key issuance and no self-service
+  onboarding of any kind. What it does operate is unusually real for this cohort, and all of it
+  sits under unige.ch: the Archive ouverte UNIGE institutional repository runs on the University's
+  OWN software (the Identify response reports "AoU v2.3.5", not DSpace, EPrints or Figshare) and
+  serves a live OAI-PMH 2.0 endpoint anonymously; Yareta, the e-Research long-term research-data
+  preservation platform built on the Swiss DLCM/Solidify stack that UNIGE itself leads, exposes
+  access and ingest REST modules on its own hosts with one genuinely public configuration endpoint
+  and everything else behind a bearer token; a self-hosted GitLab serves an anonymous REST API over
+  1,146 public projects; and the Terminus protein-prediction service offers a small anonymous
+  research API. UNIGE's strongest machine-readable surface is one universities are rarely credited
+  for: its own Shibboleth SAML 2.0 Identity Provider, registered in the SWITCHaai national
+  federation alongside 122 other unige.ch entities. Its library is a tenancy, not an asset — Ex
+  Libris Alma/Primo operated by the SLSP consortium — and its DOI, publication and organization
+  identifiers are registry memberships at DataCite, Crossref and ROR. There is no open-data portal,
+  no course-catalog API (pgc.unige.ch soft-404s every /api path back to its own HTML) and no
+  teaching-and-learning interoperability surface.
 type: Index
 deliveryModel:
   model: saas
   open_source: false
-  commercial: true
+  commercial: false
   callable_host: true
   label: Hosted service · you call their endpoint
   confidence: high
   source:
   - openapi
-  - pricing
-  generated: '2026-08-28'
-  method: derived
+  - probed
+  generated: '2026-09-01'
+  method: probed
 accessModel:
   pricing: free
-  onboarding: unknown
+  onboarding: none
   trial: false
   try_now: false
-  public: false
-  label: Free
-  confidence: medium
+  public: partial
+  label: Free · affiliation-gated
+  confidence: high
   source:
-  - plans
-  generated: '2026-07-22'
-  method: derived
+  - authentication
+  - probed
+  generated: '2026-09-01'
+  method: probed
 position: Consumer
 access: 3rd-Party
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/university-of-geneva.png
@@ -47,21 +57,57 @@ tags:
   - Education
   - Higher Education
   - University
+  - Public Research University
   - Open Science
   - Research Data
   - Institutional Repository
+  - Research Repository
+  - Identity Federation
+  - OAI-PMH
   - Switzerland
   - Europe
 created: '2026-06-03'
-modified: '2026-06-03'
+modified: '2026-09-01'
 specificationVersion: '0.23'
 apis:
+- aid: university-of-geneva:switchaai-idp
+  name: UNIGE Shibboleth Identity Provider (SWITCHaai)
+  x-operator: federation
+  description: >-
+    The University of Geneva's own SAML 2.0 Shibboleth Identity Provider, published as
+    machine-readable metadata in SWITCHaai, the Swiss national research and education identity
+    federation. entityID https://idp.unige.ch/idp/shibboleth, shibmd:Scope unige.ch, SSO delegated
+    to SWITCH edu-ID at unige.login.eduid.ch. 123 unige.ch entityIDs are registered in the same
+    document, including archive-ouverte, gitlab, moodle, mediaserver, votamatic and the eResearch
+    authorization server. A federation is shared by definition and the IdP behind it is the
+    institution's own — this is UNIGE's strongest institution-operated machine-readable surface and
+    the credential behind nearly every gated service below. Verified live 2026-09-01.
+  humanURL: https://www.switch.ch/aai/
+  baseURL: https://metadata.aai.switch.ch/metadata.switchaai.xml
+  tags:
+  - Identity Federation
+  - Shibboleth
+  - SAML
+  - Single Sign-On
+  properties:
+  - type: IdentityFederation
+    url: https://metadata.aai.switch.ch/metadata.switchaai.xml
+  - type: Authentication
+    url: authentication/university-of-geneva-authentication.yml
+  - type: Conformance
+    url: conformance/university-of-geneva-conformance.yml
+
 - aid: university-of-geneva:archive-ouverte-oai
   name: Archive ouverte UNIGE OAI-PMH
+  x-operator: institution
   description: >-
-    OAI-PMH 2.0 metadata-harvesting interface for the Archive ouverte UNIGE institutional repository,
-    exposing the University's scientific publications and records in multiple metadata formats (Dublin
-    Core and UNIGE-specific schemas). Verified live with a working Identify response.
+    OAI-PMH 2.0 metadata-harvesting interface for the Archive ouverte UNIGE institutional
+    repository, exposing the University's scientific publications in Dublin Core and two
+    UNIGE-specific schemas. Anonymous, no registration. The Identify response reports
+    repositoryIdentifier unige.ch, adminEmail eresearch@unige.ch and poweredBy "AoU v2.3.5" —
+    the repository software is the University's own, which is rare in this cohort and is why this
+    is an institution surface rather than a tenancy. Identify, ListMetadataFormats and ListSets
+    all verified 200 on 2026-09-01.
   humanURL: https://archive-ouverte.unige.ch/
   baseURL: https://archive-ouverte.unige.ch/oai
   tags:
@@ -71,17 +117,196 @@ apis:
   - Metadata
   - Publications
   properties:
-  - type: Documentation
+  - type: ResearchRepository
     url: https://archive-ouverte.unige.ch/
-  - type: GitHub
-    url: https://github.com/dis-unige
+  - type: Documentation
+    url: https://www.unige.ch/dis/
+  - type: Conformance
+    url: conformance/university-of-geneva-conformance.yml
+
+- aid: university-of-geneva:university-of-geneva-access-api
+  name: Yareta Access API
+  x-operator: institution
+  description: >-
+    The access/accession module of Yareta, the University of Geneva e-Research long-term
+    research-data preservation platform: discover, order and download archives (AIP/DIP). Runs on
+    UNIGE's own host access.yareta.unige.ch with contact yareta-admin@unige.ch. The software is the
+    Swiss DLCM/Solidify stack, a national project UNIGE leads, so the deployment and the data are
+    the institution's. Bearer-gated except GET /default-configuration, which is anonymous and
+    declares the institution's ROR id 01swzsf04, its ORCID OAuth wiring and its Shibboleth header
+    handling. The origin contract at /v3/api-docs returned 401 on 2026-09-01; the OpenAPI held here
+    is a derived conversion and is marked as such.
+  humanURL: https://yareta.unige.ch/
+  baseURL: https://access.yareta.unige.ch
+  tags:
+  - Access
+  - Research Data
+  - Digital Preservation
+  - OAIS
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-geneva-access-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/university-of-geneva-errors.yml
+  - type: Lifecycle
+    url: lifecycle/university-of-geneva-lifecycle.yml
+  - type: Documentation
+    url: https://www.unige.ch/eresearch/en/services/yareta/
+  - type: Authentication
+    url: authentication/university-of-geneva-authentication.yml
+  - type: Conformance
+    url: conformance/university-of-geneva-conformance.yml
+  - type: JSONSchema
+    url: json-schema/university-of-geneva-aip-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-geneva-dip-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-geneva-order-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-geneva-orgunit-schema.json
+  - type: JSONStructure
+    url: json-structure/university-of-geneva-aip-structure.json
+  - type: JSONStructure
+    url: json-structure/university-of-geneva-order-structure.json
+  - type: JSONStructure
+    url: json-structure/university-of-geneva-orgunit-structure.json
+  - type: Examples
+    url: examples/university-of-geneva-order-response-example.json
+  - type: Examples
+    url: examples/university-of-geneva-aip-response-example.json
+  - type: Examples
+    url: examples/university-of-geneva-orgunit-response-example.json
+  - type: Rules
+    url: rules/university-of-geneva-rules.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-geneva-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/university-of-geneva-context.jsonld
+  - type: Postman
+    url: collections/university-of-geneva-access-api.postman_collection.json
+  - type: OpenCollection
+    url: collections/university-of-geneva-access-api.opencollection.json
+
+- aid: university-of-geneva:university-of-geneva-ingest-api
+  name: Yareta Ingest API
+  x-operator: institution
+  description: >-
+    The pre-ingest/ingest module of Yareta: deposit, validate and submit research data, reserve a
+    DOI, and submit a SIP for archiving. Runs on UNIGE's own host ingest.yareta.unige.ch. Fully
+    bearer-gated — no anonymous operation was reachable on 2026-09-01, and the origin contract at
+    /v3/api-docs returned 401. DOIs minted here resolve under prefix 10.26037, delegated to the
+    DataCite repository account ethz.genfyareta ("Uni Genf: Yareta").
+  humanURL: https://yareta.unige.ch/
+  baseURL: https://ingest.yareta.unige.ch
+  tags:
+  - Ingest
+  - Research Data
+  - Deposit
+  - DOI
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-geneva-ingest-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/university-of-geneva-errors.yml
+  - type: Lifecycle
+    url: lifecycle/university-of-geneva-lifecycle.yml
+  - type: Documentation
+    url: https://www.unige.ch/eresearch/en/services/yareta/
+  - type: Authentication
+    url: authentication/university-of-geneva-authentication.yml
+  - type: Conformance
+    url: conformance/university-of-geneva-conformance.yml
+  - type: JSONSchema
+    url: json-schema/university-of-geneva-aip-schema.json
+  - type: JSONSchema
+    url: json-schema/university-of-geneva-order-schema.json
+  - type: JSONStructure
+    url: json-structure/university-of-geneva-aip-structure.json
+  - type: Examples
+    url: examples/university-of-geneva-order-create-request-example.json
+  - type: Rules
+    url: rules/university-of-geneva-rules.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-geneva-vocabulary.yml
+  - type: JSONLD
+    url: json-ld/university-of-geneva-context.jsonld
+  - type: Postman
+    url: collections/university-of-geneva-ingest-api.postman_collection.json
+  - type: OpenCollection
+    url: collections/university-of-geneva-ingest-api.opencollection.json
+
+- aid: university-of-geneva:university-of-geneva-oai-pmh-api
+  name: Yareta OAI-PMH Provider API
+  x-operator: institution
+  description: >-
+    The OAI-PMH provider-information surface of the Yareta access module — sets, metadata formats
+    and provider configuration for harvesting UNIGE research-data descriptions. Distinct from the
+    Archive ouverte OAI-PMH endpoint above, which covers publications rather than datasets. Served
+    on access.yareta.unige.ch under the /oai-info path prefix and bearer-gated; the live
+    /default-configuration document shows solidify.oai-pmh present in the deployment.
+  humanURL: https://yareta.unige.ch/
+  baseURL: https://access.yareta.unige.ch
+  tags:
+  - OAI-PMH
+  - Metadata
+  - Research Data
+  - Harvesting
+  properties:
+  - type: OpenAPI
+    url: openapi/university-of-geneva-oai-pmh-api-openapi.yml
+  - type: ErrorCatalog
+    url: errors/university-of-geneva-errors.yml
+  - type: Lifecycle
+    url: lifecycle/university-of-geneva-lifecycle.yml
+  - type: Documentation
+    url: https://www.unige.ch/eresearch/en/services/yareta/
+  - type: Authentication
+    url: authentication/university-of-geneva-authentication.yml
+  - type: Conformance
+    url: conformance/university-of-geneva-conformance.yml
+  - type: Rules
+    url: rules/university-of-geneva-rules.yml
+  - type: Vocabulary
+    url: vocabulary/university-of-geneva-vocabulary.yml
+  - type: Postman
+    url: collections/university-of-geneva-oai-pmh-api.postman_collection.json
+  - type: OpenCollection
+    url: collections/university-of-geneva-oai-pmh-api.opencollection.json
+
+- aid: university-of-geneva:gitlab
+  name: UNIGE GitLab REST API
+  x-operator: institution
+  description: >-
+    A self-hosted GitLab instance operated by the University on its own domain, serving an
+    anonymous GitLab REST API v4 over its public projects. GET /api/v4/projects returned 200 with
+    X-Total 1146 on 2026-09-01 with no credential; instance-wide endpoints such as /api/v4/version
+    require a token, and tokens are issued to affiliates who sign in through the University's
+    Shibboleth SP (entityID https://gitlab.unige.ch/shibboleth). The deployment is UNIGE's; the
+    contract is GitLab's, so no OpenAPI is saved under this institution — this entry records the
+    surface, not someone else's specification.
+  humanURL: https://gitlab.unige.ch/
+  baseURL: https://gitlab.unige.ch/api/v4
+  tags:
+  - Source Control
+  - GitLab
+  - Research Software
+  properties:
+  - type: Documentation
+    url: https://gitlab.unige.ch/
+  - type: Authentication
+    url: authentication/university-of-geneva-authentication.yml
+
 - aid: university-of-geneva:terminus
   name: Terminus Protein Prediction API
+  x-operator: institution
   description: >-
-    Terminus is a UNIGE-developed prediction service for protein N-terminal modifications (initial methionine
-    cleavage and N-terminal acetylation) across taxonomic groups. It accepts protein sequences via HTTP
-    POST in FASTA-to-CSV or JSON-to-JSON modes and returns prediction results.
+    A UNIGE-developed prediction service for protein N-terminal modifications (initial methionine
+    cleavage and N-terminal acetylation) across taxonomic groups. Accepts protein sequences by HTTP
+    POST in FASTA-to-CSV or JSON-to-JSON mode and returns predictions. Anonymous, no registration,
+    no published quota. Documentation verified 200 on 2026-09-01. A small, genuinely institution-run
+    research API of exactly the kind this cohort usually has and rarely gets credited for.
   humanURL: https://terminus.unige.ch/info/API
+  baseURL: https://terminus.unige.ch/query/
   tags:
   - Bioinformatics
   - Research
@@ -90,121 +315,202 @@ apis:
   properties:
   - type: Documentation
     url: https://terminus.unige.ch/info/API
-- aid: university-of-geneva:university-of-geneva-access-api
-  name: University of Geneva Access API
-  description: Discover, order and download archives (AIP/DIP).
-  humanURL: https://archive-ouverte.unige.ch/
-  baseURL: https://archive-ouverte.unige.ch/oai
+  - type: Authentication
+    url: authentication/university-of-geneva-authentication.yml
+
+- aid: university-of-geneva:swisscovery-slsp
+  name: swisscovery UNIGE (SLSP / Ex Libris)
+  x-operator: tenant
+  description: >-
+    The University of Geneva's library discovery and management tenancy. Its catalog runs on Ex
+    Libris Primo and Alma operated by SLSP (Swiss Library Service Platform), the national academic
+    library consortium — UNIGE's own SWITCHaai registrations point at
+    slsp-unige.alma.exlibrisgroup.com, slsp-unige.primo.exlibrisgroup.com and
+    unige.swisscovery.slsp.ch. The collection, the holdings and the patron relationship are UNIGE's;
+    the platform and its API contract are Ex Libris's and belong in Ex Libris's own profile, so no
+    vendor specification is saved here. Tenant host verified 200 on 2026-09-01.
+  humanURL: https://unige.swisscovery.slsp.ch/
   tags:
-  - Access
+  - Library
+  - Discovery
+  - Ex Libris
+  - Tenant
   properties:
-  - type: OpenAPI
-    url: openapi/university-of-geneva-access-api-openapi.yml
+  - type: LibraryCatalog
+    url: https://unige.swisscovery.slsp.ch/
   - type: Documentation
-    url: https://www.unige.ch/eresearch/en/services/yareta/
-  - type: JSONSchema
-    url: json-schema/university-of-geneva-aip-schema.json
-  - type: JSONSchema
-    url: json-schema/university-of-geneva-dip-schema.json
-  - type: JSONSchema
-    url: json-schema/university-of-geneva-order-schema.json
-  - type: JSONSchema
-    url: json-schema/university-of-geneva-orgunit-schema.json
-  - type: JSONStructure
-    url: json-structure/university-of-geneva-aip-structure.json
-  - type: JSONStructure
-    url: json-structure/university-of-geneva-order-structure.json
-  - type: JSONStructure
-    url: json-structure/university-of-geneva-orgunit-structure.json
-  - type: Examples
-    url: examples/university-of-geneva-order-response-example.json
-  - type: Rules
-    url: rules/university-of-geneva-rules.yml
-  - type: Vocabulary
-    url: vocabulary/university-of-geneva-vocabulary.yml
-  - type: JSONLD
-    url: json-ld/university-of-geneva-context.jsonld
-- aid: university-of-geneva:university-of-geneva-ingest-api
-  name: University of Geneva Ingest API
-  description: Deposit, validate and submit research data.
-  humanURL: https://archive-ouverte.unige.ch/
-  baseURL: https://archive-ouverte.unige.ch/oai
+    url: https://www.unige.ch/biblio/
+
+- aid: university-of-geneva:datacite-membership
+  name: DataCite Repository Membership
+  x-operator: registry
+  description: >-
+    UNIGE is a registered DataCite repository operator through the Swiss consortium (DataCite
+    provider "opkb"). Two repository accounts and two DOI prefixes are delegated to it:
+    ethz.genfyareta ("Uni Genf: Yareta", https://yareta.unige.ch/, member since 2019) holding
+    prefix 10.26037, and ethz.unigenf holding prefix 10.13097. This is a fact about the
+    institution, not a contract it operates — DataCite's own API is DataCite's, and none of it is
+    saved here. Verified live 2026-09-01.
+  humanURL: https://datacite.org/
   tags:
-  - Ingest
+  - DataCite
+  - DOI
+  - Persistent Identifiers
+  - Registry
   properties:
-  - type: OpenAPI
-    url: openapi/university-of-geneva-ingest-api-openapi.yml
-  - type: Documentation
-    url: https://www.unige.ch/eresearch/en/services/yareta/
-  - type: JSONSchema
-    url: json-schema/university-of-geneva-aip-schema.json
-  - type: JSONSchema
-    url: json-schema/university-of-geneva-dip-schema.json
-  - type: JSONSchema
-    url: json-schema/university-of-geneva-order-schema.json
-  - type: JSONSchema
-    url: json-schema/university-of-geneva-orgunit-schema.json
-  - type: JSONStructure
-    url: json-structure/university-of-geneva-aip-structure.json
-  - type: JSONStructure
-    url: json-structure/university-of-geneva-order-structure.json
-  - type: JSONStructure
-    url: json-structure/university-of-geneva-orgunit-structure.json
-  - type: Examples
-    url: examples/university-of-geneva-order-response-example.json
-  - type: Rules
-    url: rules/university-of-geneva-rules.yml
-  - type: Vocabulary
-    url: vocabulary/university-of-geneva-vocabulary.yml
-  - type: JSONLD
-    url: json-ld/university-of-geneva-context.jsonld
-- aid: university-of-geneva:university-of-geneva-oai-pmh-api
-  name: University of Geneva OAI-PMH API
-  description: OAI-PMH provider information and metadata formats.
-  humanURL: https://archive-ouverte.unige.ch/
-  baseURL: https://archive-ouverte.unige.ch/oai
+  - type: Registry
+    url: https://api.datacite.org/clients/ethz.genfyareta
+  - type: Conformance
+    url: conformance/university-of-geneva-conformance.yml
+
+- aid: university-of-geneva:crossref-membership
+  name: Crossref Membership
+  x-operator: registry
+  description: >-
+    The University of Geneva is a Crossref member, id 13327, primary-name "Universite de Geneve".
+    Recorded as a registry relationship. Crossref's API is Crossref's and is not saved here.
+    Verified live 2026-09-01.
+  humanURL: https://www.crossref.org/
   tags:
-  - OAI-PMH
+  - Crossref
+  - DOI
+  - Persistent Identifiers
+  - Registry
   properties:
-  - type: OpenAPI
-    url: openapi/university-of-geneva-oai-pmh-api-openapi.yml
-  - type: Documentation
-    url: https://www.unige.ch/eresearch/en/services/yareta/
-  - type: JSONSchema
-    url: json-schema/university-of-geneva-aip-schema.json
-  - type: JSONSchema
-    url: json-schema/university-of-geneva-dip-schema.json
-  - type: JSONSchema
-    url: json-schema/university-of-geneva-order-schema.json
-  - type: JSONSchema
-    url: json-schema/university-of-geneva-orgunit-schema.json
-  - type: JSONStructure
-    url: json-structure/university-of-geneva-aip-structure.json
-  - type: JSONStructure
-    url: json-structure/university-of-geneva-order-structure.json
-  - type: JSONStructure
-    url: json-structure/university-of-geneva-orgunit-structure.json
-  - type: Examples
-    url: examples/university-of-geneva-order-response-example.json
-  - type: Rules
-    url: rules/university-of-geneva-rules.yml
-  - type: Vocabulary
-    url: vocabulary/university-of-geneva-vocabulary.yml
-  - type: JSONLD
-    url: json-ld/university-of-geneva-context.jsonld
+  - type: Registry
+    url: https://api.crossref.org/members/13327
+
+- aid: university-of-geneva:ror-registration
+  name: ROR Organization Identifier
+  x-operator: registry
+  description: >-
+    ROR identifier https://ror.org/01swzsf04 for the University of Geneva. Notable because the
+    institution's own live service declares it: the public Yareta configuration endpoint reports
+    dlcm.repository.institutionRorId = 01swzsf04, so the identifier is machine-readable from
+    UNIGE's own infrastructure and not only from the registry. Both verified 200 on 2026-09-01.
+  humanURL: https://ror.org/01swzsf04
+  tags:
+  - ROR
+  - Organization Identifier
+  - Registry
+  properties:
+  - type: Registry
+    url: https://api.ror.org/organizations/01swzsf04
+  - type: Conformance
+    url: conformance/university-of-geneva-conformance.yml
+
+x-coverage:
+  state: covered
+  reason: covered
+  detail: >-
+    Four institution-operated API surfaces were found and verified live on unige.ch hosts (Archive
+    ouverte OAI-PMH, Yareta access/ingest, self-hosted GitLab REST v4, Terminus), plus the
+    University's own Shibboleth SAML 2.0 IdP in SWITCHaai and three identifier-registry
+    memberships. Three limits are worth stating plainly rather than padding around. First, the only
+    machine-readable contract UNIGE has is Yareta's, and its origin is gated: /v3/api-docs on both
+    access.yareta.unige.ch and ingest.yareta.unige.ch return 401, so the OpenAPI in this repo is a
+    derived conversion and is now stamped as such rather than being credited to the institution.
+    Second, several plausible surfaces were probed and are genuinely absent: api.unige.ch,
+    developers.unige.ch and opendata.unige.ch do not resolve; data.unige.ch exists but is an
+    institutional data-governance site, not an open-data portal; and the course catalog at
+    pgc.unige.ch soft-404s — /api and /main/api both return 200 with the identical 47,894-byte
+    catalog HTML, which is presence without a surface. Third, sparql.unige.ch is registered in
+    SWITCHaai but does not resolve publicly, and doc.eresearch.unige.ch/api returns 200 carrying a
+    DokuWiki "this topic does not exist yet" body, so neither was credited. No terms-of-service or
+    privacy-policy pointer is emitted because none was found on www.unige.ch by footer crawl or
+    direct probe of eight candidate paths.
+  evidence:
+  - url: https://archive-ouverte.unige.ch/oai?verb=Identify
+    status: 200
+  - url: https://access.yareta.unige.ch/default-configuration
+    status: 200
+    note: >-
+      software default configuration, NOT the live instance config (/current-configuration is 401);
+      its DOI prefix 10.99999 and to-define.dlcm.ch module URLs are stock placeholders
+  - url: https://access.yareta.unige.ch/current-configuration
+    status: 401
+  - url: https://access.yareta.unige.ch/v3/api-docs
+    status: 401
+  - url: https://ingest.yareta.unige.ch/v3/api-docs
+    status: 401
+  - url: https://gitlab.unige.ch/api/v4/projects?per_page=1
+    status: 200
+  - url: https://gitlab.unige.ch/api/v4/version
+    status: 401
+  - url: https://metadata.aai.switch.ch/metadata.switchaai.xml
+    status: 200
+  - url: https://api.datacite.org/clients/ethz.genfyareta
+    status: 200
+  - url: https://api.ror.org/organizations/01swzsf04
+    status: 200
+  - url: https://terminus.unige.ch/info/API
+    status: 200
+  - url: https://pgc.unige.ch/api
+    status: 200
+    note: soft-404 — identical 47,894-byte catalog HTML, not an API
+  - url: https://doc.eresearch.unige.ch/api
+    status: 200
+    note: soft-404 — DokuWiki "this topic does not exist yet"
+  - url: https://data.unige.ch/
+    status: 200
+    note: institutional data-governance site, not an open-data portal
+  - url: https://api.unige.ch/
+    status: 0
+    note: does not resolve
+  - url: https://developers.unige.ch/
+    status: 0
+    note: does not resolve
+  - url: https://opendata.unige.ch/
+    status: 0
+    note: does not resolve
+  - url: https://sparql.unige.ch/
+    status: 0
+    note: registered in SWITCHaai but does not resolve publicly
+  generated: '2026-09-01'
+  method: probed
 common:
+  - type: Website
+    url: https://www.unige.ch/
+  - type: DeveloperPortal
+    url: https://www.unige.ch/eresearch/en/
+  - type: Documentation
+    url: https://www.unige.ch/eresearch/en/services/yareta/
+  - type: ResearchRepository
+    url: https://archive-ouverte.unige.ch/
+  - type: ResearchRepository
+    url: https://yareta.unige.ch/
+  - type: LibraryCatalog
+    url: https://unige.swisscovery.slsp.ch/
+  - type: CourseCatalog
+    url: https://pgc.unige.ch/
+  - type: IdentityFederation
+    url: https://metadata.aai.switch.ch/metadata.switchaai.xml
+  - type: AITooling
+    url: https://www.unige.ch/ia/
+  - type: GitHub
+    url: https://github.com/dis-unige
+  - type: SourceCode
+    url: https://gitlab.unige.ch/
+  - type: Support
+    url: https://www.unige.ch/help
+  - type: LinkedIn
+    url: https://www.linkedin.com/school/university-of-geneva/
+  - type: Blog
+    url: https://www.unige.ch/feed/rss
+  - type: Authentication
+    url: authentication/university-of-geneva-authentication.yml
+  - type: Conformance
+    url: conformance/university-of-geneva-conformance.yml
+  - type: ErrorCatalog
+    url: errors/university-of-geneva-errors.yml
+  - type: Lifecycle
+    url: lifecycle/university-of-geneva-lifecycle.yml
+  - type: SpectralRules
+    url: rules/university-of-geneva-jsonschema-spectral-rules.yml
   - type: AgenticAccess
     url: agentic-access/university-of-geneva-agentic-access.yml
   - type: DomainSecurity
     url: security/university-of-geneva-domain-security.yml
-  - type: Website
-    url: https://www.unige.ch/
-  - type: GitHub
-    url: https://github.com/dis-unige
-  - type: LinkedIn
-    url: https://www.linkedin.com/school/university-of-geneva/
-  - type: DeveloperPortal
-    url: https://www.unige.ch/eresearch/en/
   - type: Plans
     url: plans/university-of-geneva-plans-pricing.yml
   - type: RateLimits
@@ -213,8 +519,6 @@ common:
     url: finops/university-of-geneva-finops.yml
   - type: Review
     url: review.yml
-  - url: https://www.unige.ch/feed/rss
-    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
