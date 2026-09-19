@@ -88,6 +88,11 @@ apis:
   - Identity Federation
   - Shibboleth
   - SAML
+  - SSO
+  tags_raw:
+  - Identity Federation
+  - Shibboleth
+  - SAML
   - Single Sign-On
   properties:
   - type: IdentityFederation
@@ -311,6 +316,11 @@ apis:
   - Bioinformatics
   - Research
   - Proteins
+  - Predictions
+  tags_raw:
+  - Bioinformatics
+  - Research
+  - Proteins
   - Prediction
   properties:
   - type: Documentation
@@ -331,6 +341,11 @@ apis:
     vendor specification is saved here. Tenant host verified 200 on 2026-09-01.
   humanURL: https://unige.swisscovery.slsp.ch/
   tags:
+  - Library
+  - Discovery
+  - Ex Libris
+  - Tenants
+  tags_raw:
   - Library
   - Discovery
   - Ex Libris
