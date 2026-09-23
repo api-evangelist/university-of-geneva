@@ -1,0 +1,133 @@
+specification: API Commons Authentication
+specificationVersion: '0.1'
+provider: University of Geneva
+providerId: university-of-geneva
+generated: '2026-09-01'
+method: probed
+source: >-
+  Live HTTP probes of every institution-operated University of Geneva surface on 2026-09-01,
+  plus the SWITCHaai federation metadata document. Nothing here is inferred from documentation
+  prose; each entry names the response that produced it.
+description: >-
+  How the University of Geneva's institution-operated surfaces authenticate. There is no single
+  institutional API gateway, no developer key issuance, and no self-service credential flow of
+  any kind — UNIGE's programmable surfaces are either fully anonymous (open-science harvesting)
+  or gated behind the university's own SWITCH edu-ID / SWITCHaai (Shibboleth SAML 2.0) identity,
+  which is available to affiliates and federation partners rather than to the public.
+
+surfaces:
+- name: Archive ouverte UNIGE OAI-PMH
+  host: archive-ouverte.unige.ch
+  x-operator: institution
+  scheme: none
+  anonymous: true
+  detail: >-
+    Anonymous. verb=Identify, verb=ListMetadataFormats and verb=ListSets all return 200 with
+    no credential. No API key, no registration, no rate-limit challenge observed.
+  evidence:
+  - url: https://archive-ouverte.unige.ch/oai?verb=Identify
+    status: 200
+    probed: '2026-09-01'
+
+- name: Yareta access module
+  host: access.yareta.unige.ch
+  x-operator: institution
+  scheme: http-bearer
+  anonymous: partial
+  detail: >-
+    Bearer token. Protected operations answer an unauthenticated request with HTTP 401 and
+    `WWW-Authenticate: Bearer` and an empty body. One endpoint is genuinely public and
+    unauthenticated: GET /default-configuration returns 200 application/json (13.3 KB) and
+    exposes the deployment's ORCID OAuth wiring, OAI-PMH settings, Shibboleth header handling
+    and the institution's ROR id. GET /current-configuration is 401.
+    The machine-readable contract itself is gated: /v3/api-docs and
+    /v3/api-docs/swagger-config both return 401, while the Swagger UI shell at
+    /swagger-ui/index.html returns 200 and therefore renders nothing to an anonymous reader.
+  evidence:
+  - url: https://access.yareta.unige.ch/access/deposits
+    status: 401
+    header: 'www-authenticate: Bearer'
+    probed: '2026-09-01'
+  - url: https://access.yareta.unige.ch/default-configuration
+    status: 200
+    probed: '2026-09-01'
+  - url: https://access.yareta.unige.ch/v3/api-docs
+    status: 401
+    probed: '2026-09-01'
+  - url: https://access.yareta.unige.ch/swagger-ui/index.html
+    status: 200
+    detail: 734-byte Swagger UI shell; the definition it would load is 401.
+    probed: '2026-09-01'
+
+- name: Yareta ingest module
+  host: ingest.yareta.unige.ch
+  x-operator: institution
+  scheme: http-bearer
+  anonymous: false
+  detail: Same bearer scheme as the access module; the contract endpoint is gated identically.
+  evidence:
+  - url: https://ingest.yareta.unige.ch/v3/api-docs
+    status: 401
+    probed: '2026-09-01'
+  - url: https://ingest.yareta.unige.ch/swagger-ui/index.html
+    status: 200
+    probed: '2026-09-01'
+
+- name: UNIGE GitLab REST API v4
+  host: gitlab.unige.ch
+  x-operator: institution
+  scheme: none
+  anonymous: partial
+  detail: >-
+    Anonymous read of public projects works. GET /api/v4/projects returns 200 with
+    X-Total 1146 and no credential. Instance-wide endpoints require a token:
+    GET /api/v4/version returns 401. Personal access tokens are issued only to affiliates,
+    who sign in through the university's Shibboleth SP (entityID
+    https://gitlab.unige.ch/shibboleth in SWITCHaai).
+  evidence:
+  - url: https://gitlab.unige.ch/api/v4/projects?per_page=1
+    status: 200
+    detail: 'X-Total: 1146'
+    probed: '2026-09-01'
+  - url: https://gitlab.unige.ch/api/v4/version
+    status: 401
+    probed: '2026-09-01'
+
+- name: Terminus protein-prediction API
+  host: terminus.unige.ch
+  x-operator: institution
+  scheme: none
+  anonymous: true
+  detail: >-
+    Anonymous HTTP POST to http://terminus.unige.ch/query/<predictor>/<format>. No credential,
+    no registration, no quota published. Documentation page returns 200.
+  evidence:
+  - url: https://terminus.unige.ch/info/API
+    status: 200
+    probed: '2026-09-01'
+
+federated_identity:
+  provider: SWITCH edu-ID / SWITCHaai
+  entity_id: https://idp.unige.ch/idp/shibboleth
+  protocol: SAML 2.0
+  scope: unige.ch
+  sso:
+  - https://unige.login.eduid.ch/idp/profile/SAML2/Redirect/SSO
+  - https://unige.login.eduid.ch/idp/profile/SAML2/POST/SSO
+  detail: >-
+    The institution's own Shibboleth IdP, registered in the Swiss national research and
+    education federation. This is the credential behind essentially every gated UNIGE surface,
+    including Yareta, GitLab, Moodle, the Archive ouverte deposit interface and the swisscovery
+    library account. 123 unige.ch service-provider and identity-provider entities are registered
+    in the same federation metadata document.
+  evidence:
+  - url: https://metadata.aai.switch.ch/metadata.switchaai.xml
+    status: 200
+    probed: '2026-09-01'
+
+gaps:
+- No OAuth 2.0 / OpenID Connect authorization-server metadata is published at any UNIGE host.
+- No RFC 9728 protected-resource metadata and no /.well-known catalog on any probed host.
+- No public developer key issuance, no self-service onboarding, no sandbox credential.
+- The Yareta OpenAPI is behind the same bearer gate as the API, so an unauthenticated agent
+  cannot obtain the contract from the origin; the copy in openapi/ is a derived conversion.

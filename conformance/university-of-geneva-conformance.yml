@@ -1,0 +1,187 @@
+specification: API Evangelist Domain Standard Conformance
+specificationVersion: '0.1'
+provider: University of Geneva
+providerId: university-of-geneva
+regime: education
+generated: '2026-09-01'
+method: probed
+source: >-
+  Live probes of University of Geneva hosts plus reading of the contracts held in this
+  repository. Every hit below names the exact location the claim is read from. Reward-only:
+  a standard with no evidence is recorded as not_found, never as a claim.
+description: >-
+  Conformance of the University of Geneva's institution-operated surfaces against the
+  standards[] named by the Kin Score `education` regulatory regime. UNIGE's machine-readable
+  footprint clusters entirely on the open-science and identity standards — OAI-PMH, ORCID,
+  DataCite, Shibboleth/SAML — and carries nothing from the teaching-and-learning
+  interoperability family (LTI, OneRoster, Ed-Fi, Caliper, QTI, SCIM), which is the normal
+  shape for a European research university with no public LMS or SIS API.
+
+standards:
+- standard: oai-pmh
+  status: conformant
+  operator: institution
+  evidence:
+  - what: Archive ouverte UNIGE OAI-PMH 2.0 provider answers verb=Identify
+    url: https://archive-ouverte.unige.ch/oai?verb=Identify
+    status: 200
+    detail: >-
+      repositoryName "Archive ouverte UNIGE", baseURL https://archive-ouverte.unige.ch/oai,
+      protocolVersion 2.0, adminEmail eresearch@unige.ch, repositoryIdentifier unige.ch,
+      poweredBy "AoU v2.3.5" (UNIGE's own repository software, not a vendor platform).
+    probed: '2026-09-01'
+  - what: OAI-PMH verb=ListMetadataFormats
+    url: https://archive-ouverte.unige.ch/oai?verb=ListMetadataFormats
+    status: 200
+    probed: '2026-09-01'
+  - what: OAI-PMH verb=ListSets
+    url: https://archive-ouverte.unige.ch/oai?verb=ListSets
+    status: 200
+    probed: '2026-09-01'
+  - what: OAI-PMH provider-information operations declared in the Yareta contract
+    location: openapi/university-of-geneva-oai-pmh-api-openapi.yml
+    detail: 'tag "OAI-PMH"; 11 operations under the /oai-info path prefix.'
+- standard: orcid
+  status: conformant
+  operator: institution
+  evidence:
+  - what: ORCID carried in the Yareta object model
+    location: openapi/_original/university-of-geneva-yareta.yaml
+    detail: >-
+      Person.orcid ("The ORCID of the person (Format: xxxx-xxxx-xxxx-xxxx)") and
+      Person.verifiedOrcid at line 13487; OrcidToken schema ("Personal token allowing to
+      interact with ORCID API") at line 13508. This is the contract the UNIGE instance serves,
+      so the ORCID object model is the deployment's.
+  - what: ORCID OAuth wiring present in the DLCM/Solidify software defaults
+    url: https://access.yareta.unige.ch/default-configuration
+    status: 200
+    weight: corroborating
+    detail: >-
+      solidify.orcid.authorizeUrl https://orcid.org/oauth/authorize, tokenUrl
+      https://orcid.org/oauth/token, apiBaseUrl https://api.orcid.org/v3.0/, scope
+      /authenticate, grantType authorization_code. READ THIS CAREFULLY: this endpoint returns
+      the SOFTWARE's default configuration, not the live instance configuration
+      (/current-configuration is 401). Fields such as dlcm.module.*.url =
+      https://to-define.dlcm.ch/... and email admin@dlcm.ch prove it is stock. It corroborates
+      the capability; it does not by itself evidence the UNIGE deployment's settings.
+    probed: '2026-09-01'
+- standard: datacite
+  status: conformant
+  operator: institution
+  evidence:
+  - what: DataCite repository account for the UNIGE research-data repository
+    url: https://api.datacite.org/clients/ethz.genfyareta
+    status: 200
+    detail: >-
+      client id ethz.genfyareta, name "Uni Genf: Yareta", url https://yareta.unige.ch/,
+      member since 2019, under DataCite provider "opkb" (the Swiss consortium).
+    probed: '2026-09-01'
+  - what: DOI prefix delegated to that repository account
+    url: https://api.datacite.org/prefixes/10.26037
+    status: 200
+    detail: prefix 10.26037 -> clients[ethz.genfyareta]
+    probed: '2026-09-01'
+  - what: Second UNIGE DataCite repository account
+    url: https://api.datacite.org/prefixes/10.13097
+    status: 200
+    detail: prefix 10.13097 -> clients[ethz.unigenf]
+    probed: '2026-09-01'
+  - what: DOI minting operations in the Yareta contract
+    location: openapi/_original/university-of-geneva-yareta.yaml
+    detail: >-
+      POST /preingest/deposits/{id}/reserve-doi (line 8508);
+      GET /access/metadata/search-doi (line 5401);
+      "Archive type based on DataCite notion" (line 15112).
+  - what: NOT evidence — recorded to stop a later pass misreading it
+    url: https://access.yareta.unige.ch/default-configuration
+    status: 200
+    weight: excluded
+    detail: >-
+      dlcm.repository.doiPrefix reads 10.99999 and arkNAAN 99999 at this endpoint. Those are
+      the DLCM software's placeholder values, NOT UNIGE's prefixes. UNIGE's real delegated
+      prefixes are 10.26037 and 10.13097, read from DataCite above.
+    probed: '2026-09-01'
+- standard: shibboleth
+  status: conformant
+  operator: federation
+  evidence:
+  - what: UNIGE Shibboleth Identity Provider registered in the SWITCHaai federation
+    url: https://metadata.aai.switch.ch/metadata.switchaai.xml
+    status: 200
+    detail: >-
+      entityID https://idp.unige.ch/idp/shibboleth; shibmd:Scope unige.ch;
+      OrganizationDisplayName "Universite de Geneve" / "Universitat Genf";
+      SSO delegated to https://unige.login.eduid.ch/idp/profile/SAML2/{Redirect,POST}/SSO
+      (SWITCH edu-ID). 123 unige.ch entityIDs are registered in the same document.
+    probed: '2026-09-01'
+  - what: Shibboleth attribute handling in the DLCM/Solidify software defaults
+    url: https://access.yareta.unige.ch/default-configuration
+    status: 200
+    weight: corroborating
+    detail: >-
+      dlcm.http.shibbolethHeadersCharset = UTF-8. Software default, not the live instance
+      configuration; the load-bearing evidence for this standard is the federation metadata above.
+    probed: '2026-09-01'
+- standard: saml
+  status: conformant
+  operator: federation
+  evidence:
+  - what: SAML 2.0 IDPSSODescriptor for the UNIGE IdP
+    url: https://metadata.aai.switch.ch/metadata.switchaai.xml
+    status: 200
+    detail: >-
+      protocolSupportEnumeration urn:oasis:names:tc:SAML:2.0:protocol on the
+      https://idp.unige.ch/idp/shibboleth entity; SAML2 Redirect and POST SSO bindings.
+    probed: '2026-09-01'
+- standard: crossref
+  status: registered
+  operator: registry
+  note: >-
+    Membership only. UNIGE is a Crossref member; no Crossref-conformant contract is operated
+    by the institution, so this is recorded as a registry relationship and NOT as contract
+    conformance.
+  evidence:
+  - what: Crossref member record
+    url: https://api.crossref.org/members?query=geneve
+    status: 200
+    detail: member id 13327, primary-name "Universite de Geneve"
+    probed: '2026-09-01'
+- standard: scim
+  status: not_found
+- standard: lti
+  status: not_found
+  note: >-
+    A substring scan of the Yareta contract appears to hit "lti" 59 times; every one is
+    inside words such as "multiple". No LTI conformance exists. Recorded so a later pass
+    does not re-report the false positive.
+- standard: oneroster
+  status: not_found
+- standard: ed-fi
+  status: not_found
+- standard: caliper
+  status: not_found
+- standard: qti
+  status: not_found
+
+other_identifiers:
+- standard: ror
+  status: conformant
+  operator: registry
+  note: Not in the education regime standards[] list; recorded because the institution's own contract declares it.
+  evidence:
+  - what: ROR registry record
+    url: https://api.ror.org/organizations/01swzsf04
+    status: 200
+    detail: 'https://ror.org/01swzsf04 -> University of Geneva, website https://www.unige.ch/'
+    probed: '2026-09-01'
+  - what: ROR id present in the DLCM/Solidify software defaults
+    url: https://access.yareta.unige.ch/default-configuration
+    status: 200
+    weight: corroborating
+    detail: >-
+      dlcm.repository.institutionRorId = 01swzsf04 and institution "Universite de Geneve", with
+      dlcm.webUrls.rorApi https://api.ror.org/v2/organizations/. This is the SOFTWARE's default
+      configuration, and UNIGE appears in it because UNIGE leads the DLCM project and is the
+      software's home institution — it is not proof of the live instance's configuration
+      (/current-configuration is 401). Treat as corroborating, not load-bearing.
+    probed: '2026-09-01'

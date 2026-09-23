@@ -1,0 +1,81 @@
+specification: API Commons Lifecycle
+specificationVersion: '0.1'
+provider: University of Geneva
+providerId: university-of-geneva
+generated: '2026-09-01'
+method: derived
+source: >-
+  Derived from the contracts held in this repository and from live responses captured on
+  2026-09-01. The University of Geneva publishes no changelog, no deprecation policy and no
+  versioning statement for any of its surfaces; everything below is read from the artifacts and
+  the wire, not from a published policy.
+description: >-
+  Version and lifecycle posture of the University of Geneva's institution-operated surfaces.
+  There is no institutional API lifecycle. Each service versions itself independently in its own
+  software's idiom, none announces change, and none carries a deprecation signal.
+
+surfaces:
+- name: Yareta access / ingest
+  version: 3.1.7
+  versioning: >-
+    Software release version carried in info.version of the springdoc-generated contract. The
+    version does NOT appear in the URL path — servers are bare hosts (https://access.yareta.unige.ch,
+    https://ingest.yareta.unige.ch) with unversioned path prefixes /access, /preingest, /ingest,
+    /oai-info. There is therefore no way for a client to pin a version.
+  deprecated_operations: 0
+  detail: >-
+    No operation in the contract carries `deprecated: true`. No Sunset or Deprecation header was
+    observed. The contract's own origin (/v3/api-docs) is behind the bearer gate, so a consumer
+    cannot detect a version change without credentials.
+  spec_version: OPENAPI_3_1 (springdoc); converted to 3.2.0 for the refined copies here
+  evidence:
+  - url: https://access.yareta.unige.ch/v3/api-docs
+    status: 401
+    probed: '2026-09-01'
+- name: Archive ouverte UNIGE
+  version: AoU v2.3.5
+  versioning: >-
+    Reported in the OAI-PMH Identify response as poweredBy "AoU v2.3.5". Metadata schemas are
+    versioned in their namespaces — https://archive-ouverte.unige.ch/aou/v1 and
+    https://archive-ouverte.unige.ch/deposit/v2.4 — which is the only place UNIGE publishes a
+    version a consumer can bind to.
+  detail: >-
+    deletedRecord policy is "persistent" and granularity is YYYY-MM-DDThh:mm:ssZ, so incremental
+    harvesting and deletion tracking are supported. earliestDatestamp 2016-04-01T09:00:00Z marks
+    the repository's production start.
+  evidence:
+  - url: https://archive-ouverte.unige.ch/oai?verb=Identify
+    status: 200
+    probed: '2026-09-01'
+- name: UNIGE GitLab
+  versioning: Follows the upstream GitLab release train; /api/v4 is the API major version.
+  detail: The instance version endpoint requires a token, so the running release is not publicly readable.
+  evidence:
+  - url: https://gitlab.unige.ch/api/v4/version
+    status: 401
+    probed: '2026-09-01'
+- name: SWITCHaai federation entry
+  versioning: >-
+    SAML 2.0 metadata is re-published continuously by SWITCH with its own validUntil / cacheDuration
+    semantics. UNIGE does not version its entity; the federation manages freshness.
+  evidence:
+  - url: https://metadata.aai.switch.ch/metadata.switchaai.xml
+    status: 200
+    probed: '2026-09-01'
+
+registry_milestones:
+- what: 'DataCite repository account ethz.genfyareta ("Uni Genf: Yareta")'
+  since: 2019
+  source: https://api.datacite.org/clients/ethz.genfyareta
+- what: DOI prefix 10.13097 delegated (client ethz.unigenf)
+  since: '2013-05-29'
+  source: https://api.datacite.org/prefixes/10.13097
+- what: DOI prefix 10.26037 delegated (client ethz.genfyareta)
+  since: '2017-05-22'
+  source: https://api.datacite.org/prefixes/10.26037
+
+gaps:
+- No changelog, release notes or status page for any UNIGE API surface.
+- No deprecation policy, no Sunset header, no `deprecated` flag anywhere in the contract.
+- No version pinning is possible on Yareta: paths and hosts are unversioned.
+- No public announcement channel for API change; the Blog RSS is institutional news, not engineering.

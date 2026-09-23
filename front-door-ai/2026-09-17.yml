@@ -1,0 +1,26 @@
+# Front Door AI Index — university-of-geneva — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: university-of-geneva
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.unige.ch
+  final_host: www.unige.ch
+  ownership: own
+  owner: university-of-geneva
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 5
+  host_score: 5
+  density: 2.57
+  words: 1947
+  tiers:
+    agentic: 0
+    core: 2
+    model: 3
+  ambiguous: 0
+  top_terms:
+    Claude: 3
+    AI: 2

@@ -1,9 +1,7 @@
 {
   "provider": "university-of-geneva",
   "sources": [
-    "university-of-geneva-access-api-openapi.yml",
-    "university-of-geneva-ingest-api-openapi.yml",
-    "university-of-geneva-oai-pmh-api-openapi.yml"
+    "_original/university-of-geneva-yareta.yaml"
   ],
   "outputs": [
     "university-of-geneva-access-api-openapi.yml",
@@ -13,6 +11,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "university-of-geneva-yareta.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "university-of-geneva-access-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "university-of-geneva-ingest-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "university-of-geneva-oai-pmh-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

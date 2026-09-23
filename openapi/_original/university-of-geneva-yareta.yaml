@@ -5,6 +5,18 @@ info:
   version: 3.1.7
   contact:
     email: yareta-admin@unige.ch
+  x-provenance:
+    method: derived
+    source: https://access.yareta.unige.ch/v3/api-docs
+    derived: '2026-06-03'
+    verified: '2026-09-01'
+    note: >-
+      Converted by API Evangelist from the Yareta (DLCM/Solidify) springdoc OpenAPI 3.1
+      documents published by the UNIGE eResearch access and ingest modules. Not published
+      by the University of Geneva as an artifact. The live /v3/api-docs endpoints on both
+      access.yareta.unige.ch and ingest.yareta.unige.ch returned HTTP 401 on 2026-09-01,
+      so this copy cannot currently be re-verified against source.
+    x-operator: institution
 servers:
 - url: https://access.yareta.unige.ch
   description: Accession / Access module (discovery, orders, DIP download)
@@ -12234,6 +12246,29 @@ paths:
       - tokenAuth: []
       - auth: []
 components:
+  securitySchemes:
+    auth:
+      type: http
+      scheme: bearer
+      description: >-
+        Session bearer token issued by the UNIGE eResearch authorization server after
+        interactive sign-in through SWITCH edu-ID / SWITCHaai (Shibboleth). Every protected
+        Yareta operation answers an unauthenticated request with `HTTP 401` and
+        `WWW-Authenticate: Bearer`.
+      x-provenance:
+        method: probed
+        source: 'https://access.yareta.unige.ch/access/deposits (401, WWW-Authenticate: Bearer)'
+        probed: '2026-09-01'
+    tokenAuth:
+      type: http
+      scheme: bearer
+      description: >-
+        Personal / download token bearer credential. The Solidify configuration model exposes
+        `solidify.security.downloadToken` with a 1440-minute download-token lifetime.
+      x-provenance:
+        method: probed
+        source: 'https://access.yareta.unige.ch/default-configuration (200, application/json)'
+        probed: '2026-09-01'
   schemas:
     ChangeInfo:
       type: object

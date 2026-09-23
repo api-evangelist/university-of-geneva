@@ -1,0 +1,96 @@
+specification: API Commons Error Catalog
+specificationVersion: '0.1'
+provider: University of Geneva
+providerId: university-of-geneva
+generated: '2026-09-01'
+method: probed
+source: >-
+  Live error responses captured from University of Geneva hosts on 2026-09-01, plus the
+  response codes actually declared in the contracts held in this repository.
+description: >-
+  Error semantics for the University of Geneva's institution-operated surfaces. Two distinct
+  shapes are in play — a JSON problem object from the Yareta/Solidify Spring services, and the
+  OAI-PMH protocol's own in-band error element from Archive ouverte, which returns HTTP 200 and
+  puts the failure in the body. Any agent harvesting UNIGE must handle the second case, because
+  status-code-only error handling will read a badVerb as a success.
+
+contract_declared:
+  note: >-
+    The Yareta contract as held here declares only two response codes across 337 operations, which
+    is a real gap in the specification rather than a property of the service: the live service
+    returns 401 and structured 404 bodies that the contract never describes.
+  codes:
+  - code: 200
+    count: 337
+  - code: 404
+    count: 11
+  missing_from_contract:
+  - 401
+  - 403
+  - 429
+  - 500
+
+observed:
+- surface: Yareta access / ingest modules
+  host: access.yareta.unige.ch
+  code: 401
+  content_type: none
+  body: empty
+  headers:
+    www-authenticate: Bearer
+  detail: Unauthenticated request to any protected operation. Zero-length body; the challenge is in the header only.
+  evidence:
+    url: https://access.yareta.unige.ch/access/deposits
+    probed: '2026-09-01'
+- surface: Yareta access module
+  host: access.yareta.unige.ch
+  code: 404
+  content_type: application/hal+json
+  shape:
+    error: string
+    message: string
+    path: string
+    status: string
+    statusCode: integer
+    timeStamp: string
+  example: |
+    {"error":"The requested element was not found","message":"No static resource oai.",
+     "path":"https://access.yareta.unige.ch/oai","status":"NOT_FOUND","statusCode":404,
+     "timeStamp":"Tue Sep 01 18:52:04 CEST 2026"}
+  detail: >-
+    Structured HAL+JSON problem object carrying both a symbolic status (NOT_FOUND) and a numeric
+    statusCode, plus the requested path and a server-local timestamp. Not RFC 7807/9457 — the
+    field names are Spring/Solidify's own. This shape is not described anywhere in the contract.
+  evidence:
+    url: https://access.yareta.unige.ch/oai
+    probed: '2026-09-01'
+- surface: Archive ouverte UNIGE OAI-PMH
+  host: archive-ouverte.unige.ch
+  code: 200
+  content_type: text/xml
+  shape:
+    element: OAI-PMH/error
+    attribute: code
+  example: |
+    <error code="badVerb">Bogus</error>
+  detail: >-
+    OAI-PMH 2.0 in-band error. The HTTP status is 200 even on failure and the error is carried as
+    an <error code="..."> element per the protocol. Status-code-driven clients will silently treat
+    this as a successful harvest.
+  evidence:
+    url: https://archive-ouverte.unige.ch/oai?verb=Bogus
+    probed: '2026-09-01'
+- surface: UNIGE GitLab REST API
+  host: gitlab.unige.ch
+  code: 401
+  content_type: application/json
+  detail: Standard GitLab error envelope on instance-wide endpoints without a token.
+  evidence:
+    url: https://gitlab.unige.ch/api/v4/version
+    probed: '2026-09-01'
+
+gaps:
+- No error catalog, problem-type registry or status-code table is published by the institution.
+- No Retry-After or rate-limit headers were observed on any UNIGE host.
+- The Yareta contract describes no failure response other than 404, so an agent reading only the
+  OpenAPI cannot anticipate the 401 challenge that every protected operation actually returns.

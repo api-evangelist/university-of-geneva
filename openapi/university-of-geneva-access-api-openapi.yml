@@ -1,10 +1,17 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Yareta Research Data Access API
-  description: 'Yareta is the University of Geneva (UNIGE) e-Research long-term research-data preservation and access platform, built on the DLCM (Data Life Cycle Management) software stack. This OpenAPI description merges the public DLCM/Yareta backend modules: the Accession/Access service (https://access.yareta.unige.ch) for discovering, ordering and downloading archives (AIP/DIP), and the Ingestion/Pre-ingest service (https://ingest.yareta.unige.ch) for depositing and submitting research data. Faithfully converted from the live OpenAPI 3.1 definitions (Yareta API v3.1.7); only real paths and schemas are retained.'
+  description: Yareta is the University of Geneva (UNIGE) e-Research long-term research-data preservation and access platform, built on the DLCM (Data Life Cycle Management) software stack.
   version: 3.1.7
   contact:
     email: yareta-admin@unige.ch
+  x-provenance:
+    method: derived
+    source: https://access.yareta.unige.ch/v3/api-docs
+    derived: '2026-06-03'
+    verified: '2026-09-01'
+    note: Converted by API Evangelist from the Yareta (DLCM/Solidify) springdoc OpenAPI 3.1 documents published by the UNIGE eResearch access and ingest modules. Not published by the University of Geneva as an artifact. The live /v3/api-docs endpoints on both access.yareta.unige.ch and ingest.yareta.unige.ch returned HTTP 401 on 2026-09-01, so this copy cannot currently be re-verified against source.
+    x-operator: institution
 servers:
 - url: https://access.yareta.unige.ch
   description: Accession / Access module (discovery, orders, DIP download)
@@ -31,6 +38,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access refresh by id refresh
+      x-summary-source: derived
   /access/private-metadata/{aipId}/prepare-download:
     post:
       tags:
@@ -57,6 +66,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access private metadata by id prepare download
+      x-summary-source: derived
   /access/private-metadata/search:
     get:
       tags:
@@ -102,6 +113,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access private metadata search get
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -152,6 +165,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access private metadata search post
+      x-summary-source: derived
   /access/orders:
     get:
       tags:
@@ -279,6 +294,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders list
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -299,6 +316,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders create
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -317,6 +336,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders delete list
+      x-summary-source: derived
   /access/orders/{parentid}/dip:
     get:
       tags:
@@ -368,6 +389,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id dip list
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -398,6 +421,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id dip create
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -422,6 +447,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id dip delete list
+      x-summary-source: derived
   /access/orders/{parentid}/aip:
     get:
       tags:
@@ -564,6 +591,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id aip list
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -594,6 +623,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id aip create
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -618,6 +649,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id aip delete list
+      x-summary-source: derived
   /access/orders/{id}/submit:
     post:
       tags:
@@ -639,6 +672,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id submit
+      x-summary-source: derived
   /access/orders/{id}/save:
     post:
       tags:
@@ -660,6 +695,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id save
+      x-summary-source: derived
   /access/orders/{id}/resume:
     post:
       tags:
@@ -681,6 +718,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id resume
+      x-summary-source: derived
   /access/orders/{id}/put-in-error:
     post:
       tags:
@@ -702,6 +741,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id put in error
+      x-summary-source: derived
   /access/orders/search:
     get:
       tags:
@@ -752,6 +793,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders search advanced search get
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -802,6 +845,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders search advanced search post
+      x-summary-source: derived
   /access/metadata/{parentid}/ratings:
     get:
       tags:
@@ -828,6 +873,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id ratings get archive user rating
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -858,6 +905,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id ratings create
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -874,6 +923,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id ratings delete
+      x-summary-source: derived
     patch:
       tags:
       - Access
@@ -900,6 +951,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id ratings update
+      x-summary-source: derived
   /access/metadata/{aipId}/prepare-download:
     post:
       tags:
@@ -926,6 +979,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id prepare download
+      x-summary-source: derived
   /access/metadata/search:
     get:
       tags:
@@ -971,6 +1026,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata search get
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -1021,6 +1078,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata search post
+      x-summary-source: derived
   /access/dip:
     get:
       tags:
@@ -1067,6 +1126,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip list
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -1087,6 +1148,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip create
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -1105,6 +1168,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip delete list
+      x-summary-source: derived
   /access/dip/{parentid}/data:
     get:
       tags:
@@ -1301,6 +1366,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id data list
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -1327,6 +1394,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id data create
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -1351,6 +1420,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id data delete list
+      x-summary-source: derived
   /access/dip/{parentid}/data/{id}/resume:
     post:
       tags:
@@ -1377,6 +1448,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id data by id resume
+      x-summary-source: derived
   /access/dip/{parentid}/aip:
     get:
       tags:
@@ -1519,6 +1592,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id aip list
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -1549,6 +1624,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id aip create
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -1573,6 +1650,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id aip delete list
+      x-summary-source: derived
   /access/dip/{id}/resume:
     post:
       tags:
@@ -1594,6 +1673,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id resume
+      x-summary-source: derived
   /access/dip/{id}/put-in-error:
     post:
       tags:
@@ -1615,6 +1696,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id put in error
+      x-summary-source: derived
   /access/dip/search:
     get:
       tags:
@@ -1665,6 +1748,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip search advanced search get
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -1715,6 +1800,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip search advanced search post
+      x-summary-source: derived
   /access/all-metadata/{aipId}/prepare-download:
     post:
       tags:
@@ -1741,6 +1828,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access all metadata by id prepare download
+      x-summary-source: derived
   /access/all-metadata/search:
     get:
       tags:
@@ -1786,6 +1875,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access all metadata search get
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -1836,6 +1927,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access all metadata search post
+      x-summary-source: derived
   /access/aip:
     get:
       tags:
@@ -1973,6 +2066,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip list
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -1993,6 +2088,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip create
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -2011,6 +2108,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip delete list
+      x-summary-source: derived
   /access/aip/{parentid}/data:
     get:
       tags:
@@ -2207,6 +2306,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id data list
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -2233,6 +2334,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id data create
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -2257,6 +2360,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id data delete list
+      x-summary-source: derived
   /access/aip/{parentid}/data/{id}/resume:
     post:
       tags:
@@ -2283,6 +2388,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id data by id resume
+      x-summary-source: derived
   /access/aip/{parentid}/data/{id}/put-in-error:
     post:
       tags:
@@ -2309,6 +2416,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id data by id put in error
+      x-summary-source: derived
   /access/aip/{parentid}/aip:
     get:
       tags:
@@ -2451,6 +2560,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id aip list
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -2481,6 +2592,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id aip create
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -2505,6 +2618,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id aip delete list
+      x-summary-source: derived
   /access/aip/{id}/resume:
     post:
       tags:
@@ -2526,6 +2641,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id resume
+      x-summary-source: derived
   /access/aip/{id}/put-in-error:
     post:
       tags:
@@ -2547,6 +2664,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id put in error
+      x-summary-source: derived
   /access/aip/search:
     get:
       tags:
@@ -2597,6 +2716,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip search advanced search get
+      x-summary-source: derived
     post:
       tags:
       - Access
@@ -2647,6 +2768,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip search advanced search post
+      x-summary-source: derived
   /access/orders/{parentid}/dip/{id}:
     get:
       tags:
@@ -2673,6 +2796,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id dip by id get
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -2694,6 +2819,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id dip by id delete
+      x-summary-source: derived
     patch:
       tags:
       - Access
@@ -2725,6 +2852,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id dip by id update
+      x-summary-source: derived
   /access/orders/{parentid}/aip/{id}:
     get:
       tags:
@@ -2751,6 +2880,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id aip by id get
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -2772,6 +2903,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id aip by id delete
+      x-summary-source: derived
     patch:
       tags:
       - Access
@@ -2803,6 +2936,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id aip by id update
+      x-summary-source: derived
   /access/orders/{id}:
     get:
       tags:
@@ -2824,6 +2959,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id get
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -2840,6 +2977,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id delete
+      x-summary-source: derived
     patch:
       tags:
       - Access
@@ -2867,6 +3006,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id update
+      x-summary-source: derived
   /access/dip/{parentid}/data/{id}:
     get:
       tags:
@@ -2893,6 +3034,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id data by id get
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -2914,6 +3057,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id data by id delete
+      x-summary-source: derived
     patch:
       tags:
       - Access
@@ -2946,6 +3091,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id data by id update
+      x-summary-source: derived
   /access/dip/{parentid}/aip/{id}:
     get:
       tags:
@@ -2972,6 +3119,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id aip by id get
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -2993,6 +3142,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id aip by id delete
+      x-summary-source: derived
     patch:
       tags:
       - Access
@@ -3024,6 +3175,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id aip by id update
+      x-summary-source: derived
   /access/dip/{id}:
     get:
       tags:
@@ -3045,6 +3198,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id get
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -3061,6 +3216,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id delete
+      x-summary-source: derived
     patch:
       tags:
       - Access
@@ -3088,6 +3245,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id update
+      x-summary-source: derived
   /access/aip/{parentid}/data/{id}:
     get:
       tags:
@@ -3114,6 +3273,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id data by id get
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -3135,6 +3296,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id data by id delete
+      x-summary-source: derived
     patch:
       tags:
       - Access
@@ -3167,6 +3330,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id data by id update
+      x-summary-source: derived
   /access/aip/{parentid}/aip/{id}:
     get:
       tags:
@@ -3193,6 +3358,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id aip by id get
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -3214,6 +3381,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id aip by id delete
+      x-summary-source: derived
     patch:
       tags:
       - Access
@@ -3245,6 +3414,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id aip by id update
+      x-summary-source: derived
   /access/aip/{id}:
     get:
       tags:
@@ -3266,6 +3437,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id get
+      x-summary-source: derived
     delete:
       tags:
       - Access
@@ -3282,6 +3455,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id delete
+      x-summary-source: derived
     patch:
       tags:
       - Access
@@ -3309,6 +3484,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id update
+      x-summary-source: derived
   /sso-user:
     get:
       tags:
@@ -3321,6 +3498,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/User'
+      summary: Sso user user
+      x-summary-source: derived
   /sitemap.xml:
     get:
       tags:
@@ -3341,6 +3520,8 @@ paths:
                 oneOf:
                 - $ref: '#/components/schemas/Urlset'
                 - $ref: '#/components/schemas/Sitemapindex'
+      summary: Sitemap xml get sitemap index
+      x-summary-source: derived
   /sitemap-{name}.xml:
     get:
       tags:
@@ -3364,6 +3545,8 @@ paths:
             application/xml:
               schema:
                 $ref: '#/components/schemas/Urlset'
+      summary: Sitemap by id xml get sitemap
+      x-summary-source: derived
   /resource-srv:
     get:
       tags:
@@ -3376,6 +3559,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Module'
+      summary: Resource srv home
+      x-summary-source: derived
   /resource-srv/checkTool:
     get:
       tags:
@@ -3394,6 +3579,8 @@ paths:
             application/json:
               schema:
                 type: string
+      summary: Resource srv check tool
+      x-summary-source: derived
   /default-configuration:
     get:
       tags:
@@ -3406,6 +3593,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/DLCMDefaultConfig'
+      summary: Default configuration get default configuration
+      x-summary-source: derived
   /current-configuration:
     get:
       tags:
@@ -3421,6 +3610,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Current configuration get current configuration
+      x-summary-source: derived
   /access:
     get:
       tags:
@@ -3433,6 +3624,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/Module'
+      summary: Access home
+      x-summary-source: derived
   /access/system-properties:
     get:
       tags:
@@ -3445,6 +3638,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/SystemProperties'
+      summary: Access system properties
+      x-summary-source: derived
   /access/private-metadata:
     get:
       tags:
@@ -3496,6 +3691,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access private metadata list
+      x-summary-source: derived
   /access/private-metadata/{orderId}/download-status:
     get:
       tags:
@@ -3525,6 +3722,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access private metadata by id download status get download status
+      x-summary-source: derived
   /access/private-metadata/{id}:
     get:
       tags:
@@ -3546,6 +3745,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access private metadata by id get
+      x-summary-source: derived
   /access/private-metadata/{id}/citations:
     get:
       tags:
@@ -3569,6 +3770,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access private metadata by id citations
+      x-summary-source: derived
   /access/private-metadata/{id}/bibliographies:
     get:
       tags:
@@ -3592,6 +3795,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access private metadata by id bibliographies
+      x-summary-source: derived
   /access/private-metadata/{dipName}/download:
     get:
       tags:
@@ -3619,6 +3824,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access private metadata by id download
+      x-summary-source: derived
   /access/private-metadata/list-download-status:
     get:
       tags:
@@ -3644,6 +3851,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access private metadata list download status
+      x-summary-source: derived
   /access/organizational-units:
     get:
       tags:
@@ -3715,6 +3924,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access organizational units list
+      x-summary-source: derived
   /access/organizational-units/{parentid}/archives:
     get:
       tags:
@@ -3771,6 +3982,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access organizational units by id archives list
+      x-summary-source: derived
   /access/organizational-units/{parentid}/archives/{id}:
     get:
       tags:
@@ -3797,6 +4010,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access organizational units by id archives by id get
+      x-summary-source: derived
   /access/organizational-units/{id}:
     get:
       tags:
@@ -3818,6 +4033,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access organizational units by id get
+      x-summary-source: derived
   /access/organizational-units/{id}/download-logo:
     get:
       tags:
@@ -3880,6 +4097,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id view
+      x-summary-source: derived
   /access/orders/{id}/history:
     get:
       tags:
@@ -3906,6 +4125,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id history
+      x-summary-source: derived
   /access/orders/{id}/download:
     get:
       tags:
@@ -3928,6 +4149,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id download get files
+      x-summary-source: derived
   /access/orders/{id}/download-token:
     get:
       tags:
@@ -3949,6 +4172,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders by id download token get token for order
+      x-summary-source: derived
   /access/orders/list-status:
     get:
       tags:
@@ -3974,6 +4199,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders list status
+      x-summary-source: derived
   /access/orders/list-query-types:
     get:
       tags:
@@ -3995,6 +4222,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders list query types
+      x-summary-source: derived
   /access/orders/list-public:
     get:
       tags:
@@ -4108,6 +4337,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders list public
+      x-summary-source: derived
   /access/orders/list-created-by-user:
     get:
       tags:
@@ -4221,6 +4452,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access orders list created by user
+      x-summary-source: derived
   /access/metadata:
     get:
       tags:
@@ -4272,6 +4505,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata list
+      x-summary-source: derived
   /access/metadata/{parentid}/ratings/list-for-user:
     get:
       tags:
@@ -4293,6 +4528,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id ratings list for user get user rating
+      x-summary-source: derived
   /access/metadata/{parentid}/data/{id}:
     get:
       tags:
@@ -4319,6 +4556,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id data by id get data file
+      x-summary-source: derived
   /access/metadata/{parentid}/data/{id}/ready-for-download:
     get:
       tags:
@@ -4341,6 +4580,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id data by id ready for download check data file if is ready…
+      x-summary-source: derived
   /access/metadata/{parentid}/data/{id}/download:
     get:
       tags:
@@ -4402,6 +4643,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id data by id download token get token for data file
+      x-summary-source: derived
   /access/metadata/{orderId}/download-status:
     get:
       tags:
@@ -4431,6 +4674,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id download status get download status
+      x-summary-source: derived
   /access/metadata/{id}:
     get:
       tags:
@@ -4452,6 +4697,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id get
+      x-summary-source: derived
   /access/metadata/{id}/thumbnail:
     get:
       tags:
@@ -4503,6 +4750,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id statistics get statistics
+      x-summary-source: derived
   /access/metadata/{id}/readme:
     get:
       tags:
@@ -4554,6 +4803,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id packages get packages
+      x-summary-source: derived
   /access/metadata/{id}/list-folders:
     get:
       tags:
@@ -4577,6 +4828,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id list folders
+      x-summary-source: derived
   /access/metadata/{id}/dua:
     get:
       tags:
@@ -4655,6 +4908,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id data get data files
+      x-summary-source: derived
   /access/metadata/{id}/citations:
     get:
       tags:
@@ -4678,6 +4933,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id citations
+      x-summary-source: derived
   /access/metadata/{id}/bibliographies:
     get:
       tags:
@@ -4701,6 +4958,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id bibliographies
+      x-summary-source: derived
   /access/metadata/{id}/aip:
     get:
       tags:
@@ -4738,6 +4997,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id aip get aip
+      x-summary-source: derived
   /access/metadata/{dipName}/download:
     get:
       tags:
@@ -4765,6 +5026,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id download
+      x-summary-source: derived
   /access/metadata/{dipName}/download-token:
     get:
       tags:
@@ -4786,6 +5049,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id download token get token for archive
+      x-summary-source: derived
   /access/metadata/search-doi:
     get:
       tags:
@@ -4807,6 +5072,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata search doi
+      x-summary-source: derived
   /access/metadata/list-download-status:
     get:
       tags:
@@ -4832,6 +5099,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata list download status
+      x-summary-source: derived
   /access/dip/{parentid}/data/{id}/history:
     get:
       tags:
@@ -4863,6 +5132,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id data by id history
+      x-summary-source: derived
   /access/dip/{parentid}/data/{id}/download:
     get:
       tags:
@@ -4890,6 +5161,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id data by id download
+      x-summary-source: derived
   /access/dip/{parentid}/data/{id}/download-token:
     get:
       tags:
@@ -4916,6 +5189,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id data by id download token get token for dip data file
+      x-summary-source: derived
   /access/dip/{parentid}/data/list-status:
     get:
       tags:
@@ -4961,6 +5236,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id data list status
+      x-summary-source: derived
   /access/dip/{parentid}/aip/status:
     get:
       tags:
@@ -5098,6 +5375,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id aip status list status
+      x-summary-source: derived
   /access/dip/{id}/history:
     get:
       tags:
@@ -5124,6 +5403,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id history
+      x-summary-source: derived
   /access/dip/{id}/download:
     get:
       tags:
@@ -5146,6 +5427,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id download get files
+      x-summary-source: derived
   /access/dip/{id}/download-token:
     get:
       tags:
@@ -5167,6 +5450,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip by id download token get token dip
+      x-summary-source: derived
   /access/dip/total-for-completed-order:
     get:
       tags:
@@ -5183,6 +5468,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip total for completed order get count for completed orders
+      x-summary-source: derived
   /access/dip/schema:
     get:
       tags:
@@ -5386,6 +5673,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip list status
+      x-summary-source: derived
   /access/dip/list-metadata-versions:
     get:
       tags:
@@ -5403,6 +5692,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip list metadata versions
+      x-summary-source: derived
   /access/dip/list-data-types:
     get:
       tags:
@@ -5458,6 +5749,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip list data types
+      x-summary-source: derived
   /access/dip/list-data-categories:
     get:
       tags:
@@ -5507,6 +5800,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip list data categories
+      x-summary-source: derived
   /access/dip/get-by-aip-id/{id}:
     get:
       tags:
@@ -5533,6 +5828,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access dip get by aip id by id get dip containing aip
+      x-summary-source: derived
   /access/archives/metadata/**:
     get:
       tags:
@@ -5545,6 +5842,8 @@ paths:
             '*/*':
               schema:
                 $ref: '#/components/schemas/ArchiveMetadata'
+      summary: Access archives metadata get
+      x-summary-source: derived
   /access/all-metadata:
     get:
       tags:
@@ -5596,6 +5895,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access all metadata list
+      x-summary-source: derived
   /access/all-metadata/{orderId}/download-status:
     get:
       tags:
@@ -5625,6 +5926,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access all metadata by id download status get download status
+      x-summary-source: derived
   /access/all-metadata/{id}:
     get:
       tags:
@@ -5646,6 +5949,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access all metadata by id get
+      x-summary-source: derived
   /access/all-metadata/{id}/citations:
     get:
       tags:
@@ -5669,6 +5974,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access all metadata by id citations
+      x-summary-source: derived
   /access/all-metadata/{id}/bibliographies:
     get:
       tags:
@@ -5692,6 +5999,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access all metadata by id bibliographies
+      x-summary-source: derived
   /access/all-metadata/{dipName}/download:
     get:
       tags:
@@ -5719,6 +6028,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access all metadata by id download
+      x-summary-source: derived
   /access/all-metadata/list-download-status:
     get:
       tags:
@@ -5744,6 +6055,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access all metadata list download status
+      x-summary-source: derived
   /access/aip/{parentid}/data/{id}/history:
     get:
       tags:
@@ -5775,6 +6088,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id data by id history
+      x-summary-source: derived
   /access/aip/{parentid}/data/{id}/download:
     get:
       tags:
@@ -5802,6 +6117,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id data by id download
+      x-summary-source: derived
   /access/aip/{parentid}/data/{id}/download-token:
     get:
       tags:
@@ -5828,6 +6145,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id data by id download token get token for aip downloaded data…
+      x-summary-source: derived
   /access/aip/{parentid}/data/list-status:
     get:
       tags:
@@ -5873,6 +6192,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id data list status
+      x-summary-source: derived
   /access/aip/{parentid}/aip/status:
     get:
       tags:
@@ -6010,6 +6331,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id aip status list status
+      x-summary-source: derived
   /access/aip/{id}/history:
     get:
       tags:
@@ -6036,6 +6359,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id history
+      x-summary-source: derived
   /access/aip/{id}/download:
     get:
       tags:
@@ -6058,6 +6383,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id download get files
+      x-summary-source: derived
   /access/aip/{id}/download-token:
     get:
       tags:
@@ -6079,6 +6406,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip by id download token get token aip
+      x-summary-source: derived
   /access/aip/total-for-completed-order:
     get:
       tags:
@@ -6095,6 +6424,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip total for completed order get count for completed orders
+      x-summary-source: derived
   /access/aip/profile:
     get:
       tags:
@@ -6256,6 +6587,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip list status
+      x-summary-source: derived
   /access/aip/list-metadata-versions:
     get:
       tags:
@@ -6273,6 +6606,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip list metadata versions
+      x-summary-source: derived
   /access/aip/list-data-types:
     get:
       tags:
@@ -6328,6 +6663,8 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip list data types
+      x-summary-source: derived
   /access/aip/list-data-categories:
     get:
       tags:
@@ -6377,11 +6714,13 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access aip list data categories
+      x-summary-source: derived
   /:
     get:
       tags:
       - Access
-      operationId: ''
+      operationId: getRoot
       responses:
         '200':
           description: OK
@@ -6392,6 +6731,9 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Get
+      x-summary-source: derived
+      x-operation-id-source: derived
   /access/metadata/{parentid}/ratings/by-rating:
     delete:
       tags:
@@ -6415,82 +6757,10 @@ paths:
       security:
       - tokenAuth: []
       - auth: []
+      summary: Access metadata by id ratings by rating delete
+      x-summary-source: derived
 components:
   schemas:
-    Module:
-      type: object
-      description: The functional module.
-      properties:
-        name:
-          type: string
-          description: The name of the module.
-        _links:
-          $ref: '#/components/schemas/Links'
-    OrderSubsetItem:
-      type: object
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        itemPath:
-          type: string
-        _links:
-          $ref: '#/components/schemas/Links'
-    StatusHistory:
-      type: object
-      properties:
-        changeTime:
-          type: string
-          format: date-time
-        createdBy:
-          type: string
-        creatorName:
-          type: string
-        description:
-          type: string
-          maxLength: 1024
-          minLength: 0
-        status:
-          type: string
-    DLCMConfig:
-      type: object
-      properties:
-        solidify:
-          $ref: '#/components/schemas/SolidifyProperties'
-        dlcm.repository: {}
-        solidify.index: {}
-        solidify.oai-pmh: {}
-        solidify.citation: {}
-        dlcm: {}
-        management.endpoints.web: {}
-        auth: {}
-        spring.datasource: {}
-        spring.jpa: {}
-        spring.activemq: {}
-        spring.jms: {}
-        spring.mail: {}
-        springdoc: {}
-    Security:
-      type: object
-      properties:
-        downloadTokenLifeTimeMinutes:
-          type: integer
-          format: int32
-        cipherPassword:
-          type: string
-        downloadToken:
-          $ref: '#/components/schemas/DownloadToken'
-    Remote:
-      type: object
-      properties:
-        origin:
-          $ref: '#/components/schemas/Origin'
     RestCollectionDisseminationInfoPackage:
       type: object
       description: 'The structure of the REST response:
@@ -6517,365 +6787,6 @@ components:
             $ref: '#/components/schemas/FacetResult'
         _page:
           $ref: '#/components/schemas/RestCollectionPage'
-    RepresentationInfo:
-      type: object
-      description: 'OAIS Information Package: SIP, AIP or DIP.'
-      properties:
-        access:
-          type: string
-          description: The final access level of the package.
-          enum:
-          - PUBLIC
-          - RESTRICTED
-          - CLOSED
-        dataSensitivity:
-          type: string
-          description: The data sensitivity of the package.
-          enum:
-          - UNDEFINED
-          - BLUE
-          - GREEN
-          - YELLOW
-          - ORANGE
-          - RED
-          - CRIMSON
-        dataUsePolicy:
-          type: string
-          description: The data use policy type of the package.
-          enum:
-          - NONE
-          - LICENSE
-          - CLICK_THROUGH_DUA
-          - SIGNED_DUA
-          - EXTERNAL_DUA
-        complianceLevel:
-          type: string
-          description: The compliance level of the package.
-          enum:
-          - NOT_ASSESSED
-          - NO_COMPLIANCE
-          - WEAK_COMPLIANCE
-          - AVERAGE_COMPLIANCE
-          - FULL_COMPLIANCE
-        description:
-          type: string
-          description: The description of the package.
-          maxLength: 1024
-          minLength: 0
-        embargo:
-          $ref: '#/components/schemas/EmbargoInfo'
-        licenseId:
-          type: string
-          description: The license identifier of the package.
-        metadataVersion:
-          type: string
-          description: The metadata version of the package.
-          enum:
-          - '1.0'
-          - '1.1'
-          - '2.0'
-          - '2.1'
-          - '3.0'
-          - '3.1'
-          - '4.0'
-          - '5.0'
-        name:
-          type: string
-          description: The name of the package.
-          maxLength: 255
-          minLength: 1
-        organizationalUnitId:
-          type: string
-          description: The organizational Unit ID of the package.
-          maxLength: 50
-          minLength: 1
-        status:
-          type: string
-          description: The status of the package.
-          enum:
-          - CHECK_PENDING
-          - CHECKING
-          - CHECKED
-          - CLEANING
-          - CLEANED
-          - COMPLETED
-          - DOWNLOADING
-          - IN_PREPARATION
-          - IN_PROGRESS
-          - STORED
-          - INDEXING
-          - READY
-          - RETRIEVING
-          - RETRIEVING_PENDING
-          - IN_ERROR
-          - PRESERVATION_ERROR
-          - FIXITY_ERROR
-          - DISPOSABLE
-          - DISPOSAL_APPROVED_BY_ORGUNIT
-          - DISPOSAL_APPROVED
-          - DISPOSED
-          - FIX_PENDING
-          - FIXING
-          - METADATA_EDITION_PENDING
-          - EDITING_METADATA
-          - UPDATING_RETENTION
-          - METADATA_UPGRADE_PENDING
-          - UPGRADING_METADATA
-          - COMPLIANCE_LEVEL_UPDATE_PENDING
-          - UPDATING_COMPLIANCE_LEVEL
-          - COMPLIANCE_LEVEL_UPDATED
-          - REINDEXING
-          - RELOADED
-          - RESUBMITTING
-          - PACKAGE_REPLICATION_PENDING
-          - REPLICATING_PACKAGE
-          - TOMBSTONE_REPLICATION_PENDING
-          - REPLICATING_TOMBSTONE
-        statusMessage:
-          type: string
-          description: The detailed message related to the package status.
-          maxLength: 1024
-          minLength: 0
-        containsUpdatedMetadata:
-          type: boolean
-          description: If the package contains updated metadata.
-        contentStructurePublic:
-          type: boolean
-          description: If the archive structure content is public.
-        accessCurrentlyPublic:
-          type: boolean
-          description: If the current access level is public
-        currentAccess:
-          type: string
-          description: The current access level of the package, deducted from the final access level and an eventual embargo.
-          enum:
-          - PUBLIC
-          - RESTRICTED
-          - CLOSED
-          readOnly: true
-    DipDataFile:
-      type: object
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        searchCriterias:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchCriteria'
-        complianceLevel:
-          type: string
-          description: 'Compliance level to define the preservation quality based on data file format:
-
-            - NOT_ASSESSED => The format could not be evaluated
-
-            - NO_COMPLIANCE => The format could not be determined
-
-            - WEAK_COMPLIANCE => The format was determined: content type detected
-
-            - AVERAGE_COMPLIANCE => The format was determined: WEAK_COMPLIANCE + PRONOM identifier detected
-
-            - FULL_COMPLIANCE => The format was determined: AVERAGE_COMPLIANCE + the format is part of golden formats
-
-            '
-          enum:
-          - NOT_ASSESSED
-          - NO_COMPLIANCE
-          - WEAK_COMPLIANCE
-          - AVERAGE_COMPLIANCE
-          - FULL_COMPLIANCE
-        dataCategory:
-          type: string
-          enum:
-          - Primary
-          - Observational
-          - Experimental
-          - Simulation
-          - Derived
-          - Reference
-          - Digitalized
-          - Secondary
-          - Publication
-          - DataPaper
-          - Documentation
-          - Software
-          - Code
-          - Binaries
-          - VirtualMachine
-          - Administrative
-          - Document
-          - WebSite
-          - Other
-          - Package
-          - InformationPackage
-          - UpdatePackage
-          - Metadata
-          - CustomMetadata
-          - UpdatedMetadata
-          - Internal
-          - DatasetThumbnail
-          - ArchiveThumbnail
-          - ArchiveReadme
-          - DatafileThumbnail
-          - ArchiveDataUseAgreement
-        dataType:
-          type: string
-          enum:
-          - Primary
-          - Observational
-          - Experimental
-          - Simulation
-          - Derived
-          - Reference
-          - Digitalized
-          - Secondary
-          - Publication
-          - DataPaper
-          - Documentation
-          - Software
-          - Code
-          - Binaries
-          - VirtualMachine
-          - Administrative
-          - Document
-          - WebSite
-          - Other
-          - Package
-          - InformationPackage
-          - UpdatePackage
-          - Metadata
-          - CustomMetadata
-          - UpdatedMetadata
-          - Internal
-          - DatasetThumbnail
-          - ArchiveThumbnail
-          - ArchiveReadme
-          - DatafileThumbnail
-          - ArchiveDataUseAgreement
-        fileFormat:
-          $ref: '#/components/schemas/FileFormat'
-        fileSize:
-          type: integer
-          format: int64
-        finalData:
-          type: string
-          format: uri
-        fileName:
-          type: string
-          readOnly: true
-        metadataType:
-          $ref: '#/components/schemas/MetadataType'
-        relativeLocation:
-          type: string
-          maxLength: 460
-          minLength: 0
-          pattern: (^\/$)|(^\/.*(?<!\/)$)
-        sourceData:
-          type: string
-          format: uri
-        status:
-          type: string
-          enum:
-          - CHANGE_RELATIVE_LOCATION
-          - CHANGE_DATA_CATEGORY
-          - CLEANED
-          - CLEANING
-          - EXCLUDED_FILE
-          - CHECK_COMPLIANCE
-          - CHECK_COMPLIANCE_CLEANED
-          - CHECKED_COMPLIANCE
-          - CHECKED_COMPLIANCE_CLEANED
-          - IGNORED_FILE
-          - DOWNLOAD_IN_PROGRESS
-          - FILE_FORMAT_IDENTIFIED
-          - FILE_FORMAT_SKIPPED
-          - FILE_FORMAT_UNKNOWN
-          - IN_ERROR
-          - PROCESSED
-          - READY
-          - RECEIVED
-          - TO_PROCESS
-          - VIRUS_CHECKED
-          - VIRUS_SKIPPED
-        statusMessage:
-          type: string
-          maxLength: 1024
-          minLength: 0
-        virusCheck:
-          $ref: '#/components/schemas/VirusCheck'
-        checksums:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataFileChecksum'
-        infoPackage:
-          $ref: '#/components/schemas/DisseminationInfoPackage'
-        inProgress:
-          type: boolean
-        fileStatus:
-          type: string
-          enum:
-          - CHANGE_RELATIVE_LOCATION
-          - CHANGE_DATA_CATEGORY
-          - CLEANED
-          - CLEANING
-          - EXCLUDED_FILE
-          - CHECK_COMPLIANCE
-          - CHECK_COMPLIANCE_CLEANED
-          - CHECKED_COMPLIANCE
-          - CHECKED_COMPLIANCE_CLEANED
-          - IGNORED_FILE
-          - DOWNLOAD_IN_PROGRESS
-          - FILE_FORMAT_IDENTIFIED
-          - FILE_FORMAT_SKIPPED
-          - FILE_FORMAT_UNKNOWN
-          - IN_ERROR
-          - PROCESSED
-          - READY
-          - RECEIVED
-          - TO_PROCESS
-          - VIRUS_CHECKED
-          - VIRUS_SKIPPED
-          writeOnly: true
-        smartSize:
-          type: string
-          readOnly: true
-        fullFileName:
-          type: string
-          readOnly: true
-        _links:
-          $ref: '#/components/schemas/Links'
-    RestCollectionArchiveUserRating:
-      type: object
-      description: 'The structure of the REST response:
-
-        - data: the list of objects
-
-        - page: the pagination information
-
-        - links: the HATEOAS links
-
-        - facets: the search information
-
-        '
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        _data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ArchiveUserRating'
-        _facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResult'
-        _page:
-          $ref: '#/components/schemas/RestCollectionPage'
     ApplicationRole:
       type: object
       description: The application role defines the priviledge of the user.
@@ -6890,877 +6801,6 @@ components:
         resId:
           type: string
           description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-    Orcid:
-      type: object
-      properties:
-        baseUrl:
-          type: string
-        clientId:
-          type: string
-        clientSecret:
-          type: string
-        grantType:
-          type: string
-        scope:
-          type: string
-        apiBaseUrl:
-          type: string
-        websites:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrcidWebsite'
-        tokenUrl:
-          type: string
-        authorizeUrl:
-          type: string
-    OrcidWebsite:
-      type: object
-      properties:
-        labels:
-          type: array
-          items:
-            $ref: '#/components/schemas/WebPageLabel'
-        checkUrl:
-          type: string
-    Build:
-      type: object
-      properties:
-        host:
-          type: string
-        time:
-          type: string
-        version:
-          type: string
-        user:
-          $ref: '#/components/schemas/User'
-    AuthUserDto:
-      type: object
-      properties:
-        resId:
-          type: string
-        externalUid:
-          type: string
-        creationWhen:
-          type: string
-          format: date-time
-        lastUpdateWhen:
-          type: string
-          format: date-time
-        creationWho:
-          type: string
-        lastUpdateWho:
-          type: string
-        disabled:
-          type: boolean
-          writeOnly: true
-        email:
-          type: string
-        firstName:
-          type: string
-        homeOrganization:
-          type: string
-        affiliations:
-          type: array
-          items:
-            type: string
-        lastName:
-          type: string
-        applicationRole:
-          $ref: '#/components/schemas/ApplicationRole'
-        firstLogin:
-          $ref: '#/components/schemas/AuthLoginInfo'
-        lastLogin:
-          $ref: '#/components/schemas/LoginInfo'
-        orcid:
-          type: string
-          description: 'The ORCID of the person (Format: xxxx-xxxx-xxxx-xxxx).'
-        verifiedOrcid:
-          type: boolean
-          description: if the person ORCID is verified with ORCID authentication.
-        enabled:
-          type: boolean
-        fullName:
-          type: string
-    OrderArchive:
-      type: object
-      properties:
-        archive:
-          $ref: '#/components/schemas/ArchivalInfoPackage'
-        metadata:
-          $ref: '#/components/schemas/ArchiveMetadata'
-    GitInfoProperties:
-      type: object
-      properties:
-        branch:
-          type: string
-        build:
-          $ref: '#/components/schemas/Build'
-        commit:
-          $ref: '#/components/schemas/Commit'
-        remote:
-          $ref: '#/components/schemas/Remote'
-    TUrl:
-      type: object
-      properties:
-        loc:
-          type: string
-        lastmod:
-          type: string
-        changefreq:
-          type: string
-          enum:
-          - ALWAYS
-          - HOURLY
-          - DAILY
-          - WEEKLY
-          - MONTHLY
-          - YEARLY
-          - NEVER
-        priority:
-          type: number
-        any:
-          type: array
-          items: {}
-    RatingType:
-      type: object
-      description: 'The rating types is the type of grade for a dataset: Quality or Usefulness.'
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        name:
-          type: string
-          description: The name of the rating type.
-        _links:
-          $ref: '#/components/schemas/Links'
-    SearchCriteria:
-      type: object
-      properties:
-        caseInsensitive:
-          type: boolean
-        caseType:
-          type: string
-        key:
-          type: string
-        operation:
-          type: string
-        operationType:
-          type: string
-          enum:
-          - BETWEEN
-          - CONTAINS
-          - ENDS_WITH
-          - EQUALITY
-          - GREATER_EQUAL
-          - GREATER_THAN
-          - LESS_EQUAL
-          - LESS_THAN
-          - NEGATION
-          - ORACLE_CONTAINS
-          - STARTS_WITH
-        value: {}
-    StreamingResponseBody: {}
-    Links:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/Link'
-    Pageable:
-      type: object
-      properties:
-        page:
-          type: integer
-          format: int32
-          minimum: 0
-        size:
-          type: integer
-          format: int32
-          minimum: 1
-        sort:
-          type: array
-          items:
-            type: string
-    AipDataFile:
-      type: object
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        searchCriterias:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchCriteria'
-        complianceLevel:
-          type: string
-          description: 'Compliance level to define the preservation quality based on data file format:
-
-            - NOT_ASSESSED => The format could not be evaluated
-
-            - NO_COMPLIANCE => The format could not be determined
-
-            - WEAK_COMPLIANCE => The format was determined: content type detected
-
-            - AVERAGE_COMPLIANCE => The format was determined: WEAK_COMPLIANCE + PRONOM identifier detected
-
-            - FULL_COMPLIANCE => The format was determined: AVERAGE_COMPLIANCE + the format is part of golden formats
-
-            '
-          enum:
-          - NOT_ASSESSED
-          - NO_COMPLIANCE
-          - WEAK_COMPLIANCE
-          - AVERAGE_COMPLIANCE
-          - FULL_COMPLIANCE
-        dataCategory:
-          type: string
-          enum:
-          - Primary
-          - Observational
-          - Experimental
-          - Simulation
-          - Derived
-          - Reference
-          - Digitalized
-          - Secondary
-          - Publication
-          - DataPaper
-          - Documentation
-          - Software
-          - Code
-          - Binaries
-          - VirtualMachine
-          - Administrative
-          - Document
-          - WebSite
-          - Other
-          - Package
-          - InformationPackage
-          - UpdatePackage
-          - Metadata
-          - CustomMetadata
-          - UpdatedMetadata
-          - Internal
-          - DatasetThumbnail
-          - ArchiveThumbnail
-          - ArchiveReadme
-          - DatafileThumbnail
-          - ArchiveDataUseAgreement
-        dataType:
-          type: string
-          enum:
-          - Primary
-          - Observational
-          - Experimental
-          - Simulation
-          - Derived
-          - Reference
-          - Digitalized
-          - Secondary
-          - Publication
-          - DataPaper
-          - Documentation
-          - Software
-          - Code
-          - Binaries
-          - VirtualMachine
-          - Administrative
-          - Document
-          - WebSite
-          - Other
-          - Package
-          - InformationPackage
-          - UpdatePackage
-          - Metadata
-          - CustomMetadata
-          - UpdatedMetadata
-          - Internal
-          - DatasetThumbnail
-          - ArchiveThumbnail
-          - ArchiveReadme
-          - DatafileThumbnail
-          - ArchiveDataUseAgreement
-        fileFormat:
-          $ref: '#/components/schemas/FileFormat'
-        fileSize:
-          type: integer
-          format: int64
-        finalData:
-          type: string
-          format: uri
-        fileName:
-          type: string
-          readOnly: true
-        metadataType:
-          $ref: '#/components/schemas/MetadataType'
-        relativeLocation:
-          type: string
-          maxLength: 460
-          minLength: 0
-          pattern: (^\/$)|(^\/.*(?<!\/)$)
-        sourceData:
-          type: string
-          format: uri
-        status:
-          type: string
-          enum:
-          - CHANGE_RELATIVE_LOCATION
-          - CHANGE_DATA_CATEGORY
-          - CLEANED
-          - CLEANING
-          - EXCLUDED_FILE
-          - CHECK_COMPLIANCE
-          - CHECK_COMPLIANCE_CLEANED
-          - CHECKED_COMPLIANCE
-          - CHECKED_COMPLIANCE_CLEANED
-          - IGNORED_FILE
-          - DOWNLOAD_IN_PROGRESS
-          - FILE_FORMAT_IDENTIFIED
-          - FILE_FORMAT_SKIPPED
-          - FILE_FORMAT_UNKNOWN
-          - IN_ERROR
-          - PROCESSED
-          - READY
-          - RECEIVED
-          - TO_PROCESS
-          - VIRUS_CHECKED
-          - VIRUS_SKIPPED
-        statusMessage:
-          type: string
-          maxLength: 1024
-          minLength: 0
-        virusCheck:
-          $ref: '#/components/schemas/VirusCheck'
-        checksums:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataFileChecksum'
-        infoPackage:
-          $ref: '#/components/schemas/ArchivalInfoPackage'
-        inProgress:
-          type: boolean
-        fileStatus:
-          type: string
-          enum:
-          - CHANGE_RELATIVE_LOCATION
-          - CHANGE_DATA_CATEGORY
-          - CLEANED
-          - CLEANING
-          - EXCLUDED_FILE
-          - CHECK_COMPLIANCE
-          - CHECK_COMPLIANCE_CLEANED
-          - CHECKED_COMPLIANCE
-          - CHECKED_COMPLIANCE_CLEANED
-          - IGNORED_FILE
-          - DOWNLOAD_IN_PROGRESS
-          - FILE_FORMAT_IDENTIFIED
-          - FILE_FORMAT_SKIPPED
-          - FILE_FORMAT_UNKNOWN
-          - IN_ERROR
-          - PROCESSED
-          - READY
-          - RECEIVED
-          - TO_PROCESS
-          - VIRUS_CHECKED
-          - VIRUS_SKIPPED
-          writeOnly: true
-        smartSize:
-          type: string
-          readOnly: true
-        fullFileName:
-          type: string
-          readOnly: true
-        _links:
-          $ref: '#/components/schemas/Links'
-    PersonAvatar:
-      type: object
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        fileName:
-          type: string
-          description: The file name.
-          maxLength: 2024
-          minLength: 0
-        fileSize:
-          type: integer
-          format: int64
-          description: The file size in bytes.
-        mimeType:
-          type: string
-          description: The content type of the file. It could be named as MIME type or media type.
-        _links:
-          $ref: '#/components/schemas/Links'
-    TSitemap:
-      type: object
-      properties:
-        loc:
-          type: string
-        lastmod:
-          type: string
-        any:
-          type: array
-          items: {}
-    DownloadToken:
-      type: object
-      properties:
-        cookie:
-          $ref: '#/components/schemas/Cookie'
-    RestCollectionStatusHistory:
-      type: object
-      description: 'The structure of the REST response:
-
-        - data: the list of objects
-
-        - page: the pagination information
-
-        - links: the HATEOAS links
-
-        - facets: the search information
-
-        '
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        _data:
-          type: array
-          items:
-            $ref: '#/components/schemas/StatusHistory'
-        _facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResult'
-        _page:
-          $ref: '#/components/schemas/RestCollectionPage'
-    Result:
-      type: object
-      description: 'The result is the result of REST action (HTTP POST) with the status:
-
-        - EXECUTED => the action was executed successfully
-
-        - NOT_EXECUTED => the action failed and the message details the reason
-
-        - NON_APPLICABLE => the action cannot be executed and the message details the reason
-
-        '
-      properties:
-        message:
-          type: string
-          description: The detailed message on what happens
-        resId:
-          type: string
-          description: The ID of the object
-        status:
-          type: string
-          description: The status of the launched action
-          enum:
-          - EXECUTED
-          - NON_APPLICABLE
-          - NOT_EXECUTED
-        messsage:
-          type: string
-          writeOnly: true
-        _links:
-          $ref: '#/components/schemas/Links'
-    ArchiveStatisticsDto:
-      type: object
-      properties:
-        statistics:
-          $ref: '#/components/schemas/StatisticsInfo'
-        averageRatings:
-          type: array
-          items:
-            $ref: '#/components/schemas/AverageRating'
-        averageRating:
-          type: array
-          items:
-            $ref: '#/components/schemas/AverageRating'
-          writeOnly: true
-    Order:
-      type: object
-      description: Orders allow to prepare archive download (DIP) from the archives (AIP).
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        publicOrder:
-          type: boolean
-          description: If the order is public, false otherwise.
-        subsetItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderSubsetItem'
-        metadataVersion:
-          type: string
-          description: The metadata version of the order query.
-          enum:
-          - '1.0'
-          - '1.1'
-          - '2.0'
-          - '2.1'
-          - '3.0'
-          - '3.1'
-          - '4.0'
-          - '5.0'
-        name:
-          type: string
-          description: The name of the order query.
-          maxLength: 255
-          minLength: 1
-        query:
-          type: string
-          description: The query of the order query.
-          maxLength: 5099
-          minLength: 0
-        queryType:
-          type: string
-          description: The type of the order query.
-          enum:
-          - ADVANCED
-          - DIRECT
-          - SIMPLE
-        status:
-          type: string
-          description: The status of the order query.
-          enum:
-          - DOWNLOADING
-          - IN_DISSEMINATION_PREPARATION
-          - IN_ERROR
-          - IN_PREPARATION
-          - IN_PROGRESS
-          - READY
-          - SUBMITTED
-        statusMessage:
-          type: string
-          description: The message related to the status of the order query.
-          maxLength: 1024
-          minLength: 0
-        disseminationPolicyId:
-          type: string
-          description: The dissemination policy identifier linked to the order.
-          maxLength: 2147483647
-          minLength: 1
-        organizationalUnitDisseminationPolicyId:
-          type: string
-          description: The dissemination policy identifier linked to the orgunit.
-          maxLength: 2147483647
-          minLength: 1
-        subitemsChecksum:
-          type: string
-          description: The checksum of the order subitems list.
-        orderStatus:
-          type: string
-          enum:
-          - DOWNLOADING
-          - IN_DISSEMINATION_PREPARATION
-          - IN_ERROR
-          - IN_PREPARATION
-          - IN_PROGRESS
-          - READY
-          - SUBMITTED
-          writeOnly: true
-        errorStatus:
-          type: string
-          writeOnly: true
-        dipNumber:
-          type: integer
-          format: int32
-          description: The DIP number of the order query.
-        aipNumber:
-          type: integer
-          format: int32
-          description: The AIP number of the order query.
-        _links:
-          $ref: '#/components/schemas/Links'
-    StatisticsInfo:
-      type: object
-      description: Archive statistics information.
-      properties:
-        viewNumber:
-          type: integer
-          format: int64
-          description: The view number of the archive.
-        downloadNumber:
-          type: integer
-          format: int64
-          description: The download number of the archive.
-        lastDownloadDate:
-          type: string
-          format: date-time
-    Cookie:
-      type: object
-      properties:
-        secure:
-          type: boolean
-    Email:
-      type: object
-      properties:
-        senderAddress:
-          type: string
-        ccList:
-          type: array
-          items:
-            type: string
-        bccList:
-          type: array
-          items:
-            type: string
-        externalTemplates:
-          type: string
-        internalTemplates:
-          type: string
-    VirusCheck:
-      type: object
-      description: Virus check information.
-      properties:
-        checkDate:
-          type: string
-          format: date-time
-          description: The execution date of the virus check.
-        details:
-          type: string
-          description: The result details of the virus check.
-        tool:
-          $ref: '#/components/schemas/Tool'
-          description: The virus check tool used to verify if the file contains virus.
-    SearchCondition:
-      type: object
-      description: 'The search conditions describes the query to search in the indexes.
-
-        '
-      properties:
-        type:
-          type: string
-          enum:
-          - MATCH
-          - TERM
-          - WILDCARD
-          - RANGE
-          - QUERY
-          - SIMPLE_QUERY
-          - NESTED_BOOLEAN
-        searchOperator:
-          type: string
-          enum:
-          - AND
-          - OR
-        booleanClauseType:
-          type: string
-          enum:
-          - MUST
-          - FILTER
-          - SHOULD
-          - MUST_NOT
-        field:
-          type: string
-        multiMatchFields:
-          type: array
-          items:
-            type: string
-        value:
-          type: string
-        terms:
-          type: array
-          items:
-            type: string
-        upperValue:
-          type: string
-        lowerValue:
-          type: string
-        nestedConditions:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchCondition'
-    User:
-      type: object
-      description: A user represents a user of the platform. A person and roles are associated to it.
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        searchCriterias:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchCriteria'
-        lastLoginTime:
-          type: string
-          format: date-time
-          description: The date of the user last login.
-        lastLoginIpAddress:
-          type: string
-          description: The IP address from last login of the user.
-          maxLength: 255
-          minLength: 0
-        applicationRole:
-          $ref: '#/components/schemas/ApplicationRole'
-          description: The application role of the user.
-        disabled:
-          type: boolean
-          writeOnly: true
-        email:
-          type: string
-          description: The user email which must be a valid address.
-          maxLength: 255
-          minLength: 1
-        externalUid:
-          type: string
-          description: The external unique ID of the user.
-          maxLength: 255
-          minLength: 1
-        firstName:
-          type: string
-          description: The first name of the user.
-          maxLength: 255
-          minLength: 1
-        lastName:
-          type: string
-          description: The last name of the user.
-          maxLength: 255
-          minLength: 1
-        homeOrganization:
-          type: string
-          description: The home organization of the user.
-          maxLength: 512
-          minLength: 1
-        person:
-          $ref: '#/components/schemas/Person'
-          description: The linked person of the user.
-        lastSyncFromAuthServerTime:
-          type: string
-          format: date-time
-          description: The last time the user was updated with info coming from the authorization server
-        enabled:
-          type: boolean
-          description: If the user is enable.
-        fullName:
-          type: string
-          description: The full name of the user.
-        applicationRoleAndLastLogin:
-          $ref: '#/components/schemas/AuthUserDto'
-          writeOnly: true
-        _links:
-          $ref: '#/components/schemas/Links'
-    LoginInfo:
-      type: object
-      description: Login information
-      properties:
-        loginIpAddress:
-          type: string
-          description: IP address of the user login.
-        loginTime:
-          type: string
-          format: date-time
-          description: Date of the user login.
-    Link:
-      type: object
-      properties:
-        href:
-          type: string
-        hreflang:
-          type: string
-        title:
-          type: string
-        type:
-          type: string
-        deprecation:
-          type: string
-        profile:
-          type: string
-        name:
-          type: string
-        templated:
-          type: boolean
-    Origin:
-      type: object
-      properties:
-        url:
-          type: string
-    ArchiveUserRating:
-      type: object
-      description: Archive ratings are the grade assigned by an user to an archive.
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        archiveId:
-          type: string
-          description: The archive identifier of the archive rating.
-        user:
-          $ref: '#/components/schemas/User'
-          description: The user of the archive rating.
-        ratingType:
-          $ref: '#/components/schemas/RatingType'
-          description: The rating type of the archive rating.
-        grade:
-          type: integer
-          format: int32
-          description: The grade of the archive rating.
-        _links:
-          $ref: '#/components/schemas/Links'
-    CitationDto:
-      type: object
-      properties:
-        language:
-          type: string
-        text:
-          type: string
-        style:
-          type: string
-        outputFormat:
-          type: string
-    FacetResult:
-      type: object
-      properties:
-        name:
-          type: string
-        field:
-          type: string
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResultValue'
-    Debug:
-      type: object
-      properties:
-        badRequestStacktrace:
-          type: boolean
-        accessDeniedStacktrace:
-          type: boolean
     ChecksumCheck:
       type: object
       description: Checksum verification information.
@@ -7772,171 +6812,109 @@ components:
         checkingSucceed:
           type: boolean
           description: The execution result of checksum verification.
-    MetadataType:
+    ArchiveMetadata:
       type: object
-      description: The metadata type allow to define custom metadata.
+      description: Public metadata of an archive
       properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
         resId:
           type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        description:
+        index:
           type: string
-          description: The description of the metadata type.
-          maxLength: 1024
-          minLength: 0
-        metadataFormat:
+          description: Name of the index
+        metadata:
+          type: object
+          additionalProperties: true
+          description: The dynamic metadata list of the index.
+        currentAccess:
           type: string
-          description: The format of the metadata type.
-          enum:
-          - CUSTOM
-          - JSON
-          - SCHEMA_LESS
-          - XML
-        metadataSchema:
-          type: string
-          description: The schema of the metadata type.
-        name:
-          type: string
-          description: The name of the metadata type.
-          maxLength: 255
-          minLength: 1
-        url:
-          type: string
-          format: uri
-          description: The URL of the metadata type.
-        version:
-          type: string
-          description: The version of the metadata type.
-          maxLength: 50
-          minLength: 1
-        fullName:
-          type: string
-          description: The name and the version of the metadata type.
-          readOnly: true
-        _links:
-          $ref: '#/components/schemas/Links'
-    ChangeInfo:
-      type: object
-      description: The change information of an action.
-      properties:
-        fullName:
-          type: string
-          description: The full name of the user who did the action on the resource.
-          readOnly: true
-        who:
-          type: string
-          description: The user who did the action on the resource.
-          readOnly: true
-        when:
-          type: string
-          format: date-time
-          description: The date when the action was done on the resources.
-          readOnly: true
-    EmbargoInfo:
-      type: object
-      description: Embargo information.
-      properties:
-        access:
-          type: string
-          description: The access level during the embargo.
+          description: The current access level of the archive, deducted from the final access level and an eventual embargo.
           enum:
           - PUBLIC
           - RESTRICTED
           - CLOSED
-        months:
-          type: integer
-          format: int32
-          description: The month number of the embargo duration.
-        startDate:
-          type: string
-          format: date-time
-          description: The starting date of the embargo period.
-    OrganizationalUnitLogo:
+          readOnly: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    FacetResult:
       type: object
       properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
+        name:
+          type: string
+        field:
+          type: string
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResultValue'
+    Urlset:
+      type: object
+      properties:
+        any:
+          type: array
+          items: {}
+        url:
+          type: array
+          items:
+            $ref: '#/components/schemas/TUrl'
+      xml:
+        name: urlset
+        namespace: http://www.sitemaps.org/schemas/sitemap/0.9
+    OrcidWebsite:
+      type: object
+      properties:
+        labels:
+          type: array
+          items:
+            $ref: '#/components/schemas/WebPageLabel'
+        checkUrl:
+          type: string
+    OrgUnit:
+      type: object
+      description: A organizational unit is a logical entity which could represent a research project or laboratory or all other organizational group of researchers. This entity contains public information of a organizational unit.
+      properties:
         resId:
           type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        fileName:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        description:
           type: string
-          description: The file name.
-          maxLength: 2024
-          minLength: 0
-        fileSize:
-          type: integer
-          format: int64
-          description: The file size in bytes.
-        mimeType:
+          description: The description of the organizational unit.
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        name:
           type: string
-          description: The content type of the file. It could be named as MIME type or media type.
+          description: The name of the organizational unit.
+        url:
+          type: string
+          format: uri
+          description: The URL of the organizational unit.
+        openingDate:
+          type: string
+          format: date
+          description: The opening date of the organizational unit.
+        closingDate:
+          type: string
+          format: date
+          description: The closing date of the organizational unit.
+        logo:
+          $ref: '#/components/schemas/OrganizationalUnitLogo'
+          description: The logo of the organizational unit.
         _links:
           $ref: '#/components/schemas/Links'
-    DataFileChecksum:
+    MultiValueMapStringString:
       type: object
+      additionalProperties:
+        type: array
+        items:
+          type: string
       properties:
-        checksum:
-          type: string
-        checksumAlgo:
-          type: string
-          enum:
-          - CRC32
-          - MD5
-          - SHA-1
-          - SHA-256
-          - SHA-512
-        checksumOrigin:
-          type: string
-          enum:
-          - DLCM
-          - DLCM_TOMBSTONE
-          - USER
-          - PORTAL
-        checksumType:
-          type: string
-          enum:
-          - COMPLETE
-          - PARTIAL
-        creationTime:
-          type: string
-          format: date-time
-    RestCollectionOrder:
-      type: object
-      description: 'The structure of the REST response:
-
-        - data: the list of objects
-
-        - page: the pagination information
-
-        - links: the HATEOAS links
-
-        - facets: the search information
-
-        '
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        _data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Order'
-        _facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResult'
-        _page:
-          $ref: '#/components/schemas/RestCollectionPage'
+        all:
+          type: object
+          additionalProperties:
+            type: string
+          writeOnly: true
+        empty:
+          type: boolean
     AuthLoginInfo:
       type: object
       description: Authentification login information.
@@ -7948,190 +6926,6 @@ components:
         loginIpAddress:
           type: string
           description: IP address of the user login.
-    DisseminationInfoPackage:
-      type: object
-      description: Dissemination Information Package (DIP)
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        info:
-          $ref: '#/components/schemas/RepresentationInfo'
-          description: The OAIS representation information of the DIP.
-        ready:
-          type: boolean
-          description: If DIP package is ready.
-          readOnly: true
-        aipIds:
-          type: array
-          description: The source AIP identifier list of the DIP.
-          items:
-            type: string
-          readOnly: true
-        packageStatus:
-          type: string
-          description: 'OAIS Package Status:
-
-            - CHECKED => Checked package during archiving process
-
-            - CHECKING => A package verification is in progress during checking process
-
-            - CHECK_PENDING => A package verification is pending during checking process
-
-            - CLEANED => Cleaned package during cleaning process for SIP only
-
-            - CLEANING => A package clean is in progress during cleaning process for SIP only
-
-            - COMPLIANCE_LEVEL_UPDATE_PENDING => A package compliance update is pending
-
-            - COMPLIANCE_LEVEL_UPDATED => The compliance levels of the package have been updated
-
-            - COMPLETED => Completed package
-
-            - DISPOSABLE => The Package is candidate for disposal process for AIP only
-
-            - DISPOSAL_APPROVED_BY_ORGUNIT => Disposal org. unit approval done during disposal process for AIP only
-
-            - DISPOSAL_APPROVED => Disposal approval done during disposal process for AIP only
-
-            - DISPOSED => Disposed package for AIP only
-
-            - DOWNLOADING => A package download is in progress
-
-            - EDITING_METADATA => A package metadata edition is in progress
-
-            - FIXING => A package correction is in progress
-
-            - FIXITY_ERROR => Error when checking checksums
-
-            - FIX_PENDING => A package correction is pending
-
-            - INDEXING => A package indexing is in progress
-
-            - IN_ERROR => Package in error during archiving process
-
-            - IN_PREPARATION => Package in preparation during archiving process
-
-            - IN_PROGRESS => A package archiving process is in progress
-
-            - METADATA_EDITION_PENDING => A metadata edition is pending
-
-            - METADATA_UPGRADE_PENDING => A metadata version upgrade is pending
-
-            - PACKAGE_REPLICATION_PENDING => A package replication is pending
-
-            - PRESERVATION_ERROR => Package in error during checking process
-
-            - READY => Package Ready
-
-            - REINDEXING => A package re-indexing is in progress
-
-            - RELOADED => Reloaded package from storage location
-
-            - REPLICATING_PACKAGE => A package replication is in progress
-
-            - REPLICATING_TOMBSTONE => A tombstone package replication is in progress
-
-            - RESUBMITTING => A package re-submission is in progress
-
-            - STORED => Package stored on storage location
-
-            - TOMBSTONE_REPLICATION_PENDING => A tombstone replication is pending
-
-            - UPDATING_COMPLIANCE_LEVEL => A package compliance update is in progress
-
-            - UPDATING_RETENTION => A package retention update is in progress during disposal process
-
-            - UPGRADING_METADATA => A metadata version upgrade is in progress
-
-            '
-          enum:
-          - CHECK_PENDING
-          - CHECKING
-          - CHECKED
-          - CLEANING
-          - CLEANED
-          - COMPLETED
-          - DOWNLOADING
-          - IN_PREPARATION
-          - IN_PROGRESS
-          - STORED
-          - INDEXING
-          - READY
-          - RETRIEVING
-          - RETRIEVING_PENDING
-          - IN_ERROR
-          - PRESERVATION_ERROR
-          - FIXITY_ERROR
-          - DISPOSABLE
-          - DISPOSAL_APPROVED_BY_ORGUNIT
-          - DISPOSAL_APPROVED
-          - DISPOSED
-          - FIX_PENDING
-          - FIXING
-          - METADATA_EDITION_PENDING
-          - EDITING_METADATA
-          - UPDATING_RETENTION
-          - METADATA_UPGRADE_PENDING
-          - UPGRADING_METADATA
-          - COMPLIANCE_LEVEL_UPDATE_PENDING
-          - UPDATING_COMPLIANCE_LEVEL
-          - COMPLIANCE_LEVEL_UPDATED
-          - REINDEXING
-          - RELOADED
-          - RESUBMITTING
-          - PACKAGE_REPLICATION_PENDING
-          - REPLICATING_PACKAGE
-          - TOMBSTONE_REPLICATION_PENDING
-          - REPLICATING_TOMBSTONE
-          writeOnly: true
-        _links:
-          $ref: '#/components/schemas/Links'
-    Sitemapindex:
-      type: object
-      properties:
-        any:
-          type: array
-          items: {}
-        sitemap:
-          type: array
-          items:
-            $ref: '#/components/schemas/TSitemap'
-      xml:
-        name: sitemapindex
-        namespace: http://www.sitemaps.org/schemas/sitemap/0.9
-    RestCollectionArchiveMetadata:
-      type: object
-      description: 'The structure of the REST response:
-
-        - data: the list of objects
-
-        - page: the pagination information
-
-        - links: the HATEOAS links
-
-        - facets: the search information
-
-        '
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        _data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ArchiveMetadata'
-        _facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResult'
-        _page:
-          $ref: '#/components/schemas/RestCollectionPage'
     ArchivalInfoPackage:
       type: object
       description: Archival Information Package (AIP)
@@ -8395,77 +7189,20 @@ components:
           readOnly: true
         _links:
           $ref: '#/components/schemas/Links'
-    RestCollectionDipDataFile:
+    ArchiveStatisticsDto:
       type: object
-      description: 'The structure of the REST response:
-
-        - data: the list of objects
-
-        - page: the pagination information
-
-        - links: the HATEOAS links
-
-        - facets: the search information
-
-        '
       properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        _data:
+        statistics:
+          $ref: '#/components/schemas/StatisticsInfo'
+        averageRatings:
           type: array
           items:
-            $ref: '#/components/schemas/DipDataFile'
-        _facets:
+            $ref: '#/components/schemas/AverageRating'
+        averageRating:
           type: array
           items:
-            $ref: '#/components/schemas/FacetResult'
-        _page:
-          $ref: '#/components/schemas/RestCollectionPage'
-    OrgUnit:
-      type: object
-      description: A organizational unit is a logical entity which could represent a research project or laboratory or all other organizational group of researchers. This entity contains public information of a organizational unit.
-      properties:
-        resId:
-          type: string
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        description:
-          type: string
-          description: The description of the organizational unit.
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        name:
-          type: string
-          description: The name of the organizational unit.
-        url:
-          type: string
-          format: uri
-          description: The URL of the organizational unit.
-        openingDate:
-          type: string
-          format: date
-          description: The opening date of the organizational unit.
-        closingDate:
-          type: string
-          format: date
-          description: The closing date of the organizational unit.
-        logo:
-          $ref: '#/components/schemas/OrganizationalUnitLogo'
-          description: The logo of the organizational unit.
-        _links:
-          $ref: '#/components/schemas/Links'
-    LanguageDTO:
-      type: object
-      properties:
-        resId:
-          type: string
-        code:
-          type: string
-        iso6392:
-          type: string
-        sortValue:
-          type: integer
-          format: int32
+            $ref: '#/components/schemas/AverageRating'
+          writeOnly: true
     Sitemap:
       type: object
       properties:
@@ -8476,17 +7213,79 @@ components:
           format: int32
         locationPrefix:
           type: string
-    Message:
+    Email:
       type: object
       properties:
-        full:
+        senderAddress:
           type: string
+        ccList:
+          type: array
+          items:
+            type: string
+        bccList:
+          type: array
+          items:
+            type: string
+        externalTemplates:
+          type: string
+        internalTemplates:
+          type: string
+    TUrl:
+      type: object
+      properties:
+        loc:
+          type: string
+        lastmod:
+          type: string
+        changefreq:
+          type: string
+          enum:
+          - ALWAYS
+          - HOURLY
+          - DAILY
+          - WEEKLY
+          - MONTHLY
+          - YEARLY
+          - NEVER
+        priority:
+          type: number
+        any:
+          type: array
+          items: {}
     Id:
       type: object
       properties:
         abbrev:
           type: string
-    RestCollectionAipDataFile:
+    CitationDto:
+      type: object
+      properties:
+        language:
+          type: string
+        text:
+          type: string
+        style:
+          type: string
+        outputFormat:
+          type: string
+    SystemProperties:
+      type: object
+      properties:
+        citations:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        bibliographies:
+          type: object
+          additionalProperties:
+            type: array
+            items:
+              type: string
+        _links:
+          $ref: '#/components/schemas/Links'
+    RestCollectionOrderArchive:
       type: object
       description: 'The structure of the REST response:
 
@@ -8505,13 +7304,155 @@ components:
         _data:
           type: array
           items:
-            $ref: '#/components/schemas/AipDataFile'
+            $ref: '#/components/schemas/OrderArchive'
         _facets:
           type: array
           items:
             $ref: '#/components/schemas/FacetResult'
         _page:
           $ref: '#/components/schemas/RestCollectionPage'
+    OrcidToken:
+      type: object
+      description: Personal token allowing to interact with ORCID API.
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        scope:
+          type: string
+        name:
+          type: string
+        orcid:
+          type: string
+        expiresIn:
+          type: string
+          format: date-time
+        _links:
+          $ref: '#/components/schemas/Links'
+    Debug:
+      type: object
+      properties:
+        badRequestStacktrace:
+          type: boolean
+        accessDeniedStacktrace:
+          type: boolean
+    PersonAvatar:
+      type: object
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        fileName:
+          type: string
+          description: The file name.
+          maxLength: 2024
+          minLength: 0
+        fileSize:
+          type: integer
+          format: int64
+          description: The file size in bytes.
+        mimeType:
+          type: string
+          description: The content type of the file. It could be named as MIME type or media type.
+        _links:
+          $ref: '#/components/schemas/Links'
+    RestCollectionArchiveMetadata:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArchiveMetadata'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    SearchCriteria:
+      type: object
+      properties:
+        caseInsensitive:
+          type: boolean
+        caseType:
+          type: string
+        key:
+          type: string
+        operation:
+          type: string
+        operationType:
+          type: string
+          enum:
+          - BETWEEN
+          - CONTAINS
+          - ENDS_WITH
+          - EQUALITY
+          - GREATER_EQUAL
+          - GREATER_THAN
+          - LESS_EQUAL
+          - LESS_THAN
+          - NEGATION
+          - ORACLE_CONTAINS
+          - STARTS_WITH
+        value: {}
+    ArchiveUserRating:
+      type: object
+      description: Archive ratings are the grade assigned by an user to an archive.
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        archiveId:
+          type: string
+          description: The archive identifier of the archive rating.
+        user:
+          $ref: '#/components/schemas/User'
+          description: The user of the archive rating.
+        ratingType:
+          $ref: '#/components/schemas/RatingType'
+          description: The rating type of the archive rating.
+        grade:
+          type: integer
+          format: int32
+          description: The grade of the archive rating.
+        _links:
+          $ref: '#/components/schemas/Links'
+    Cookie:
+      type: object
+      properties:
+        secure:
+          type: boolean
     FileFormat:
       type: object
       description: File format informations.
@@ -8545,26 +7486,268 @@ components:
           description: The format version of the file.
           maxLength: 50
           minLength: 0
-    ArchiveMetadata:
+    DownloadToken:
       type: object
-      description: Public metadata of an archive
       properties:
+        cookie:
+          $ref: '#/components/schemas/Cookie'
+    RestCollectionArchiveUserRating:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArchiveUserRating'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    RestCollectionOrgUnit:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrgUnit'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    AverageRating:
+      type: object
+      properties:
+        ratingType:
+          type: string
+        averageValue:
+          type: integer
+          format: int32
+        numberVotes:
+          type: integer
+          format: int64
+    DipDataFile:
+      type: object
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
         resId:
           type: string
-        index:
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        searchCriterias:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchCriteria'
+        complianceLevel:
           type: string
-          description: Name of the index
-        metadata:
-          type: object
-          additionalProperties: true
-          description: The dynamic metadata list of the index.
-        currentAccess:
-          type: string
-          description: The current access level of the archive, deducted from the final access level and an eventual embargo.
+          description: 'Compliance level to define the preservation quality based on data file format:
+
+            - NOT_ASSESSED => The format could not be evaluated
+
+            - NO_COMPLIANCE => The format could not be determined
+
+            - WEAK_COMPLIANCE => The format was determined: content type detected
+
+            - AVERAGE_COMPLIANCE => The format was determined: WEAK_COMPLIANCE + PRONOM identifier detected
+
+            - FULL_COMPLIANCE => The format was determined: AVERAGE_COMPLIANCE + the format is part of golden formats
+
+            '
           enum:
-          - PUBLIC
-          - RESTRICTED
-          - CLOSED
+          - NOT_ASSESSED
+          - NO_COMPLIANCE
+          - WEAK_COMPLIANCE
+          - AVERAGE_COMPLIANCE
+          - FULL_COMPLIANCE
+        dataCategory:
+          type: string
+          enum:
+          - Primary
+          - Observational
+          - Experimental
+          - Simulation
+          - Derived
+          - Reference
+          - Digitalized
+          - Secondary
+          - Publication
+          - DataPaper
+          - Documentation
+          - Software
+          - Code
+          - Binaries
+          - VirtualMachine
+          - Administrative
+          - Document
+          - WebSite
+          - Other
+          - Package
+          - InformationPackage
+          - UpdatePackage
+          - Metadata
+          - CustomMetadata
+          - UpdatedMetadata
+          - Internal
+          - DatasetThumbnail
+          - ArchiveThumbnail
+          - ArchiveReadme
+          - DatafileThumbnail
+          - ArchiveDataUseAgreement
+        dataType:
+          type: string
+          enum:
+          - Primary
+          - Observational
+          - Experimental
+          - Simulation
+          - Derived
+          - Reference
+          - Digitalized
+          - Secondary
+          - Publication
+          - DataPaper
+          - Documentation
+          - Software
+          - Code
+          - Binaries
+          - VirtualMachine
+          - Administrative
+          - Document
+          - WebSite
+          - Other
+          - Package
+          - InformationPackage
+          - UpdatePackage
+          - Metadata
+          - CustomMetadata
+          - UpdatedMetadata
+          - Internal
+          - DatasetThumbnail
+          - ArchiveThumbnail
+          - ArchiveReadme
+          - DatafileThumbnail
+          - ArchiveDataUseAgreement
+        fileFormat:
+          $ref: '#/components/schemas/FileFormat'
+        fileSize:
+          type: integer
+          format: int64
+        finalData:
+          type: string
+          format: uri
+        fileName:
+          type: string
+          readOnly: true
+        metadataType:
+          $ref: '#/components/schemas/MetadataType'
+        relativeLocation:
+          type: string
+          maxLength: 460
+          minLength: 0
+          pattern: (^\/$)|(^\/.*(?<!\/)$)
+        sourceData:
+          type: string
+          format: uri
+        status:
+          type: string
+          enum:
+          - CHANGE_RELATIVE_LOCATION
+          - CHANGE_DATA_CATEGORY
+          - CLEANED
+          - CLEANING
+          - EXCLUDED_FILE
+          - CHECK_COMPLIANCE
+          - CHECK_COMPLIANCE_CLEANED
+          - CHECKED_COMPLIANCE
+          - CHECKED_COMPLIANCE_CLEANED
+          - IGNORED_FILE
+          - DOWNLOAD_IN_PROGRESS
+          - FILE_FORMAT_IDENTIFIED
+          - FILE_FORMAT_SKIPPED
+          - FILE_FORMAT_UNKNOWN
+          - IN_ERROR
+          - PROCESSED
+          - READY
+          - RECEIVED
+          - TO_PROCESS
+          - VIRUS_CHECKED
+          - VIRUS_SKIPPED
+        statusMessage:
+          type: string
+          maxLength: 1024
+          minLength: 0
+        virusCheck:
+          $ref: '#/components/schemas/VirusCheck'
+        checksums:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataFileChecksum'
+        infoPackage:
+          $ref: '#/components/schemas/DisseminationInfoPackage'
+        inProgress:
+          type: boolean
+        fileStatus:
+          type: string
+          enum:
+          - CHANGE_RELATIVE_LOCATION
+          - CHANGE_DATA_CATEGORY
+          - CLEANED
+          - CLEANING
+          - EXCLUDED_FILE
+          - CHECK_COMPLIANCE
+          - CHECK_COMPLIANCE_CLEANED
+          - CHECKED_COMPLIANCE
+          - CHECKED_COMPLIANCE_CLEANED
+          - IGNORED_FILE
+          - DOWNLOAD_IN_PROGRESS
+          - FILE_FORMAT_IDENTIFIED
+          - FILE_FORMAT_SKIPPED
+          - FILE_FORMAT_UNKNOWN
+          - IN_ERROR
+          - PROCESSED
+          - READY
+          - RECEIVED
+          - TO_PROCESS
+          - VIRUS_CHECKED
+          - VIRUS_SKIPPED
+          writeOnly: true
+        smartSize:
+          type: string
+          readOnly: true
+        fullFileName:
+          type: string
           readOnly: true
         _links:
           $ref: '#/components/schemas/Links'
@@ -8613,7 +7796,7 @@ components:
           description: The full name of the person.
         _links:
           $ref: '#/components/schemas/Links'
-    RestCollectionOrderArchive:
+    RestCollectionDipDataFile:
       type: object
       description: 'The structure of the REST response:
 
@@ -8632,7 +7815,468 @@ components:
         _data:
           type: array
           items:
-            $ref: '#/components/schemas/OrderArchive'
+            $ref: '#/components/schemas/DipDataFile'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    Order:
+      type: object
+      description: Orders allow to prepare archive download (DIP) from the archives (AIP).
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        publicOrder:
+          type: boolean
+          description: If the order is public, false otherwise.
+        subsetItems:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderSubsetItem'
+        metadataVersion:
+          type: string
+          description: The metadata version of the order query.
+          enum:
+          - '1.0'
+          - '1.1'
+          - '2.0'
+          - '2.1'
+          - '3.0'
+          - '3.1'
+          - '4.0'
+          - '5.0'
+        name:
+          type: string
+          description: The name of the order query.
+          maxLength: 255
+          minLength: 1
+        query:
+          type: string
+          description: The query of the order query.
+          maxLength: 5099
+          minLength: 0
+        queryType:
+          type: string
+          description: The type of the order query.
+          enum:
+          - ADVANCED
+          - DIRECT
+          - SIMPLE
+        status:
+          type: string
+          description: The status of the order query.
+          enum:
+          - DOWNLOADING
+          - IN_DISSEMINATION_PREPARATION
+          - IN_ERROR
+          - IN_PREPARATION
+          - IN_PROGRESS
+          - READY
+          - SUBMITTED
+        statusMessage:
+          type: string
+          description: The message related to the status of the order query.
+          maxLength: 1024
+          minLength: 0
+        disseminationPolicyId:
+          type: string
+          description: The dissemination policy identifier linked to the order.
+          maxLength: 2147483647
+          minLength: 1
+        organizationalUnitDisseminationPolicyId:
+          type: string
+          description: The dissemination policy identifier linked to the orgunit.
+          maxLength: 2147483647
+          minLength: 1
+        subitemsChecksum:
+          type: string
+          description: The checksum of the order subitems list.
+        orderStatus:
+          type: string
+          enum:
+          - DOWNLOADING
+          - IN_DISSEMINATION_PREPARATION
+          - IN_ERROR
+          - IN_PREPARATION
+          - IN_PROGRESS
+          - READY
+          - SUBMITTED
+          writeOnly: true
+        errorStatus:
+          type: string
+          writeOnly: true
+        dipNumber:
+          type: integer
+          format: int32
+          description: The DIP number of the order query.
+        aipNumber:
+          type: integer
+          format: int32
+          description: The AIP number of the order query.
+        _links:
+          $ref: '#/components/schemas/Links'
+    RestCollectionPage:
+      type: object
+      properties:
+        currentPage:
+          type: integer
+          format: int64
+        sizePage:
+          type: integer
+          format: int64
+        totalItems:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int64
+    Security:
+      type: object
+      properties:
+        downloadTokenLifeTimeMinutes:
+          type: integer
+          format: int32
+        cipherPassword:
+          type: string
+        downloadToken:
+          $ref: '#/components/schemas/DownloadToken'
+    AuthUserDto:
+      type: object
+      properties:
+        resId:
+          type: string
+        externalUid:
+          type: string
+        creationWhen:
+          type: string
+          format: date-time
+        lastUpdateWhen:
+          type: string
+          format: date-time
+        creationWho:
+          type: string
+        lastUpdateWho:
+          type: string
+        disabled:
+          type: boolean
+          writeOnly: true
+        email:
+          type: string
+        firstName:
+          type: string
+        homeOrganization:
+          type: string
+        affiliations:
+          type: array
+          items:
+            type: string
+        lastName:
+          type: string
+        applicationRole:
+          $ref: '#/components/schemas/ApplicationRole'
+        firstLogin:
+          $ref: '#/components/schemas/AuthLoginInfo'
+        lastLogin:
+          $ref: '#/components/schemas/LoginInfo'
+        orcid:
+          type: string
+          description: 'The ORCID of the person (Format: xxxx-xxxx-xxxx-xxxx).'
+        verifiedOrcid:
+          type: boolean
+          description: if the person ORCID is verified with ORCID authentication.
+        enabled:
+          type: boolean
+        fullName:
+          type: string
+    DLCMConfig:
+      type: object
+      properties:
+        solidify:
+          $ref: '#/components/schemas/SolidifyProperties'
+        dlcm.repository: {}
+        solidify.index: {}
+        solidify.oai-pmh: {}
+        solidify.citation: {}
+        dlcm: {}
+        management.endpoints.web: {}
+        auth: {}
+        spring.datasource: {}
+        spring.jpa: {}
+        spring.activemq: {}
+        spring.jms: {}
+        spring.mail: {}
+        springdoc: {}
+    MetadataType:
+      type: object
+      description: The metadata type allow to define custom metadata.
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        description:
+          type: string
+          description: The description of the metadata type.
+          maxLength: 1024
+          minLength: 0
+        metadataFormat:
+          type: string
+          description: The format of the metadata type.
+          enum:
+          - CUSTOM
+          - JSON
+          - SCHEMA_LESS
+          - XML
+        metadataSchema:
+          type: string
+          description: The schema of the metadata type.
+        name:
+          type: string
+          description: The name of the metadata type.
+          maxLength: 255
+          minLength: 1
+        url:
+          type: string
+          format: uri
+          description: The URL of the metadata type.
+        version:
+          type: string
+          description: The version of the metadata type.
+          maxLength: 50
+          minLength: 1
+        fullName:
+          type: string
+          description: The name and the version of the metadata type.
+          readOnly: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    DisseminationPolicyDto:
+      type: object
+      properties:
+        disseminationPolicyId:
+          type: string
+        organizationalUnitDisseminationPolicyId:
+          type: string
+        subsetItemList:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrderSubsetItem'
+    User:
+      type: object
+      description: A user represents a user of the platform. A person and roles are associated to it.
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        searchCriterias:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchCriteria'
+        lastLoginTime:
+          type: string
+          format: date-time
+          description: The date of the user last login.
+        lastLoginIpAddress:
+          type: string
+          description: The IP address from last login of the user.
+          maxLength: 255
+          minLength: 0
+        applicationRole:
+          $ref: '#/components/schemas/ApplicationRole'
+          description: The application role of the user.
+        disabled:
+          type: boolean
+          writeOnly: true
+        email:
+          type: string
+          description: The user email which must be a valid address.
+          maxLength: 255
+          minLength: 1
+        externalUid:
+          type: string
+          description: The external unique ID of the user.
+          maxLength: 255
+          minLength: 1
+        firstName:
+          type: string
+          description: The first name of the user.
+          maxLength: 255
+          minLength: 1
+        lastName:
+          type: string
+          description: The last name of the user.
+          maxLength: 255
+          minLength: 1
+        homeOrganization:
+          type: string
+          description: The home organization of the user.
+          maxLength: 512
+          minLength: 1
+        person:
+          $ref: '#/components/schemas/Person'
+          description: The linked person of the user.
+        lastSyncFromAuthServerTime:
+          type: string
+          format: date-time
+          description: The last time the user was updated with info coming from the authorization server
+        enabled:
+          type: boolean
+          description: If the user is enable.
+        fullName:
+          type: string
+          description: The full name of the user.
+        applicationRoleAndLastLogin:
+          $ref: '#/components/schemas/AuthUserDto'
+          writeOnly: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    StatusHistory:
+      type: object
+      properties:
+        changeTime:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+        creatorName:
+          type: string
+        description:
+          type: string
+          maxLength: 1024
+          minLength: 0
+        status:
+          type: string
+    OrganizationalUnitLogo:
+      type: object
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        fileName:
+          type: string
+          description: The file name.
+          maxLength: 2024
+          minLength: 0
+        fileSize:
+          type: integer
+          format: int64
+          description: The file size in bytes.
+        mimeType:
+          type: string
+          description: The content type of the file. It could be named as MIME type or media type.
+        _links:
+          $ref: '#/components/schemas/Links'
+    SolidifyProperties:
+      type: object
+      properties:
+        applicationName:
+          type: string
+        serverDisplayName:
+          type: string
+        email:
+          $ref: '#/components/schemas/Email'
+        orcid:
+          $ref: '#/components/schemas/Orcid'
+        sitemap:
+          $ref: '#/components/schemas/Sitemap'
+        debug:
+          $ref: '#/components/schemas/Debug'
+        security:
+          $ref: '#/components/schemas/Security'
+        sse:
+          $ref: '#/components/schemas/Sse'
+        applicationVersion:
+          type: string
+        gitInfoService:
+          $ref: '#/components/schemas/GitInfoProperties'
+    StreamingResponseBody: {}
+    RestCollectionOrder:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Order'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    Remote:
+      type: object
+      properties:
+        origin:
+          $ref: '#/components/schemas/Origin'
+    TSitemap:
+      type: object
+      properties:
+        loc:
+          type: string
+        lastmod:
+          type: string
+        any:
+          type: array
+          items: {}
+    RestCollectionAipDataFile:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/AipDataFile'
         _facets:
           type: array
           items:
@@ -8645,7 +8289,7 @@ components:
         timeoutMinutes:
           type: integer
           format: int32
-    RestCollectionOrgUnit:
+    RestCollectionStatusHistory:
       type: object
       description: 'The structure of the REST response:
 
@@ -8664,13 +8308,363 @@ components:
         _data:
           type: array
           items:
-            $ref: '#/components/schemas/OrgUnit'
+            $ref: '#/components/schemas/StatusHistory'
         _facets:
           type: array
           items:
             $ref: '#/components/schemas/FacetResult'
         _page:
           $ref: '#/components/schemas/RestCollectionPage'
+    Message:
+      type: object
+      properties:
+        full:
+          type: string
+    GitInfoProperties:
+      type: object
+      properties:
+        branch:
+          type: string
+        build:
+          $ref: '#/components/schemas/Build'
+        commit:
+          $ref: '#/components/schemas/Commit'
+        remote:
+          $ref: '#/components/schemas/Remote'
+    Orcid:
+      type: object
+      properties:
+        baseUrl:
+          type: string
+        clientId:
+          type: string
+        clientSecret:
+          type: string
+        grantType:
+          type: string
+        scope:
+          type: string
+        apiBaseUrl:
+          type: string
+        websites:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrcidWebsite'
+        tokenUrl:
+          type: string
+        authorizeUrl:
+          type: string
+    ChangeInfo:
+      type: object
+      description: The change information of an action.
+      properties:
+        fullName:
+          type: string
+          description: The full name of the user who did the action on the resource.
+          readOnly: true
+        who:
+          type: string
+          description: The user who did the action on the resource.
+          readOnly: true
+        when:
+          type: string
+          format: date-time
+          description: The date when the action was done on the resources.
+          readOnly: true
+    Sitemapindex:
+      type: object
+      properties:
+        any:
+          type: array
+          items: {}
+        sitemap:
+          type: array
+          items:
+            $ref: '#/components/schemas/TSitemap'
+      xml:
+        name: sitemapindex
+        namespace: http://www.sitemaps.org/schemas/sitemap/0.9
+    AipDataFile:
+      type: object
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        searchCriterias:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchCriteria'
+        complianceLevel:
+          type: string
+          description: 'Compliance level to define the preservation quality based on data file format:
+
+            - NOT_ASSESSED => The format could not be evaluated
+
+            - NO_COMPLIANCE => The format could not be determined
+
+            - WEAK_COMPLIANCE => The format was determined: content type detected
+
+            - AVERAGE_COMPLIANCE => The format was determined: WEAK_COMPLIANCE + PRONOM identifier detected
+
+            - FULL_COMPLIANCE => The format was determined: AVERAGE_COMPLIANCE + the format is part of golden formats
+
+            '
+          enum:
+          - NOT_ASSESSED
+          - NO_COMPLIANCE
+          - WEAK_COMPLIANCE
+          - AVERAGE_COMPLIANCE
+          - FULL_COMPLIANCE
+        dataCategory:
+          type: string
+          enum:
+          - Primary
+          - Observational
+          - Experimental
+          - Simulation
+          - Derived
+          - Reference
+          - Digitalized
+          - Secondary
+          - Publication
+          - DataPaper
+          - Documentation
+          - Software
+          - Code
+          - Binaries
+          - VirtualMachine
+          - Administrative
+          - Document
+          - WebSite
+          - Other
+          - Package
+          - InformationPackage
+          - UpdatePackage
+          - Metadata
+          - CustomMetadata
+          - UpdatedMetadata
+          - Internal
+          - DatasetThumbnail
+          - ArchiveThumbnail
+          - ArchiveReadme
+          - DatafileThumbnail
+          - ArchiveDataUseAgreement
+        dataType:
+          type: string
+          enum:
+          - Primary
+          - Observational
+          - Experimental
+          - Simulation
+          - Derived
+          - Reference
+          - Digitalized
+          - Secondary
+          - Publication
+          - DataPaper
+          - Documentation
+          - Software
+          - Code
+          - Binaries
+          - VirtualMachine
+          - Administrative
+          - Document
+          - WebSite
+          - Other
+          - Package
+          - InformationPackage
+          - UpdatePackage
+          - Metadata
+          - CustomMetadata
+          - UpdatedMetadata
+          - Internal
+          - DatasetThumbnail
+          - ArchiveThumbnail
+          - ArchiveReadme
+          - DatafileThumbnail
+          - ArchiveDataUseAgreement
+        fileFormat:
+          $ref: '#/components/schemas/FileFormat'
+        fileSize:
+          type: integer
+          format: int64
+        finalData:
+          type: string
+          format: uri
+        fileName:
+          type: string
+          readOnly: true
+        metadataType:
+          $ref: '#/components/schemas/MetadataType'
+        relativeLocation:
+          type: string
+          maxLength: 460
+          minLength: 0
+          pattern: (^\/$)|(^\/.*(?<!\/)$)
+        sourceData:
+          type: string
+          format: uri
+        status:
+          type: string
+          enum:
+          - CHANGE_RELATIVE_LOCATION
+          - CHANGE_DATA_CATEGORY
+          - CLEANED
+          - CLEANING
+          - EXCLUDED_FILE
+          - CHECK_COMPLIANCE
+          - CHECK_COMPLIANCE_CLEANED
+          - CHECKED_COMPLIANCE
+          - CHECKED_COMPLIANCE_CLEANED
+          - IGNORED_FILE
+          - DOWNLOAD_IN_PROGRESS
+          - FILE_FORMAT_IDENTIFIED
+          - FILE_FORMAT_SKIPPED
+          - FILE_FORMAT_UNKNOWN
+          - IN_ERROR
+          - PROCESSED
+          - READY
+          - RECEIVED
+          - TO_PROCESS
+          - VIRUS_CHECKED
+          - VIRUS_SKIPPED
+        statusMessage:
+          type: string
+          maxLength: 1024
+          minLength: 0
+        virusCheck:
+          $ref: '#/components/schemas/VirusCheck'
+        checksums:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataFileChecksum'
+        infoPackage:
+          $ref: '#/components/schemas/ArchivalInfoPackage'
+        inProgress:
+          type: boolean
+        fileStatus:
+          type: string
+          enum:
+          - CHANGE_RELATIVE_LOCATION
+          - CHANGE_DATA_CATEGORY
+          - CLEANED
+          - CLEANING
+          - EXCLUDED_FILE
+          - CHECK_COMPLIANCE
+          - CHECK_COMPLIANCE_CLEANED
+          - CHECKED_COMPLIANCE
+          - CHECKED_COMPLIANCE_CLEANED
+          - IGNORED_FILE
+          - DOWNLOAD_IN_PROGRESS
+          - FILE_FORMAT_IDENTIFIED
+          - FILE_FORMAT_SKIPPED
+          - FILE_FORMAT_UNKNOWN
+          - IN_ERROR
+          - PROCESSED
+          - READY
+          - RECEIVED
+          - TO_PROCESS
+          - VIRUS_CHECKED
+          - VIRUS_SKIPPED
+          writeOnly: true
+        smartSize:
+          type: string
+          readOnly: true
+        fullFileName:
+          type: string
+          readOnly: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    FacetResultValue:
+      type: object
+      properties:
+        value:
+          type: string
+        count:
+          type: integer
+          format: int64
+    DataFileChecksum:
+      type: object
+      properties:
+        checksum:
+          type: string
+        checksumAlgo:
+          type: string
+          enum:
+          - CRC32
+          - MD5
+          - SHA-1
+          - SHA-256
+          - SHA-512
+        checksumOrigin:
+          type: string
+          enum:
+          - DLCM
+          - DLCM_TOMBSTONE
+          - USER
+          - PORTAL
+        checksumType:
+          type: string
+          enum:
+          - COMPLETE
+          - PARTIAL
+        creationTime:
+          type: string
+          format: date-time
+    Tool:
+      type: object
+      description: Software tool information.
+      properties:
+        description:
+          type: string
+          description: The description of the tool.
+        name:
+          type: string
+          description: The name of the tool.
+        puid:
+          type: string
+          description: The PRONOM identifier of the tool.
+        version:
+          type: string
+          description: The version of the tool.
+    OrderSubsetItem:
+      type: object
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        itemPath:
+          type: string
+        _links:
+          $ref: '#/components/schemas/Links'
+    Origin:
+      type: object
+      properties:
+        url:
+          type: string
+    LoginInfo:
+      type: object
+      description: Login information
+      properties:
+        loginIpAddress:
+          type: string
+          description: IP address of the user login.
+        loginTime:
+          type: string
+          format: date-time
+          description: Date of the user login.
     Commit:
       type: object
       properties:
@@ -8682,46 +8676,40 @@ components:
           $ref: '#/components/schemas/Message'
         user:
           $ref: '#/components/schemas/User'
-    DisseminationPolicyDto:
+    Links:
       type: object
-      properties:
-        disseminationPolicyId:
-          type: string
-        organizationalUnitDisseminationPolicyId:
-          type: string
-        subsetItemList:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrderSubsetItem'
-    SystemProperties:
+      additionalProperties:
+        $ref: '#/components/schemas/Link'
+    Result:
       type: object
+      description: 'The result is the result of REST action (HTTP POST) with the status:
+
+        - EXECUTED => the action was executed successfully
+
+        - NOT_EXECUTED => the action failed and the message details the reason
+
+        - NON_APPLICABLE => the action cannot be executed and the message details the reason
+
+        '
       properties:
-        citations:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
-        bibliographies:
-          type: object
-          additionalProperties:
-            type: array
-            items:
-              type: string
+        message:
+          type: string
+          description: The detailed message on what happens
+        resId:
+          type: string
+          description: The ID of the object
+        status:
+          type: string
+          description: The status of the launched action
+          enum:
+          - EXECUTED
+          - NON_APPLICABLE
+          - NOT_EXECUTED
+        messsage:
+          type: string
+          writeOnly: true
         _links:
           $ref: '#/components/schemas/Links'
-    WebPageLabel:
-      type: object
-      properties:
-        language:
-          $ref: '#/components/schemas/LanguageDTO'
-          writeOnly: true
-        text:
-          type: string
-          maxLength: 1024
-          minLength: 0
-        url:
-          type: string
     RestCollectionArchivalInfoPackage:
       type: object
       description: 'The structure of the REST response:
@@ -8748,38 +8736,81 @@ components:
             $ref: '#/components/schemas/FacetResult'
         _page:
           $ref: '#/components/schemas/RestCollectionPage'
-    RestCollectionPage:
+    LanguageDTO:
       type: object
       properties:
-        currentPage:
-          type: integer
-          format: int64
-        sizePage:
-          type: integer
-          format: int64
-        totalItems:
-          type: integer
-          format: int64
-        totalPages:
-          type: integer
-          format: int64
-    MultiValueMapStringString:
-      type: object
-      additionalProperties:
-        type: array
-        items:
+        resId:
           type: string
-      properties:
-        all:
-          type: object
-          additionalProperties:
-            type: string
-          writeOnly: true
-        empty:
-          type: boolean
-    OrcidToken:
+        code:
+          type: string
+        iso6392:
+          type: string
+        sortValue:
+          type: integer
+          format: int32
+    WebPageLabel:
       type: object
-      description: Personal token allowing to interact with ORCID API.
+      properties:
+        language:
+          $ref: '#/components/schemas/LanguageDTO'
+          writeOnly: true
+        text:
+          type: string
+          maxLength: 1024
+          minLength: 0
+        url:
+          type: string
+    SearchCondition:
+      type: object
+      description: 'The search conditions describes the query to search in the indexes.
+
+        '
+      properties:
+        type:
+          type: string
+          enum:
+          - MATCH
+          - TERM
+          - WILDCARD
+          - RANGE
+          - QUERY
+          - SIMPLE_QUERY
+          - NESTED_BOOLEAN
+        searchOperator:
+          type: string
+          enum:
+          - AND
+          - OR
+        booleanClauseType:
+          type: string
+          enum:
+          - MUST
+          - FILTER
+          - SHOULD
+          - MUST_NOT
+        field:
+          type: string
+        multiMatchFields:
+          type: array
+          items:
+            type: string
+        value:
+          type: string
+        terms:
+          type: array
+          items:
+            type: string
+        upperValue:
+          type: string
+        lowerValue:
+          type: string
+        nestedConditions:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchCondition'
+    RatingType:
+      type: object
+      description: 'The rating types is the type of grade for a dataset: Quality or Usefulness.'
       properties:
         creation:
           $ref: '#/components/schemas/ChangeInfo'
@@ -8790,88 +8821,183 @@ components:
           description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
           maxLength: 50
           minLength: 0
-        scope:
-          type: string
         name:
           type: string
-        orcid:
-          type: string
-        expiresIn:
-          type: string
-          format: date-time
+          description: The name of the rating type.
         _links:
           $ref: '#/components/schemas/Links'
-    AverageRating:
+    VirusCheck:
       type: object
+      description: Virus check information.
       properties:
-        ratingType:
+        checkDate:
           type: string
-        averageValue:
-          type: integer
-          format: int32
-        numberVotes:
+          format: date-time
+          description: The execution date of the virus check.
+        details:
+          type: string
+          description: The result details of the virus check.
+        tool:
+          $ref: '#/components/schemas/Tool'
+          description: The virus check tool used to verify if the file contains virus.
+    StatisticsInfo:
+      type: object
+      description: Archive statistics information.
+      properties:
+        viewNumber:
           type: integer
           format: int64
-    Tool:
+          description: The view number of the archive.
+        downloadNumber:
+          type: integer
+          format: int64
+          description: The download number of the archive.
+        lastDownloadDate:
+          type: string
+          format: date-time
+    OrderArchive:
       type: object
-      description: Software tool information.
       properties:
+        archive:
+          $ref: '#/components/schemas/ArchivalInfoPackage'
+        metadata:
+          $ref: '#/components/schemas/ArchiveMetadata'
+    RepresentationInfo:
+      type: object
+      description: 'OAIS Information Package: SIP, AIP or DIP.'
+      properties:
+        access:
+          type: string
+          description: The final access level of the package.
+          enum:
+          - PUBLIC
+          - RESTRICTED
+          - CLOSED
+        dataSensitivity:
+          type: string
+          description: The data sensitivity of the package.
+          enum:
+          - UNDEFINED
+          - BLUE
+          - GREEN
+          - YELLOW
+          - ORANGE
+          - RED
+          - CRIMSON
+        dataUsePolicy:
+          type: string
+          description: The data use policy type of the package.
+          enum:
+          - NONE
+          - LICENSE
+          - CLICK_THROUGH_DUA
+          - SIGNED_DUA
+          - EXTERNAL_DUA
+        complianceLevel:
+          type: string
+          description: The compliance level of the package.
+          enum:
+          - NOT_ASSESSED
+          - NO_COMPLIANCE
+          - WEAK_COMPLIANCE
+          - AVERAGE_COMPLIANCE
+          - FULL_COMPLIANCE
         description:
           type: string
-          description: The description of the tool.
+          description: The description of the package.
+          maxLength: 1024
+          minLength: 0
+        embargo:
+          $ref: '#/components/schemas/EmbargoInfo'
+        licenseId:
+          type: string
+          description: The license identifier of the package.
+        metadataVersion:
+          type: string
+          description: The metadata version of the package.
+          enum:
+          - '1.0'
+          - '1.1'
+          - '2.0'
+          - '2.1'
+          - '3.0'
+          - '3.1'
+          - '4.0'
+          - '5.0'
         name:
           type: string
-          description: The name of the tool.
-        puid:
+          description: The name of the package.
+          maxLength: 255
+          minLength: 1
+        organizationalUnitId:
           type: string
-          description: The PRONOM identifier of the tool.
-        version:
+          description: The organizational Unit ID of the package.
+          maxLength: 50
+          minLength: 1
+        status:
           type: string
-          description: The version of the tool.
-    FacetResultValue:
-      type: object
-      properties:
-        value:
+          description: The status of the package.
+          enum:
+          - CHECK_PENDING
+          - CHECKING
+          - CHECKED
+          - CLEANING
+          - CLEANED
+          - COMPLETED
+          - DOWNLOADING
+          - IN_PREPARATION
+          - IN_PROGRESS
+          - STORED
+          - INDEXING
+          - READY
+          - RETRIEVING
+          - RETRIEVING_PENDING
+          - IN_ERROR
+          - PRESERVATION_ERROR
+          - FIXITY_ERROR
+          - DISPOSABLE
+          - DISPOSAL_APPROVED_BY_ORGUNIT
+          - DISPOSAL_APPROVED
+          - DISPOSED
+          - FIX_PENDING
+          - FIXING
+          - METADATA_EDITION_PENDING
+          - EDITING_METADATA
+          - UPDATING_RETENTION
+          - METADATA_UPGRADE_PENDING
+          - UPGRADING_METADATA
+          - COMPLIANCE_LEVEL_UPDATE_PENDING
+          - UPDATING_COMPLIANCE_LEVEL
+          - COMPLIANCE_LEVEL_UPDATED
+          - REINDEXING
+          - RELOADED
+          - RESUBMITTING
+          - PACKAGE_REPLICATION_PENDING
+          - REPLICATING_PACKAGE
+          - TOMBSTONE_REPLICATION_PENDING
+          - REPLICATING_TOMBSTONE
+        statusMessage:
           type: string
-        count:
-          type: integer
-          format: int64
-    Urlset:
-      type: object
-      properties:
-        any:
-          type: array
-          items: {}
-        url:
-          type: array
-          items:
-            $ref: '#/components/schemas/TUrl'
-      xml:
-        name: urlset
-        namespace: http://www.sitemaps.org/schemas/sitemap/0.9
-    SolidifyProperties:
-      type: object
-      properties:
-        applicationName:
+          description: The detailed message related to the package status.
+          maxLength: 1024
+          minLength: 0
+        containsUpdatedMetadata:
+          type: boolean
+          description: If the package contains updated metadata.
+        contentStructurePublic:
+          type: boolean
+          description: If the archive structure content is public.
+        accessCurrentlyPublic:
+          type: boolean
+          description: If the current access level is public
+        currentAccess:
           type: string
-        serverDisplayName:
-          type: string
-        email:
-          $ref: '#/components/schemas/Email'
-        orcid:
-          $ref: '#/components/schemas/Orcid'
-        sitemap:
-          $ref: '#/components/schemas/Sitemap'
-        debug:
-          $ref: '#/components/schemas/Debug'
-        security:
-          $ref: '#/components/schemas/Security'
-        sse:
-          $ref: '#/components/schemas/Sse'
-        applicationVersion:
-          type: string
-        gitInfoService:
-          $ref: '#/components/schemas/GitInfoProperties'
+          description: The current access level of the package, deducted from the final access level and an eventual embargo.
+          enum:
+          - PUBLIC
+          - RESTRICTED
+          - CLOSED
+          readOnly: true
     DLCMDefaultConfig:
       type: object
       properties:
@@ -8890,3 +9016,238 @@ components:
         spring.jms: {}
         spring.mail: {}
         springdoc: {}
+    EmbargoInfo:
+      type: object
+      description: Embargo information.
+      properties:
+        access:
+          type: string
+          description: The access level during the embargo.
+          enum:
+          - PUBLIC
+          - RESTRICTED
+          - CLOSED
+        months:
+          type: integer
+          format: int32
+          description: The month number of the embargo duration.
+        startDate:
+          type: string
+          format: date-time
+          description: The starting date of the embargo period.
+    DisseminationInfoPackage:
+      type: object
+      description: Dissemination Information Package (DIP)
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        info:
+          $ref: '#/components/schemas/RepresentationInfo'
+          description: The OAIS representation information of the DIP.
+        ready:
+          type: boolean
+          description: If DIP package is ready.
+          readOnly: true
+        aipIds:
+          type: array
+          description: The source AIP identifier list of the DIP.
+          items:
+            type: string
+          readOnly: true
+        packageStatus:
+          type: string
+          description: 'OAIS Package Status:
+
+            - CHECKED => Checked package during archiving process
+
+            - CHECKING => A package verification is in progress during checking process
+
+            - CHECK_PENDING => A package verification is pending during checking process
+
+            - CLEANED => Cleaned package during cleaning process for SIP only
+
+            - CLEANING => A package clean is in progress during cleaning process for SIP only
+
+            - COMPLIANCE_LEVEL_UPDATE_PENDING => A package compliance update is pending
+
+            - COMPLIANCE_LEVEL_UPDATED => The compliance levels of the package have been updated
+
+            - COMPLETED => Completed package
+
+            - DISPOSABLE => The Package is candidate for disposal process for AIP only
+
+            - DISPOSAL_APPROVED_BY_ORGUNIT => Disposal org. unit approval done during disposal process for AIP only
+
+            - DISPOSAL_APPROVED => Disposal approval done during disposal process for AIP only
+
+            - DISPOSED => Disposed package for AIP only
+
+            - DOWNLOADING => A package download is in progress
+
+            - EDITING_METADATA => A package metadata edition is in progress
+
+            - FIXING => A package correction is in progress
+
+            - FIXITY_ERROR => Error when checking checksums
+
+            - FIX_PENDING => A package correction is pending
+
+            - INDEXING => A package indexing is in progress
+
+            - IN_ERROR => Package in error during archiving process
+
+            - IN_PREPARATION => Package in preparation during archiving process
+
+            - IN_PROGRESS => A package archiving process is in progress
+
+            - METADATA_EDITION_PENDING => A metadata edition is pending
+
+            - METADATA_UPGRADE_PENDING => A metadata version upgrade is pending
+
+            - PACKAGE_REPLICATION_PENDING => A package replication is pending
+
+            - PRESERVATION_ERROR => Package in error during checking process
+
+            - READY => Package Ready
+
+            - REINDEXING => A package re-indexing is in progress
+
+            - RELOADED => Reloaded package from storage location
+
+            - REPLICATING_PACKAGE => A package replication is in progress
+
+            - REPLICATING_TOMBSTONE => A tombstone package replication is in progress
+
+            - RESUBMITTING => A package re-submission is in progress
+
+            - STORED => Package stored on storage location
+
+            - TOMBSTONE_REPLICATION_PENDING => A tombstone replication is pending
+
+            - UPDATING_COMPLIANCE_LEVEL => A package compliance update is in progress
+
+            - UPDATING_RETENTION => A package retention update is in progress during disposal process
+
+            - UPGRADING_METADATA => A metadata version upgrade is in progress
+
+            '
+          enum:
+          - CHECK_PENDING
+          - CHECKING
+          - CHECKED
+          - CLEANING
+          - CLEANED
+          - COMPLETED
+          - DOWNLOADING
+          - IN_PREPARATION
+          - IN_PROGRESS
+          - STORED
+          - INDEXING
+          - READY
+          - RETRIEVING
+          - RETRIEVING_PENDING
+          - IN_ERROR
+          - PRESERVATION_ERROR
+          - FIXITY_ERROR
+          - DISPOSABLE
+          - DISPOSAL_APPROVED_BY_ORGUNIT
+          - DISPOSAL_APPROVED
+          - DISPOSED
+          - FIX_PENDING
+          - FIXING
+          - METADATA_EDITION_PENDING
+          - EDITING_METADATA
+          - UPDATING_RETENTION
+          - METADATA_UPGRADE_PENDING
+          - UPGRADING_METADATA
+          - COMPLIANCE_LEVEL_UPDATE_PENDING
+          - UPDATING_COMPLIANCE_LEVEL
+          - COMPLIANCE_LEVEL_UPDATED
+          - REINDEXING
+          - RELOADED
+          - RESUBMITTING
+          - PACKAGE_REPLICATION_PENDING
+          - REPLICATING_PACKAGE
+          - TOMBSTONE_REPLICATION_PENDING
+          - REPLICATING_TOMBSTONE
+          writeOnly: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    Module:
+      type: object
+      description: The functional module.
+      properties:
+        name:
+          type: string
+          description: The name of the module.
+        _links:
+          $ref: '#/components/schemas/Links'
+    Link:
+      type: object
+      properties:
+        href:
+          type: string
+        hreflang:
+          type: string
+        title:
+          type: string
+        type:
+          type: string
+        deprecation:
+          type: string
+        profile:
+          type: string
+        name:
+          type: string
+        templated:
+          type: boolean
+    Build:
+      type: object
+      properties:
+        host:
+          type: string
+        time:
+          type: string
+        version:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+    Pageable:
+      type: object
+      properties:
+        page:
+          type: integer
+          format: int32
+          minimum: 0
+        size:
+          type: integer
+          format: int32
+          minimum: 1
+        sort:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    auth:
+      type: http
+      scheme: bearer
+      description: 'Session bearer token issued by the UNIGE eResearch authorization server after interactive sign-in through SWITCH edu-ID / SWITCHaai (Shibboleth). Every protected Yareta operation answers an unauthenticated request with `HTTP 401` and `WWW-Authenticate: Bearer`.'
+      x-provenance:
+        method: probed
+        source: 'https://access.yareta.unige.ch/access/deposits (401, WWW-Authenticate: Bearer)'
+        probed: '2026-09-01'
+    tokenAuth:
+      type: http
+      scheme: bearer
+      description: Personal / download token bearer credential. The Solidify configuration model exposes `solidify.security.downloadToken` with a 1440-minute download-token lifetime.
+      x-provenance:
+        method: probed
+        source: https://access.yareta.unige.ch/default-configuration (200, application/json)
+        probed: '2026-09-01'
