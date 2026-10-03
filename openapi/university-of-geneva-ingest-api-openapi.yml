@@ -5501,6 +5501,150 @@ paths:
       x-summary-source: derived
 components:
   schemas:
+    SearchCriteria:
+      type: object
+      properties:
+        caseInsensitive:
+          type: boolean
+        caseType:
+          type: string
+        key:
+          type: string
+        operation:
+          type: string
+        operationType:
+          type: string
+          enum:
+          - BETWEEN
+          - CONTAINS
+          - ENDS_WITH
+          - EQUALITY
+          - GREATER_EQUAL
+          - GREATER_THAN
+          - LESS_EQUAL
+          - LESS_THAN
+          - NEGATION
+          - ORACLE_CONTAINS
+          - STARTS_WITH
+        value: {}
+    ChangeInfo:
+      type: object
+      description: The change information of an action.
+      properties:
+        fullName:
+          type: string
+          description: The full name of the user who did the action on the resource.
+          readOnly: true
+        who:
+          type: string
+          description: The user who did the action on the resource.
+          readOnly: true
+        when:
+          type: string
+          format: date-time
+          description: The date when the action was done on the resources.
+          readOnly: true
+    RestCollectionSubmissionAgreement:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubmissionAgreement'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    RestCollectionSubjectArea:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubjectArea'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    MetadataType:
+      type: object
+      description: The metadata type allow to define custom metadata.
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        description:
+          type: string
+          description: The description of the metadata type.
+          maxLength: 1024
+          minLength: 0
+        metadataFormat:
+          type: string
+          description: The format of the metadata type.
+          enum:
+          - CUSTOM
+          - JSON
+          - SCHEMA_LESS
+          - XML
+        metadataSchema:
+          type: string
+          description: The schema of the metadata type.
+        name:
+          type: string
+          description: The name of the metadata type.
+          maxLength: 255
+          minLength: 1
+        url:
+          type: string
+          format: uri
+          description: The URL of the metadata type.
+        version:
+          type: string
+          description: The version of the metadata type.
+          maxLength: 50
+          minLength: 1
+        fullName:
+          type: string
+          description: The name and the version of the metadata type.
+          readOnly: true
+        _links:
+          $ref: '#/components/schemas/Links'
     Language:
       type: object
       description: The language for internationalization (i18n) & localization (L10n)
@@ -5530,82 +5674,6 @@ components:
             $ref: '#/components/schemas/Label'
         _links:
           $ref: '#/components/schemas/Links'
-    InstitutionLogo:
-      type: object
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        fileName:
-          type: string
-          description: The file name.
-          maxLength: 2024
-          minLength: 0
-        fileSize:
-          type: integer
-          format: int64
-          description: The file size in bytes.
-        mimeType:
-          type: string
-          description: The content type of the file. It could be named as MIME type or media type.
-        _links:
-          $ref: '#/components/schemas/Links'
-    ChangeInfo:
-      type: object
-      description: The change information of an action.
-      properties:
-        fullName:
-          type: string
-          description: The full name of the user who did the action on the resource.
-          readOnly: true
-        who:
-          type: string
-          description: The user who did the action on the resource.
-          readOnly: true
-        when:
-          type: string
-          format: date-time
-          description: The date when the action was done on the resources.
-          readOnly: true
-    FileFormat:
-      type: object
-      description: File format informations.
-      properties:
-        contentType:
-          type: string
-          description: The content type of the file.
-          maxLength: 100
-          minLength: 0
-        details:
-          type: string
-          description: The result details of the file format identification.
-        format:
-          type: string
-          description: The format description of the file.
-        md5:
-          type: string
-          description: The MD5 checksum of the file.
-          maxLength: 256
-          minLength: 0
-        puid:
-          type: string
-          description: The format PRONOM identifier of the  file.
-          maxLength: 20
-          minLength: 0
-        tool:
-          $ref: '#/components/schemas/Tool'
-          description: The format identification tool used to get the file format.
-        version:
-          type: string
-          description: The format version of the file.
-          maxLength: 50
-          minLength: 0
     ArchivalInfoPackage:
       type: object
       description: Archival Information Package (AIP)
@@ -5866,6 +5934,730 @@ components:
         smartRetention:
           type: string
           description: The retention duration in human-readable format of the package.
+          readOnly: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    EmbargoInfo:
+      type: object
+      description: Embargo information.
+      properties:
+        access:
+          type: string
+          description: The access level during the embargo.
+          enum:
+          - PUBLIC
+          - RESTRICTED
+          - CLOSED
+        months:
+          type: integer
+          format: int32
+          description: The month number of the embargo duration.
+        startDate:
+          type: string
+          format: date-time
+          description: The starting date of the embargo period.
+    SipDataFile:
+      type: object
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        searchCriterias:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchCriteria'
+        complianceLevel:
+          type: string
+          description: 'Compliance level to define the preservation quality based on data file format:
+
+            - NOT_ASSESSED => The format could not be evaluated
+
+            - NO_COMPLIANCE => The format could not be determined
+
+            - WEAK_COMPLIANCE => The format was determined: content type detected
+
+            - AVERAGE_COMPLIANCE => The format was determined: WEAK_COMPLIANCE + PRONOM identifier detected
+
+            - FULL_COMPLIANCE => The format was determined: AVERAGE_COMPLIANCE + the format is part of golden formats
+
+            '
+          enum:
+          - NOT_ASSESSED
+          - NO_COMPLIANCE
+          - WEAK_COMPLIANCE
+          - AVERAGE_COMPLIANCE
+          - FULL_COMPLIANCE
+        dataCategory:
+          type: string
+          enum:
+          - Primary
+          - Observational
+          - Experimental
+          - Simulation
+          - Derived
+          - Reference
+          - Digitalized
+          - Secondary
+          - Publication
+          - DataPaper
+          - Documentation
+          - Software
+          - Code
+          - Binaries
+          - VirtualMachine
+          - Administrative
+          - Document
+          - WebSite
+          - Other
+          - Package
+          - InformationPackage
+          - UpdatePackage
+          - Metadata
+          - CustomMetadata
+          - UpdatedMetadata
+          - Internal
+          - DatasetThumbnail
+          - ArchiveThumbnail
+          - ArchiveReadme
+          - DatafileThumbnail
+          - ArchiveDataUseAgreement
+        dataType:
+          type: string
+          enum:
+          - Primary
+          - Observational
+          - Experimental
+          - Simulation
+          - Derived
+          - Reference
+          - Digitalized
+          - Secondary
+          - Publication
+          - DataPaper
+          - Documentation
+          - Software
+          - Code
+          - Binaries
+          - VirtualMachine
+          - Administrative
+          - Document
+          - WebSite
+          - Other
+          - Package
+          - InformationPackage
+          - UpdatePackage
+          - Metadata
+          - CustomMetadata
+          - UpdatedMetadata
+          - Internal
+          - DatasetThumbnail
+          - ArchiveThumbnail
+          - ArchiveReadme
+          - DatafileThumbnail
+          - ArchiveDataUseAgreement
+        fileFormat:
+          $ref: '#/components/schemas/FileFormat'
+        fileSize:
+          type: integer
+          format: int64
+        finalData:
+          type: string
+          format: uri
+        fileName:
+          type: string
+          readOnly: true
+        metadataType:
+          $ref: '#/components/schemas/MetadataType'
+        relativeLocation:
+          type: string
+          maxLength: 460
+          minLength: 0
+          pattern: (^\/$)|(^\/.*(?<!\/)$)
+        sourceData:
+          type: string
+          format: uri
+        status:
+          type: string
+          enum:
+          - CHANGE_RELATIVE_LOCATION
+          - CHANGE_DATA_CATEGORY
+          - CLEANED
+          - CLEANING
+          - EXCLUDED_FILE
+          - CHECK_COMPLIANCE
+          - CHECK_COMPLIANCE_CLEANED
+          - CHECKED_COMPLIANCE
+          - CHECKED_COMPLIANCE_CLEANED
+          - IGNORED_FILE
+          - DOWNLOAD_IN_PROGRESS
+          - FILE_FORMAT_IDENTIFIED
+          - FILE_FORMAT_SKIPPED
+          - FILE_FORMAT_UNKNOWN
+          - IN_ERROR
+          - PROCESSED
+          - READY
+          - RECEIVED
+          - TO_PROCESS
+          - VIRUS_CHECKED
+          - VIRUS_SKIPPED
+        statusMessage:
+          type: string
+          maxLength: 1024
+          minLength: 0
+        virusCheck:
+          $ref: '#/components/schemas/VirusCheck'
+        checksums:
+          type: array
+          items:
+            $ref: '#/components/schemas/DataFileChecksum'
+        infoPackage:
+          $ref: '#/components/schemas/SubmissionInfoPackage'
+        inProgress:
+          type: boolean
+        fileStatus:
+          type: string
+          enum:
+          - CHANGE_RELATIVE_LOCATION
+          - CHANGE_DATA_CATEGORY
+          - CLEANED
+          - CLEANING
+          - EXCLUDED_FILE
+          - CHECK_COMPLIANCE
+          - CHECK_COMPLIANCE_CLEANED
+          - CHECKED_COMPLIANCE
+          - CHECKED_COMPLIANCE_CLEANED
+          - IGNORED_FILE
+          - DOWNLOAD_IN_PROGRESS
+          - FILE_FORMAT_IDENTIFIED
+          - FILE_FORMAT_SKIPPED
+          - FILE_FORMAT_UNKNOWN
+          - IN_ERROR
+          - PROCESSED
+          - READY
+          - RECEIVED
+          - TO_PROCESS
+          - VIRUS_CHECKED
+          - VIRUS_SKIPPED
+          writeOnly: true
+        smartSize:
+          type: string
+          readOnly: true
+        fullFileName:
+          type: string
+          readOnly: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    Person:
+      type: object
+      description: A person is associated to a user on the platform. It contains information such as the person’s ORCID, institution and organizational units it belongs to.
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        searchCriterias:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchCriteria'
+        firstName:
+          type: string
+          description: The first name of the person.
+          maxLength: 255
+          minLength: 1
+        lastName:
+          type: string
+          description: The last name of the person.
+          maxLength: 255
+          minLength: 1
+        orcid:
+          type: string
+          description: 'The ORCID of the person (Format: xxxx-xxxx-xxxx-xxxx).'
+          pattern: '|[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}|[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}X'
+        verifiedOrcid:
+          type: boolean
+          description: if the person ORCID is verified with ORCID authentication.
+        orcidToken:
+          $ref: '#/components/schemas/OrcidToken'
+          description: The ORCID token of the person.
+        avatar:
+          $ref: '#/components/schemas/PersonAvatar'
+          description: The avatar of the person.
+        fullName:
+          type: string
+          description: The full name of the person.
+        _links:
+          $ref: '#/components/schemas/Links'
+    StatusHistory:
+      type: object
+      properties:
+        changeTime:
+          type: string
+          format: date-time
+        createdBy:
+          type: string
+        creatorName:
+          type: string
+        description:
+          type: string
+          maxLength: 1024
+          minLength: 0
+        status:
+          type: string
+    FileList:
+      type: object
+      properties:
+        files:
+          type: array
+          items:
+            type: string
+        puids:
+          type: array
+          items:
+            type: string
+    LicenseLogo:
+      type: object
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        fileName:
+          type: string
+          description: The file name.
+          maxLength: 2024
+          minLength: 0
+        fileSize:
+          type: integer
+          format: int64
+          description: The file size in bytes.
+        mimeType:
+          type: string
+          description: The content type of the file. It could be named as MIME type or media type.
+        _links:
+          $ref: '#/components/schemas/Links'
+    License:
+      type: object
+      description: A license represents software licenses (Academic Free License 3.0, Design Science License, MIT License…​).
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        domainContent:
+          type: boolean
+          description: If the license is applicable for content.
+        domainData:
+          type: boolean
+          description: If the license is applicable for data.
+        domainSoftware:
+          type: boolean
+          description: If the license is applicable for software.
+        family:
+          type: string
+          description: The family of the license.
+        isGeneric:
+          type: boolean
+          description: If the license is generic.
+        maintainer:
+          type: string
+          description: The maintainer of the license.
+        odConformance:
+          type: string
+          description: The OD conformance status of the license.
+          enum:
+          - approved
+          - ''
+          - not reviewed
+          - rejected
+        openLicenseId:
+          type: string
+          description: The open license identifier of the license. The recommanded format is SPDX short identifier.
+        osdConformance:
+          type: string
+          description: The ODS conformance status of the license.
+          enum:
+          - approved
+          - ''
+          - not reviewed
+          - rejected
+        status:
+          type: string
+          description: The current status of the license.
+          enum:
+          - active
+          - retired
+          - superseded
+        title:
+          type: string
+          description: The title of the license.
+        url:
+          type: string
+          format: uri
+          description: The source URL of the license.
+        logo:
+          $ref: '#/components/schemas/LicenseLogo'
+          description: The logo of the license.
+        description:
+          type: string
+          description: 'The description of the license. The format is: <openLicenseId> (<title>).'
+          readOnly: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    RestCollectionDepositDataFile:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/DepositDataFile'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    ArchiveType:
+      type: object
+      description: Archive type based on DataCite notion.
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        masterType:
+          $ref: '#/components/schemas/ArchiveType'
+          description: The master type of the archive type.
+        typeName:
+          type: string
+          description: The name of the archive type.
+        masterArchiveType:
+          type: boolean
+          description: If the archive type is a master type.
+          readOnly: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    StreamingResponseBody: {}
+    Contributor:
+      type: object
+      description: Contributors are people who are involved in archives.
+      properties:
+        resId:
+          type: string
+        depositNumber:
+          type: integer
+          format: int32
+          description: The deposit number of the contributor.
+        fullName:
+          type: string
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        firstName:
+          type: string
+        lastName:
+          type: string
+        orcid:
+          type: string
+        verifiedOrcid:
+          type: boolean
+        avatar:
+          $ref: '#/components/schemas/PersonAvatar'
+        _links:
+          $ref: '#/components/schemas/Links'
+    Tool:
+      type: object
+      description: Software tool information.
+      properties:
+        description:
+          type: string
+          description: The description of the tool.
+        name:
+          type: string
+          description: The name of the tool.
+        puid:
+          type: string
+          description: The PRONOM identifier of the tool.
+        version:
+          type: string
+          description: The version of the tool.
+    LanguageDTO:
+      type: object
+      properties:
+        resId:
+          type: string
+        code:
+          type: string
+        iso6392:
+          type: string
+        sortValue:
+          type: integer
+          format: int32
+    Result:
+      type: object
+      description: 'The result is the result of REST action (HTTP POST) with the status:
+
+        - EXECUTED => the action was executed successfully
+
+        - NOT_EXECUTED => the action failed and the message details the reason
+
+        - NON_APPLICABLE => the action cannot be executed and the message details the reason
+
+        '
+      properties:
+        message:
+          type: string
+          description: The detailed message on what happens
+        resId:
+          type: string
+          description: The ID of the object
+        status:
+          type: string
+          description: The status of the launched action
+          enum:
+          - EXECUTED
+          - NON_APPLICABLE
+          - NOT_EXECUTED
+        messsage:
+          type: string
+          writeOnly: true
+        _links:
+          $ref: '#/components/schemas/Links'
+    DataFileChecksum:
+      type: object
+      properties:
+        checksum:
+          type: string
+        checksumAlgo:
+          type: string
+          enum:
+          - CRC32
+          - MD5
+          - SHA-1
+          - SHA-256
+          - SHA-512
+        checksumOrigin:
+          type: string
+          enum:
+          - DLCM
+          - DLCM_TOMBSTONE
+          - USER
+          - PORTAL
+        checksumType:
+          type: string
+          enum:
+          - COMPLETE
+          - PARTIAL
+        creationTime:
+          type: string
+          format: date-time
+    RestCollectionLicense:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/License'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    SubjectArea:
+      type: object
+      description: 'A subject area delineates a range of academic, administrative, and patrimonial disciplines.
+
+        Each of these disciplines may follow its own classification system, reflecting their unique attributes and contexts (for example: SNF Disciplines, http://www.snf.ch/SiteCollectionDocuments/allg_disziplinenliste.pdf, or re3data Subjects, https://www.re3data.org/browse/by-subject/, for academic disciplines). A subject area could be associated with a specific organizational unit.'
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        searchCriterias:
+          type: array
+          items:
+            $ref: '#/components/schemas/SearchCriteria'
+        code:
+          type: string
+          description: The code of the subject area.
+          maxLength: 50
+          minLength: 1
+        labels:
+          type: array
+          description: The name labels for each supported languages of the subject area.
+          items:
+            $ref: '#/components/schemas/Label'
+        name:
+          type: string
+          description: The name of the subject area.
+          maxLength: 1024
+          minLength: 0
+        source:
+          type: string
+          description: The source of the subject area.
+          maxLength: 30
+          minLength: 1
+        _links:
+          $ref: '#/components/schemas/Links'
+    RestCollectionArchivalInfoPackage:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/ArchivalInfoPackage'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    Label:
+      type: object
+      properties:
+        language:
+          $ref: '#/components/schemas/LanguageDTO'
+          writeOnly: true
+        text:
+          type: string
+          maxLength: 1024
+          minLength: 0
+    RestCollectionStatusHistory:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/StatusHistory'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    SubmissionPolicy:
+      type: object
+      description: A submission policy is a policy that can be associated to an SIP. It defines whether an SIP can submitted with or without approval and the amount of time it should be kept.
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        name:
+          type: string
+          description: The name of the submission policy.
+          maxLength: 255
+          minLength: 1
+        submissionApproval:
+          type: boolean
+          description: If approval step is mandatory for submitting a deposit.
+        timeToKeep:
+          type: integer
+          format: int32
+          description: The time in days to keep completed deposit before purge.
+        submissionAgreementType:
+          type: string
+          description: The submission agreement type of the submission policy.
+          enum:
+          - WITHOUT
+          - ON_FIRST_DEPOSIT
+          - FOR_EACH_DEPOSIT
+        submissionAgreement:
+          $ref: '#/components/schemas/SubmissionAgreement'
+          description: The submission agreement of the submission policy.
+        useNumber:
+          type: integer
+          format: int32
+          description: The number of the submission policy use in organizational units.
           readOnly: true
         _links:
           $ref: '#/components/schemas/Links'
@@ -6139,181 +6931,10 @@ components:
           readOnly: true
         _links:
           $ref: '#/components/schemas/Links'
-    RepresentationInfo:
-      type: object
-      description: 'OAIS Information Package: SIP, AIP or DIP.'
-      properties:
-        access:
-          type: string
-          description: The final access level of the package.
-          enum:
-          - PUBLIC
-          - RESTRICTED
-          - CLOSED
-        dataSensitivity:
-          type: string
-          description: The data sensitivity of the package.
-          enum:
-          - UNDEFINED
-          - BLUE
-          - GREEN
-          - YELLOW
-          - ORANGE
-          - RED
-          - CRIMSON
-        dataUsePolicy:
-          type: string
-          description: The data use policy type of the package.
-          enum:
-          - NONE
-          - LICENSE
-          - CLICK_THROUGH_DUA
-          - SIGNED_DUA
-          - EXTERNAL_DUA
-        complianceLevel:
-          type: string
-          description: The compliance level of the package.
-          enum:
-          - NOT_ASSESSED
-          - NO_COMPLIANCE
-          - WEAK_COMPLIANCE
-          - AVERAGE_COMPLIANCE
-          - FULL_COMPLIANCE
-        description:
-          type: string
-          description: The description of the package.
-          maxLength: 1024
-          minLength: 0
-        embargo:
-          $ref: '#/components/schemas/EmbargoInfo'
-        licenseId:
-          type: string
-          description: The license identifier of the package.
-        metadataVersion:
-          type: string
-          description: The metadata version of the package.
-          enum:
-          - '1.0'
-          - '1.1'
-          - '2.0'
-          - '2.1'
-          - '3.0'
-          - '3.1'
-          - '4.0'
-          - '5.0'
-        name:
-          type: string
-          description: The name of the package.
-          maxLength: 255
-          minLength: 1
-        organizationalUnitId:
-          type: string
-          description: The organizational Unit ID of the package.
-          maxLength: 50
-          minLength: 1
-        status:
-          type: string
-          description: The status of the package.
-          enum:
-          - CHECK_PENDING
-          - CHECKING
-          - CHECKED
-          - CLEANING
-          - CLEANED
-          - COMPLETED
-          - DOWNLOADING
-          - IN_PREPARATION
-          - IN_PROGRESS
-          - STORED
-          - INDEXING
-          - READY
-          - RETRIEVING
-          - RETRIEVING_PENDING
-          - IN_ERROR
-          - PRESERVATION_ERROR
-          - FIXITY_ERROR
-          - DISPOSABLE
-          - DISPOSAL_APPROVED_BY_ORGUNIT
-          - DISPOSAL_APPROVED
-          - DISPOSED
-          - FIX_PENDING
-          - FIXING
-          - METADATA_EDITION_PENDING
-          - EDITING_METADATA
-          - UPDATING_RETENTION
-          - METADATA_UPGRADE_PENDING
-          - UPGRADING_METADATA
-          - COMPLIANCE_LEVEL_UPDATE_PENDING
-          - UPDATING_COMPLIANCE_LEVEL
-          - COMPLIANCE_LEVEL_UPDATED
-          - REINDEXING
-          - RELOADED
-          - RESUBMITTING
-          - PACKAGE_REPLICATION_PENDING
-          - REPLICATING_PACKAGE
-          - TOMBSTONE_REPLICATION_PENDING
-          - REPLICATING_TOMBSTONE
-        statusMessage:
-          type: string
-          description: The detailed message related to the package status.
-          maxLength: 1024
-          minLength: 0
-        containsUpdatedMetadata:
-          type: boolean
-          description: If the package contains updated metadata.
-        contentStructurePublic:
-          type: boolean
-          description: If the archive structure content is public.
-        accessCurrentlyPublic:
-          type: boolean
-          description: If the current access level is public
-        currentAccess:
-          type: string
-          description: The current access level of the package, deducted from the final access level and an eventual embargo.
-          enum:
-          - PUBLIC
-          - RESTRICTED
-          - CLOSED
-          readOnly: true
-    EmbargoInfo:
-      type: object
-      description: Embargo information.
-      properties:
-        access:
-          type: string
-          description: The access level during the embargo.
-          enum:
-          - PUBLIC
-          - RESTRICTED
-          - CLOSED
-        months:
-          type: integer
-          format: int32
-          description: The month number of the embargo duration.
-        startDate:
-          type: string
-          format: date-time
-          description: The starting date of the embargo period.
-    VirusCheck:
-      type: object
-      description: Virus check information.
-      properties:
-        checkDate:
-          type: string
-          format: date-time
-          description: The execution date of the virus check.
-        details:
-          type: string
-          description: The result details of the virus check.
-        tool:
-          $ref: '#/components/schemas/Tool'
-          description: The virus check tool used to verify if the file contains virus.
     DepositContributorId: {}
-    SubjectArea:
+    Institution:
       type: object
-      description: 'A subject area delineates a range of academic, administrative, and patrimonial disciplines.
-
-        Each of these disciplines may follow its own classification system, reflecting their unique attributes and contexts (for example: SNF Disciplines, http://www.snf.ch/SiteCollectionDocuments/allg_disziplinenliste.pdf, or re3data Subjects, https://www.re3data.org/browse/by-subject/, for academic disciplines). A subject area could be associated with a specific organizational unit.'
+      description: An institution represents academic institutions, such as UNIGE and HES-SO.
       properties:
         creation:
           $ref: '#/components/schemas/ChangeInfo'
@@ -6324,178 +6945,57 @@ components:
           description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
           maxLength: 50
           minLength: 0
-        searchCriterias:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchCriteria'
-        code:
-          type: string
-          description: The code of the subject area.
-          maxLength: 50
-          minLength: 1
-        labels:
-          type: array
-          description: The name labels for each supported languages of the subject area.
-          items:
-            $ref: '#/components/schemas/Label'
-        name:
-          type: string
-          description: The name of the subject area.
-          maxLength: 1024
-          minLength: 0
-        source:
-          type: string
-          description: The source of the subject area.
-          maxLength: 30
-          minLength: 1
-        _links:
-          $ref: '#/components/schemas/Links'
-    ChecksumCheck:
-      type: object
-      description: Checksum verification information.
-      properties:
-        checkDate:
-          type: string
-          format: date-time
-          description: The execution date of checksum verification.
-        checkingSucceed:
-          type: boolean
-          description: The execution result of checksum verification.
-    SubmissionPolicy:
-      type: object
-      description: A submission policy is a policy that can be associated to an SIP. It defines whether an SIP can submitted with or without approval and the amount of time it should be kept.
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        name:
-          type: string
-          description: The name of the submission policy.
-          maxLength: 255
-          minLength: 1
-        submissionApproval:
-          type: boolean
-          description: If approval step is mandatory for submitting a deposit.
-        timeToKeep:
-          type: integer
-          format: int32
-          description: The time in days to keep completed deposit before purge.
-        submissionAgreementType:
-          type: string
-          description: The submission agreement type of the submission policy.
-          enum:
-          - WITHOUT
-          - ON_FIRST_DEPOSIT
-          - FOR_EACH_DEPOSIT
-        submissionAgreement:
-          $ref: '#/components/schemas/SubmissionAgreement'
-          description: The submission agreement of the submission policy.
-        useNumber:
-          type: integer
-          format: int32
-          description: The number of the submission policy use in organizational units.
-          readOnly: true
-        _links:
-          $ref: '#/components/schemas/Links'
-    LanguageDTO:
-      type: object
-      properties:
-        resId:
-          type: string
-        code:
-          type: string
-        iso6392:
-          type: string
-        sortValue:
-          type: integer
-          format: int32
-    OrcidToken:
-      type: object
-      description: Personal token allowing to interact with ORCID API.
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        scope:
-          type: string
-        name:
-          type: string
-        orcid:
-          type: string
-        expiresIn:
-          type: string
-          format: date-time
-        _links:
-          $ref: '#/components/schemas/Links'
-    DataFileChecksum:
-      type: object
-      properties:
-        checksum:
-          type: string
-        checksumAlgo:
-          type: string
-          enum:
-          - CRC32
-          - MD5
-          - SHA-1
-          - SHA-256
-          - SHA-512
-        checksumOrigin:
-          type: string
-          enum:
-          - DLCM
-          - DLCM_TOMBSTONE
-          - USER
-          - PORTAL
-        checksumType:
-          type: string
-          enum:
-          - COMPLETE
-          - PARTIAL
-        creationTime:
-          type: string
-          format: date-time
-    SubmissionAgreement:
-      type: object
-      description: A submission agreement defines the conditions of the submissions.
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        title:
-          type: string
-          description: The title of the submission agreement
         description:
           type: string
-          description: The description of the submission agreement
+          description: The description of the institution.
           maxLength: 1024
           minLength: 0
-        version:
+        emailSuffixes:
+          type: array
+          description: The email suffixes list of the institution.
+          items:
+            type: string
+        name:
           type: string
-          description: The version of the submission agreement
-        submissionAgreementFile:
-          $ref: '#/components/schemas/SubmissionAgreementFile'
-          description: The submission agreement file
+          description: The name of the institution.
+          maxLength: 2147483647
+          minLength: 1
+        url:
+          type: string
+          format: uri
+          description: The URL of the institution.
+        rorId:
+          type: string
+          description: The ROR identifier of the institution.
+        logo:
+          $ref: '#/components/schemas/InstitutionLogo'
+          description: The logo of the institution.
+        identifiers:
+          type: object
+          additionalProperties: true
+          description: The other identifiers list of the institution.
+        organizationalUnit:
+          type: array
+          items:
+            $ref: '#/components/schemas/OrganizationalUnit'
+          writeOnly: true
         _links:
           $ref: '#/components/schemas/Links'
+    RestCollectionPage:
+      type: object
+      properties:
+        currentPage:
+          type: integer
+          format: int64
+        sizePage:
+          type: integer
+          format: int64
+        totalItems:
+          type: integer
+          format: int64
+        totalPages:
+          type: integer
+          format: int64
     RestCollectionSubmissionInfoPackage:
       type: object
       description: 'The structure of the REST response:
@@ -6522,6 +7022,51 @@ components:
             $ref: '#/components/schemas/FacetResult'
         _page:
           $ref: '#/components/schemas/RestCollectionPage'
+    FacetResultValue:
+      type: object
+      properties:
+        value:
+          type: string
+        count:
+          type: integer
+          format: int64
+    RestCollectionPerson:
+      type: object
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/Person'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    FacetResult:
+      type: object
+      properties:
+        name:
+          type: string
+        field:
+          type: string
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResultValue'
     RestCollectionDeposit:
       type: object
       description: 'The structure of the REST response:
@@ -6548,182 +7093,6 @@ components:
             $ref: '#/components/schemas/FacetResult'
         _page:
           $ref: '#/components/schemas/RestCollectionPage'
-    OrganizationalUnit:
-      type: object
-      description: An organizational unit is a logical entity that represents a research project or laboratory or any other organizational group of researchers. A preservation space is associated to it.
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        closingDate:
-          type: string
-          format: date
-          description: The closing date of the organizational unit.
-        defaultLicense:
-          $ref: '#/components/schemas/License'
-          description: The default license of the organizational unit.
-        defaultPreservationPolicy:
-          $ref: '#/components/schemas/PreservationPolicy'
-          description: The default preservation policy of the organizational unit.
-        defaultSubmissionPolicy:
-          $ref: '#/components/schemas/SubmissionPolicy'
-          description: The default submission policy of the organizational unit.
-        description:
-          type: string
-          description: The description of the organizational unit.
-          maxLength: 1024
-          minLength: 0
-        institutions:
-          type: array
-          items:
-            $ref: '#/components/schemas/Institution'
-          writeOnly: true
-        isEmpty:
-          type: boolean
-          description: If the organizational unit contains any data (deposits, sip, aip).
-        keywords:
-          type: array
-          description: The keywords associated with this organizational unit, they are used as default for deposits created within this organizational unit.
-          items:
-            type: string
-        name:
-          type: string
-          description: The name of the organizational unit.
-          maxLength: 2147483647
-          minLength: 1
-        openingDate:
-          type: string
-          format: date
-          description: The opening date of the organizational unit.
-        url:
-          type: string
-          format: uri
-          description: The URL of the organizational unit.
-        logo:
-          $ref: '#/components/schemas/OrganizationalUnitLogo'
-          description: The logo of the organizational unit.
-        open:
-          type: boolean
-          description: If the organizational unit is currently open.
-        _links:
-          $ref: '#/components/schemas/Links'
-    MetadataType:
-      type: object
-      description: The metadata type allow to define custom metadata.
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        description:
-          type: string
-          description: The description of the metadata type.
-          maxLength: 1024
-          minLength: 0
-        metadataFormat:
-          type: string
-          description: The format of the metadata type.
-          enum:
-          - CUSTOM
-          - JSON
-          - SCHEMA_LESS
-          - XML
-        metadataSchema:
-          type: string
-          description: The schema of the metadata type.
-        name:
-          type: string
-          description: The name of the metadata type.
-          maxLength: 255
-          minLength: 1
-        url:
-          type: string
-          format: uri
-          description: The URL of the metadata type.
-        version:
-          type: string
-          description: The version of the metadata type.
-          maxLength: 50
-          minLength: 1
-        fullName:
-          type: string
-          description: The name and the version of the metadata type.
-          readOnly: true
-        _links:
-          $ref: '#/components/schemas/Links'
-    FacetResult:
-      type: object
-      properties:
-        name:
-          type: string
-        field:
-          type: string
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResultValue'
-    StatusHistory:
-      type: object
-      properties:
-        changeTime:
-          type: string
-          format: date-time
-        createdBy:
-          type: string
-        creatorName:
-          type: string
-        description:
-          type: string
-          maxLength: 1024
-          minLength: 0
-        status:
-          type: string
-    Module:
-      type: object
-      description: The functional module.
-      properties:
-        name:
-          type: string
-          description: The name of the module.
-        _links:
-          $ref: '#/components/schemas/Links'
-    LicenseLogo:
-      type: object
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        fileName:
-          type: string
-          description: The file name.
-          maxLength: 2024
-          minLength: 0
-        fileSize:
-          type: integer
-          format: int64
-          description: The file size in bytes.
-        mimeType:
-          type: string
-          description: The content type of the file. It could be named as MIME type or media type.
-        _links:
-          $ref: '#/components/schemas/Links'
     SubmissionInfoPackage:
       type: object
       description: Submission Information Package (SIP)
@@ -6917,48 +7286,9 @@ components:
           readOnly: true
         _links:
           $ref: '#/components/schemas/Links'
-    FacetResultValue:
+    OrganizationalUnit:
       type: object
-      properties:
-        value:
-          type: string
-        count:
-          type: integer
-          format: int64
-    RestCollectionStatusHistory:
-      type: object
-      description: 'The structure of the REST response:
-
-        - data: the list of objects
-
-        - page: the pagination information
-
-        - links: the HATEOAS links
-
-        - facets: the search information
-
-        '
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        _data:
-          type: array
-          items:
-            $ref: '#/components/schemas/StatusHistory'
-        _facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResult'
-        _page:
-          $ref: '#/components/schemas/RestCollectionPage'
-    DownloadToken:
-      type: object
-      properties:
-        cookie:
-          $ref: '#/components/schemas/Cookie'
-    Institution:
-      type: object
-      description: An institution represents academic institutions, such as UNIGE and HES-SO.
+      description: An organizational unit is a logical entity that represents a research project or laboratory or any other organizational group of researchers. A preservation space is associated to it.
       properties:
         creation:
           $ref: '#/components/schemas/ChangeInfo'
@@ -6969,43 +7299,105 @@ components:
           description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
           maxLength: 50
           minLength: 0
+        closingDate:
+          type: string
+          format: date
+          description: The closing date of the organizational unit.
+        defaultLicense:
+          $ref: '#/components/schemas/License'
+          description: The default license of the organizational unit.
+        defaultPreservationPolicy:
+          $ref: '#/components/schemas/PreservationPolicy'
+          description: The default preservation policy of the organizational unit.
+        defaultSubmissionPolicy:
+          $ref: '#/components/schemas/SubmissionPolicy'
+          description: The default submission policy of the organizational unit.
         description:
           type: string
-          description: The description of the institution.
+          description: The description of the organizational unit.
           maxLength: 1024
           minLength: 0
-        emailSuffixes:
+        institutions:
           type: array
-          description: The email suffixes list of the institution.
+          items:
+            $ref: '#/components/schemas/Institution'
+          writeOnly: true
+        isEmpty:
+          type: boolean
+          description: If the organizational unit contains any data (deposits, sip, aip).
+        keywords:
+          type: array
+          description: The keywords associated with this organizational unit, they are used as default for deposits created within this organizational unit.
           items:
             type: string
         name:
           type: string
-          description: The name of the institution.
+          description: The name of the organizational unit.
           maxLength: 2147483647
           minLength: 1
+        openingDate:
+          type: string
+          format: date
+          description: The opening date of the organizational unit.
         url:
           type: string
           format: uri
-          description: The URL of the institution.
-        rorId:
-          type: string
-          description: The ROR identifier of the institution.
+          description: The URL of the organizational unit.
         logo:
-          $ref: '#/components/schemas/InstitutionLogo'
-          description: The logo of the institution.
-        identifiers:
-          type: object
-          additionalProperties: true
-          description: The other identifiers list of the institution.
-        organizationalUnit:
-          type: array
-          items:
-            $ref: '#/components/schemas/OrganizationalUnit'
-          writeOnly: true
+          $ref: '#/components/schemas/OrganizationalUnitLogo'
+          description: The logo of the organizational unit.
+        open:
+          type: boolean
+          description: If the organizational unit is currently open.
         _links:
           $ref: '#/components/schemas/Links'
-    RestCollectionPerson:
+    Cookie:
+      type: object
+      properties:
+        secure:
+          type: boolean
+    PersonAvatar:
+      type: object
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        fileName:
+          type: string
+          description: The file name.
+          maxLength: 2024
+          minLength: 0
+        fileSize:
+          type: integer
+          format: int64
+          description: The file size in bytes.
+        mimeType:
+          type: string
+          description: The content type of the file. It could be named as MIME type or media type.
+        _links:
+          $ref: '#/components/schemas/Links'
+    Pageable:
+      type: object
+      properties:
+        page:
+          type: integer
+          format: int32
+          minimum: 0
+        size:
+          type: integer
+          format: int32
+          minimum: 1
+        sort:
+          type: array
+          items:
+            type: string
+    RestCollectionContributor:
       type: object
       description: 'The structure of the REST response:
 
@@ -7024,7 +7416,7 @@ components:
         _data:
           type: array
           items:
-            $ref: '#/components/schemas/Person'
+            $ref: '#/components/schemas/Contributor'
         _facets:
           type: array
           items:
@@ -7057,68 +7449,115 @@ components:
           description: The content type of the file. It could be named as MIME type or media type.
         _links:
           $ref: '#/components/schemas/Links'
-    RestCollectionSipDataFile:
+    DepositContributor:
       type: object
-      description: 'The structure of the REST response:
-
-        - data: the list of objects
-
-        - page: the pagination information
-
-        - links: the HATEOAS links
-
-        - facets: the search information
-
-        '
       properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        position:
+          type: integer
+          format: int32
+        compositeKey:
+          $ref: '#/components/schemas/DepositContributorId'
         _links:
           $ref: '#/components/schemas/Links'
-        _data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SipDataFile'
-        _facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResult'
-        _page:
-          $ref: '#/components/schemas/RestCollectionPage'
-    SearchCriteria:
+    SubmissionAgreement:
       type: object
+      description: A submission agreement defines the conditions of the submissions.
       properties:
-        caseInsensitive:
-          type: boolean
-        caseType:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
           type: string
-        key:
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        title:
           type: string
-        operation:
+          description: The title of the submission agreement
+        description:
           type: string
-        operationType:
-          type: string
-          enum:
-          - BETWEEN
-          - CONTAINS
-          - ENDS_WITH
-          - EQUALITY
-          - GREATER_EQUAL
-          - GREATER_THAN
-          - LESS_EQUAL
-          - LESS_THAN
-          - NEGATION
-          - ORACLE_CONTAINS
-          - STARTS_WITH
-        value: {}
-    Label:
-      type: object
-      properties:
-        language:
-          $ref: '#/components/schemas/LanguageDTO'
-          writeOnly: true
-        text:
-          type: string
+          description: The description of the submission agreement
           maxLength: 1024
           minLength: 0
+        version:
+          type: string
+          description: The version of the submission agreement
+        submissionAgreementFile:
+          $ref: '#/components/schemas/SubmissionAgreementFile'
+          description: The submission agreement file
+        _links:
+          $ref: '#/components/schemas/Links'
+    ChecksumCheck:
+      type: object
+      description: Checksum verification information.
+      properties:
+        checkDate:
+          type: string
+          format: date-time
+          description: The execution date of checksum verification.
+        checkingSucceed:
+          type: boolean
+          description: The execution result of checksum verification.
+    OrcidToken:
+      type: object
+      description: Personal token allowing to interact with ORCID API.
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        scope:
+          type: string
+        name:
+          type: string
+        orcid:
+          type: string
+        expiresIn:
+          type: string
+          format: date-time
+        _links:
+          $ref: '#/components/schemas/Links'
+    DownloadToken:
+      type: object
+      properties:
+        cookie:
+          $ref: '#/components/schemas/Cookie'
+    OrganizationalUnitLogo:
+      type: object
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
+          type: string
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        fileName:
+          type: string
+          description: The file name.
+          maxLength: 2024
+          minLength: 0
+        fileSize:
+          type: integer
+          format: int64
+          description: The file size in bytes.
+        mimeType:
+          type: string
+          description: The content type of the file. It could be named as MIME type or media type.
+        _links:
+          $ref: '#/components/schemas/Links'
     PreservationPolicy:
       type: object
       description: A preservation policy defines whether approval is required for an AIP’s disposition as well as how long it should be kept.
@@ -7159,92 +7598,6 @@ components:
           readOnly: true
         _links:
           $ref: '#/components/schemas/Links'
-    Person:
-      type: object
-      description: A person is associated to a user on the platform. It contains information such as the person’s ORCID, institution and organizational units it belongs to.
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        searchCriterias:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchCriteria'
-        firstName:
-          type: string
-          description: The first name of the person.
-          maxLength: 255
-          minLength: 1
-        lastName:
-          type: string
-          description: The last name of the person.
-          maxLength: 255
-          minLength: 1
-        orcid:
-          type: string
-          description: 'The ORCID of the person (Format: xxxx-xxxx-xxxx-xxxx).'
-          pattern: '|[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{4}|[0-9]{4}-[0-9]{4}-[0-9]{4}-[0-9]{3}X'
-        verifiedOrcid:
-          type: boolean
-          description: if the person ORCID is verified with ORCID authentication.
-        orcidToken:
-          $ref: '#/components/schemas/OrcidToken'
-          description: The ORCID token of the person.
-        avatar:
-          $ref: '#/components/schemas/PersonAvatar'
-          description: The avatar of the person.
-        fullName:
-          type: string
-          description: The full name of the person.
-        _links:
-          $ref: '#/components/schemas/Links'
-    RestCollectionPage:
-      type: object
-      properties:
-        currentPage:
-          type: integer
-          format: int64
-        sizePage:
-          type: integer
-          format: int64
-        totalItems:
-          type: integer
-          format: int64
-        totalPages:
-          type: integer
-          format: int64
-    OrganizationalUnitLogo:
-      type: object
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        fileName:
-          type: string
-          description: The file name.
-          maxLength: 2024
-          minLength: 0
-        fileSize:
-          type: integer
-          format: int64
-          description: The file size in bytes.
-        mimeType:
-          type: string
-          description: The content type of the file. It could be named as MIME type or media type.
-        _links:
-          $ref: '#/components/schemas/Links'
     Link:
       type: object
       properties:
@@ -7264,151 +7617,7 @@ components:
           type: string
         templated:
           type: boolean
-    Tool:
-      type: object
-      description: Software tool information.
-      properties:
-        description:
-          type: string
-          description: The description of the tool.
-        name:
-          type: string
-          description: The name of the tool.
-        puid:
-          type: string
-          description: The PRONOM identifier of the tool.
-        version:
-          type: string
-          description: The version of the tool.
-    Result:
-      type: object
-      description: 'The result is the result of REST action (HTTP POST) with the status:
-
-        - EXECUTED => the action was executed successfully
-
-        - NOT_EXECUTED => the action failed and the message details the reason
-
-        - NON_APPLICABLE => the action cannot be executed and the message details the reason
-
-        '
-      properties:
-        message:
-          type: string
-          description: The detailed message on what happens
-        resId:
-          type: string
-          description: The ID of the object
-        status:
-          type: string
-          description: The status of the launched action
-          enum:
-          - EXECUTED
-          - NON_APPLICABLE
-          - NOT_EXECUTED
-        messsage:
-          type: string
-          writeOnly: true
-        _links:
-          $ref: '#/components/schemas/Links'
-    License:
-      type: object
-      description: A license represents software licenses (Academic Free License 3.0, Design Science License, MIT License…​).
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        domainContent:
-          type: boolean
-          description: If the license is applicable for content.
-        domainData:
-          type: boolean
-          description: If the license is applicable for data.
-        domainSoftware:
-          type: boolean
-          description: If the license is applicable for software.
-        family:
-          type: string
-          description: The family of the license.
-        isGeneric:
-          type: boolean
-          description: If the license is generic.
-        maintainer:
-          type: string
-          description: The maintainer of the license.
-        odConformance:
-          type: string
-          description: The OD conformance status of the license.
-          enum:
-          - approved
-          - ''
-          - not reviewed
-          - rejected
-        openLicenseId:
-          type: string
-          description: The open license identifier of the license. The recommanded format is SPDX short identifier.
-        osdConformance:
-          type: string
-          description: The ODS conformance status of the license.
-          enum:
-          - approved
-          - ''
-          - not reviewed
-          - rejected
-        status:
-          type: string
-          description: The current status of the license.
-          enum:
-          - active
-          - retired
-          - superseded
-        title:
-          type: string
-          description: The title of the license.
-        url:
-          type: string
-          format: uri
-          description: The source URL of the license.
-        logo:
-          $ref: '#/components/schemas/LicenseLogo'
-          description: The logo of the license.
-        description:
-          type: string
-          description: 'The description of the license. The format is: <openLicenseId> (<title>).'
-          readOnly: true
-        _links:
-          $ref: '#/components/schemas/Links'
-    ArchiveType:
-      type: object
-      description: Archive type based on DataCite notion.
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        masterType:
-          $ref: '#/components/schemas/ArchiveType'
-          description: The master type of the archive type.
-        typeName:
-          type: string
-          description: The name of the archive type.
-        masterArchiveType:
-          type: boolean
-          description: If the archive type is a master type.
-          readOnly: true
-        _links:
-          $ref: '#/components/schemas/Links'
-    PersonAvatar:
+    InstitutionLogo:
       type: object
       properties:
         creation:
@@ -7434,141 +7643,202 @@ components:
           description: The content type of the file. It could be named as MIME type or media type.
         _links:
           $ref: '#/components/schemas/Links'
-    DepositContributor:
+    FileFormat:
       type: object
+      description: File format informations.
       properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        position:
-          type: integer
-          format: int32
-        compositeKey:
-          $ref: '#/components/schemas/DepositContributorId'
+        contentType:
+          type: string
+          description: The content type of the file.
+          maxLength: 100
+          minLength: 0
+        details:
+          type: string
+          description: The result details of the file format identification.
+        format:
+          type: string
+          description: The format description of the file.
+        md5:
+          type: string
+          description: The MD5 checksum of the file.
+          maxLength: 256
+          minLength: 0
+        puid:
+          type: string
+          description: The format PRONOM identifier of the  file.
+          maxLength: 20
+          minLength: 0
+        tool:
+          $ref: '#/components/schemas/Tool'
+          description: The format identification tool used to get the file format.
+        version:
+          type: string
+          description: The format version of the file.
+          maxLength: 50
+          minLength: 0
+    Module:
+      type: object
+      description: The functional module.
+      properties:
+        name:
+          type: string
+          description: The name of the module.
         _links:
           $ref: '#/components/schemas/Links'
-    RestCollectionDepositDataFile:
+    RepresentationInfo:
       type: object
-      description: 'The structure of the REST response:
-
-        - data: the list of objects
-
-        - page: the pagination information
-
-        - links: the HATEOAS links
-
-        - facets: the search information
-
-        '
+      description: 'OAIS Information Package: SIP, AIP or DIP.'
       properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        _data:
-          type: array
-          items:
-            $ref: '#/components/schemas/DepositDataFile'
-        _facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResult'
-        _page:
-          $ref: '#/components/schemas/RestCollectionPage'
-    RestCollectionContributor:
-      type: object
-      description: 'The structure of the REST response:
-
-        - data: the list of objects
-
-        - page: the pagination information
-
-        - links: the HATEOAS links
-
-        - facets: the search information
-
-        '
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        _data:
-          type: array
-          items:
-            $ref: '#/components/schemas/Contributor'
-        _facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResult'
-        _page:
-          $ref: '#/components/schemas/RestCollectionPage'
-    Contributor:
-      type: object
-      description: Contributors are people who are involved in archives.
-      properties:
-        resId:
+        access:
           type: string
-        depositNumber:
-          type: integer
-          format: int32
-          description: The deposit number of the contributor.
-        fullName:
+          description: The final access level of the package.
+          enum:
+          - PUBLIC
+          - RESTRICTED
+          - CLOSED
+        dataSensitivity:
           type: string
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        firstName:
+          description: The data sensitivity of the package.
+          enum:
+          - UNDEFINED
+          - BLUE
+          - GREEN
+          - YELLOW
+          - ORANGE
+          - RED
+          - CRIMSON
+        dataUsePolicy:
           type: string
-        lastName:
+          description: The data use policy type of the package.
+          enum:
+          - NONE
+          - LICENSE
+          - CLICK_THROUGH_DUA
+          - SIGNED_DUA
+          - EXTERNAL_DUA
+        complianceLevel:
           type: string
-        orcid:
+          description: The compliance level of the package.
+          enum:
+          - NOT_ASSESSED
+          - NO_COMPLIANCE
+          - WEAK_COMPLIANCE
+          - AVERAGE_COMPLIANCE
+          - FULL_COMPLIANCE
+        description:
           type: string
-        verifiedOrcid:
+          description: The description of the package.
+          maxLength: 1024
+          minLength: 0
+        embargo:
+          $ref: '#/components/schemas/EmbargoInfo'
+        licenseId:
+          type: string
+          description: The license identifier of the package.
+        metadataVersion:
+          type: string
+          description: The metadata version of the package.
+          enum:
+          - '1.0'
+          - '1.1'
+          - '2.0'
+          - '2.1'
+          - '3.0'
+          - '3.1'
+          - '4.0'
+          - '5.0'
+        name:
+          type: string
+          description: The name of the package.
+          maxLength: 255
+          minLength: 1
+        organizationalUnitId:
+          type: string
+          description: The organizational Unit ID of the package.
+          maxLength: 50
+          minLength: 1
+        status:
+          type: string
+          description: The status of the package.
+          enum:
+          - CHECK_PENDING
+          - CHECKING
+          - CHECKED
+          - CLEANING
+          - CLEANED
+          - COMPLETED
+          - DOWNLOADING
+          - IN_PREPARATION
+          - IN_PROGRESS
+          - STORED
+          - INDEXING
+          - READY
+          - RETRIEVING
+          - RETRIEVING_PENDING
+          - IN_ERROR
+          - PRESERVATION_ERROR
+          - FIXITY_ERROR
+          - DISPOSABLE
+          - DISPOSAL_APPROVED_BY_ORGUNIT
+          - DISPOSAL_APPROVED
+          - DISPOSED
+          - FIX_PENDING
+          - FIXING
+          - METADATA_EDITION_PENDING
+          - EDITING_METADATA
+          - UPDATING_RETENTION
+          - METADATA_UPGRADE_PENDING
+          - UPGRADING_METADATA
+          - COMPLIANCE_LEVEL_UPDATE_PENDING
+          - UPDATING_COMPLIANCE_LEVEL
+          - COMPLIANCE_LEVEL_UPDATED
+          - REINDEXING
+          - RELOADED
+          - RESUBMITTING
+          - PACKAGE_REPLICATION_PENDING
+          - REPLICATING_PACKAGE
+          - TOMBSTONE_REPLICATION_PENDING
+          - REPLICATING_TOMBSTONE
+        statusMessage:
+          type: string
+          description: The detailed message related to the package status.
+          maxLength: 1024
+          minLength: 0
+        containsUpdatedMetadata:
           type: boolean
-        avatar:
-          $ref: '#/components/schemas/PersonAvatar'
-        _links:
-          $ref: '#/components/schemas/Links'
-    RestCollectionSubjectArea:
+          description: If the package contains updated metadata.
+        contentStructurePublic:
+          type: boolean
+          description: If the archive structure content is public.
+        accessCurrentlyPublic:
+          type: boolean
+          description: If the current access level is public
+        currentAccess:
+          type: string
+          description: The current access level of the package, deducted from the final access level and an eventual embargo.
+          enum:
+          - PUBLIC
+          - RESTRICTED
+          - CLOSED
+          readOnly: true
+    VirusCheck:
       type: object
-      description: 'The structure of the REST response:
-
-        - data: the list of objects
-
-        - page: the pagination information
-
-        - links: the HATEOAS links
-
-        - facets: the search information
-
-        '
+      description: Virus check information.
       properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        _data:
-          type: array
-          items:
-            $ref: '#/components/schemas/SubjectArea'
-        _facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResult'
-        _page:
-          $ref: '#/components/schemas/RestCollectionPage'
-    Pageable:
+        checkDate:
+          type: string
+          format: date-time
+          description: The execution date of the virus check.
+        details:
+          type: string
+          description: The result details of the virus check.
+        tool:
+          $ref: '#/components/schemas/Tool'
+          description: The virus check tool used to verify if the file contains virus.
+    Links:
       type: object
-      properties:
-        page:
-          type: integer
-          format: int32
-          minimum: 0
-        size:
-          type: integer
-          format: int32
-          minimum: 1
-        sort:
-          type: array
-          items:
-            type: string
+      additionalProperties:
+        $ref: '#/components/schemas/Link'
     DepositDataFile:
       type: object
       properties:
@@ -7766,12 +8036,7 @@ components:
           readOnly: true
         _links:
           $ref: '#/components/schemas/Links'
-    Links:
-      type: object
-      additionalProperties:
-        $ref: '#/components/schemas/Link'
-    StreamingResponseBody: {}
-    RestCollectionSubmissionAgreement:
+    RestCollectionSipDataFile:
       type: object
       description: 'The structure of the REST response:
 
@@ -7790,278 +8055,13 @@ components:
         _data:
           type: array
           items:
-            $ref: '#/components/schemas/SubmissionAgreement'
+            $ref: '#/components/schemas/SipDataFile'
         _facets:
           type: array
           items:
             $ref: '#/components/schemas/FacetResult'
         _page:
           $ref: '#/components/schemas/RestCollectionPage'
-    Cookie:
-      type: object
-      properties:
-        secure:
-          type: boolean
-    SipDataFile:
-      type: object
-      properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
-          type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        searchCriterias:
-          type: array
-          items:
-            $ref: '#/components/schemas/SearchCriteria'
-        complianceLevel:
-          type: string
-          description: 'Compliance level to define the preservation quality based on data file format:
-
-            - NOT_ASSESSED => The format could not be evaluated
-
-            - NO_COMPLIANCE => The format could not be determined
-
-            - WEAK_COMPLIANCE => The format was determined: content type detected
-
-            - AVERAGE_COMPLIANCE => The format was determined: WEAK_COMPLIANCE + PRONOM identifier detected
-
-            - FULL_COMPLIANCE => The format was determined: AVERAGE_COMPLIANCE + the format is part of golden formats
-
-            '
-          enum:
-          - NOT_ASSESSED
-          - NO_COMPLIANCE
-          - WEAK_COMPLIANCE
-          - AVERAGE_COMPLIANCE
-          - FULL_COMPLIANCE
-        dataCategory:
-          type: string
-          enum:
-          - Primary
-          - Observational
-          - Experimental
-          - Simulation
-          - Derived
-          - Reference
-          - Digitalized
-          - Secondary
-          - Publication
-          - DataPaper
-          - Documentation
-          - Software
-          - Code
-          - Binaries
-          - VirtualMachine
-          - Administrative
-          - Document
-          - WebSite
-          - Other
-          - Package
-          - InformationPackage
-          - UpdatePackage
-          - Metadata
-          - CustomMetadata
-          - UpdatedMetadata
-          - Internal
-          - DatasetThumbnail
-          - ArchiveThumbnail
-          - ArchiveReadme
-          - DatafileThumbnail
-          - ArchiveDataUseAgreement
-        dataType:
-          type: string
-          enum:
-          - Primary
-          - Observational
-          - Experimental
-          - Simulation
-          - Derived
-          - Reference
-          - Digitalized
-          - Secondary
-          - Publication
-          - DataPaper
-          - Documentation
-          - Software
-          - Code
-          - Binaries
-          - VirtualMachine
-          - Administrative
-          - Document
-          - WebSite
-          - Other
-          - Package
-          - InformationPackage
-          - UpdatePackage
-          - Metadata
-          - CustomMetadata
-          - UpdatedMetadata
-          - Internal
-          - DatasetThumbnail
-          - ArchiveThumbnail
-          - ArchiveReadme
-          - DatafileThumbnail
-          - ArchiveDataUseAgreement
-        fileFormat:
-          $ref: '#/components/schemas/FileFormat'
-        fileSize:
-          type: integer
-          format: int64
-        finalData:
-          type: string
-          format: uri
-        fileName:
-          type: string
-          readOnly: true
-        metadataType:
-          $ref: '#/components/schemas/MetadataType'
-        relativeLocation:
-          type: string
-          maxLength: 460
-          minLength: 0
-          pattern: (^\/$)|(^\/.*(?<!\/)$)
-        sourceData:
-          type: string
-          format: uri
-        status:
-          type: string
-          enum:
-          - CHANGE_RELATIVE_LOCATION
-          - CHANGE_DATA_CATEGORY
-          - CLEANED
-          - CLEANING
-          - EXCLUDED_FILE
-          - CHECK_COMPLIANCE
-          - CHECK_COMPLIANCE_CLEANED
-          - CHECKED_COMPLIANCE
-          - CHECKED_COMPLIANCE_CLEANED
-          - IGNORED_FILE
-          - DOWNLOAD_IN_PROGRESS
-          - FILE_FORMAT_IDENTIFIED
-          - FILE_FORMAT_SKIPPED
-          - FILE_FORMAT_UNKNOWN
-          - IN_ERROR
-          - PROCESSED
-          - READY
-          - RECEIVED
-          - TO_PROCESS
-          - VIRUS_CHECKED
-          - VIRUS_SKIPPED
-        statusMessage:
-          type: string
-          maxLength: 1024
-          minLength: 0
-        virusCheck:
-          $ref: '#/components/schemas/VirusCheck'
-        checksums:
-          type: array
-          items:
-            $ref: '#/components/schemas/DataFileChecksum'
-        infoPackage:
-          $ref: '#/components/schemas/SubmissionInfoPackage'
-        inProgress:
-          type: boolean
-        fileStatus:
-          type: string
-          enum:
-          - CHANGE_RELATIVE_LOCATION
-          - CHANGE_DATA_CATEGORY
-          - CLEANED
-          - CLEANING
-          - EXCLUDED_FILE
-          - CHECK_COMPLIANCE
-          - CHECK_COMPLIANCE_CLEANED
-          - CHECKED_COMPLIANCE
-          - CHECKED_COMPLIANCE_CLEANED
-          - IGNORED_FILE
-          - DOWNLOAD_IN_PROGRESS
-          - FILE_FORMAT_IDENTIFIED
-          - FILE_FORMAT_SKIPPED
-          - FILE_FORMAT_UNKNOWN
-          - IN_ERROR
-          - PROCESSED
-          - READY
-          - RECEIVED
-          - TO_PROCESS
-          - VIRUS_CHECKED
-          - VIRUS_SKIPPED
-          writeOnly: true
-        smartSize:
-          type: string
-          readOnly: true
-        fullFileName:
-          type: string
-          readOnly: true
-        _links:
-          $ref: '#/components/schemas/Links'
-    RestCollectionLicense:
-      type: object
-      description: 'The structure of the REST response:
-
-        - data: the list of objects
-
-        - page: the pagination information
-
-        - links: the HATEOAS links
-
-        - facets: the search information
-
-        '
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        _data:
-          type: array
-          items:
-            $ref: '#/components/schemas/License'
-        _facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResult'
-        _page:
-          $ref: '#/components/schemas/RestCollectionPage'
-    RestCollectionArchivalInfoPackage:
-      type: object
-      description: 'The structure of the REST response:
-
-        - data: the list of objects
-
-        - page: the pagination information
-
-        - links: the HATEOAS links
-
-        - facets: the search information
-
-        '
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        _data:
-          type: array
-          items:
-            $ref: '#/components/schemas/ArchivalInfoPackage'
-        _facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResult'
-        _page:
-          $ref: '#/components/schemas/RestCollectionPage'
-    FileList:
-      type: object
-      properties:
-        files:
-          type: array
-          items:
-            type: string
-        puids:
-          type: array
-          items:
-            type: string
   securitySchemes:
     auth:
       type: http
