@@ -1,0 +1,7 @@
+---
+title: "Semaine internationale de la mobilité académique"
+url: "https://www.unige.ch/exchange/intlweek"
+date: "2026-09-24"
+feed_url: "https://www.unige.ch/feed/rss"
+---
+Du 28 septembre au 1er octobre
