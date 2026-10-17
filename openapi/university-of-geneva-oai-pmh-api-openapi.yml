@@ -675,96 +675,54 @@ paths:
       x-summary-source: derived
 components:
   schemas:
-    Links:
+    RestCollectionOAIMetadataPrefix:
       type: object
-      additionalProperties:
-        $ref: '#/components/schemas/Link'
-    RequestType:
+      description: 'The structure of the REST response:
+
+        - data: the list of objects
+
+        - page: the pagination information
+
+        - links: the HATEOAS links
+
+        - facets: the search information
+
+        '
+      properties:
+        _links:
+          $ref: '#/components/schemas/Links'
+        _data:
+          type: array
+          items:
+            $ref: '#/components/schemas/OAIMetadataPrefix'
+        _facets:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResult'
+        _page:
+          $ref: '#/components/schemas/RestCollectionPage'
+    FacetResult:
       type: object
       properties:
-        value:
+        name:
           type: string
-        verb:
+        field:
           type: string
-          enum:
-          - IDENTIFY
-          - LIST_METADATA_FORMATS
-          - LIST_SETS
-          - GET_RECORD
-          - LIST_IDENTIFIERS
-          - LIST_RECORDS
-          xml:
-            attribute: true
-        identifier:
-          type: string
-          xml:
-            attribute: true
-        metadataPrefix:
-          type: string
-          xml:
-            attribute: true
-        from:
-          type: string
-          xml:
-            attribute: true
-        until:
-          type: string
-          xml:
-            attribute: true
-        set:
-          type: string
-          xml:
-            attribute: true
-        resumptionToken:
-          type: string
-          xml:
-            attribute: true
-    ListIdentifiersType:
+        values:
+          type: array
+          items:
+            $ref: '#/components/schemas/FacetResultValue'
+    RecordType:
       type: object
       properties:
         header:
+          $ref: '#/components/schemas/HeaderType'
+        metadata:
+          $ref: '#/components/schemas/MetadataType'
+        about:
           type: array
           items:
-            $ref: '#/components/schemas/HeaderType'
-        resumptionToken:
-          $ref: '#/components/schemas/ResumptionTokenType'
-    ListRecordsType:
-      type: object
-      properties:
-        record:
-          type: array
-          items:
-            $ref: '#/components/schemas/RecordType'
-        resumptionToken:
-          $ref: '#/components/schemas/ResumptionTokenType'
-    SetType:
-      type: object
-      properties:
-        setSpec:
-          type: string
-        setName:
-          type: string
-        setDescription:
-          type: array
-          items:
-            $ref: '#/components/schemas/DescriptionType'
-    ChangeInfo:
-      type: object
-      description: The change information of an action.
-      properties:
-        fullName:
-          type: string
-          description: The full name of the user who did the action on the resource.
-          readOnly: true
-        who:
-          type: string
-          description: The user who did the action on the resource.
-          readOnly: true
-        when:
-          type: string
-          format: date-time
-          description: The date when the action was done on the resources.
-          readOnly: true
+            $ref: '#/components/schemas/AboutType'
     IdentifyType:
       type: object
       properties:
@@ -814,15 +772,87 @@ components:
         totalPages:
           type: integer
           format: int64
-    ListSetsType:
+    ListRecordsType:
       type: object
       properties:
-        set:
+        record:
           type: array
           items:
-            $ref: '#/components/schemas/SetType'
+            $ref: '#/components/schemas/RecordType'
         resumptionToken:
           $ref: '#/components/schemas/ResumptionTokenType'
+    OAIPMHerrorType:
+      type: object
+      properties:
+        value:
+          type: string
+        code:
+          type: string
+          enum:
+          - CANNOT_DISSEMINATE_FORMAT
+          - ID_DOES_NOT_EXIST
+          - BAD_ARGUMENT
+          - BAD_VERB
+          - NO_METADATA_FORMATS
+          - NO_RECORDS_MATCH
+          - BAD_RESUMPTION_TOKEN
+          - NO_SET_HIERARCHY
+          xml:
+            attribute: true
+    ListIdentifiersType:
+      type: object
+      properties:
+        header:
+          type: array
+          items:
+            $ref: '#/components/schemas/HeaderType'
+        resumptionToken:
+          $ref: '#/components/schemas/ResumptionTokenType'
+    GetRecordType:
+      type: object
+      properties:
+        record:
+          $ref: '#/components/schemas/RecordType'
+    MultiValueMapStringString:
+      type: object
+      additionalProperties:
+        type: array
+        items:
+          type: string
+      properties:
+        all:
+          type: object
+          additionalProperties:
+            type: string
+          writeOnly: true
+        empty:
+          type: boolean
+    HeaderType:
+      type: object
+      properties:
+        identifier:
+          type: string
+        datestamp:
+          type: string
+        setSpec:
+          type: array
+          items:
+            type: string
+        status:
+          type: string
+          enum:
+          - DELETED
+          xml:
+            attribute: true
+    Module:
+      type: object
+      description: The functional module.
+      properties:
+        name:
+          type: string
+          description: The name of the module.
+        _links:
+          $ref: '#/components/schemas/Links'
     Link:
       type: object
       properties:
@@ -842,94 +872,6 @@ components:
           type: string
         templated:
           type: boolean
-    AboutType:
-      type: object
-      properties:
-        any: {}
-    FacetResult:
-      type: object
-      properties:
-        name:
-          type: string
-        field:
-          type: string
-        values:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResultValue'
-    ResumptionTokenType:
-      type: object
-      properties:
-        value:
-          type: string
-        expirationDate:
-          type: string
-          format: date-time
-          xml:
-            attribute: true
-        completeListSize:
-          type: integer
-          xml:
-            attribute: true
-        cursor:
-          type: integer
-          xml:
-            attribute: true
-    RecordType:
-      type: object
-      properties:
-        header:
-          $ref: '#/components/schemas/HeaderType'
-        metadata:
-          $ref: '#/components/schemas/MetadataType'
-        about:
-          type: array
-          items:
-            $ref: '#/components/schemas/AboutType'
-    FacetResultValue:
-      type: object
-      properties:
-        value:
-          type: string
-        count:
-          type: integer
-          format: int64
-    MultiValueMapStringString:
-      type: object
-      additionalProperties:
-        type: array
-        items:
-          type: string
-      properties:
-        all:
-          type: object
-          additionalProperties:
-            type: string
-          writeOnly: true
-        empty:
-          type: boolean
-    OAIPMHerrorType:
-      type: object
-      properties:
-        value:
-          type: string
-        code:
-          type: string
-          enum:
-          - CANNOT_DISSEMINATE_FORMAT
-          - ID_DOES_NOT_EXIST
-          - BAD_ARGUMENT
-          - BAD_VERB
-          - NO_METADATA_FORMATS
-          - NO_RECORDS_MATCH
-          - BAD_RESUMPTION_TOKEN
-          - NO_SET_HIERARCHY
-          xml:
-            attribute: true
-    DescriptionType:
-      type: object
-      properties:
-        any: {}
     MetadataType:
       type: object
       description: The metadata type allow to define custom metadata.
@@ -979,23 +921,109 @@ components:
           readOnly: true
         _links:
           $ref: '#/components/schemas/Links'
-    HeaderType:
+    DescriptionType:
       type: object
       properties:
-        identifier:
-          type: string
-        datestamp:
-          type: string
-        setSpec:
+        any: {}
+    OAIPMH:
+      type: object
+      description: 'OAI-PMH Provider
+
+        Specifications: http://www.openarchives.org/OAI/openarchivesprotocol.html
+
+        '
+      properties:
+        oai:
+          $ref: '#/components/schemas/OAIPMHtype'
+        _links:
+          $ref: '#/components/schemas/Links'
+    ListSetsType:
+      type: object
+      properties:
+        set:
           type: array
           items:
-            type: string
-        status:
+            $ref: '#/components/schemas/SetType'
+        resumptionToken:
+          $ref: '#/components/schemas/ResumptionTokenType'
+    OAIMetadataPrefix:
+      type: object
+      description: The OAI metadata prefixes defined the metadata formats supported by OAI-PMH provider. The default metadata prefix is oai_dc, derived from Dublin Core.
+      properties:
+        creation:
+          $ref: '#/components/schemas/ChangeInfo'
+        lastUpdate:
+          $ref: '#/components/schemas/ChangeInfo'
+        resId:
           type: string
-          enum:
-          - DELETED
+          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
+          maxLength: 50
+          minLength: 0
+        prefix:
+          type: string
+          description: The name of the OAI metadata prefix.
+          maxLength: 255
+          minLength: 1
+        schemaUrl:
+          type: string
+          format: uri
+          description: The XML schema URL of the OAI metadata prefix.
+        schemaNamespace:
+          type: string
+          description: The XML schema namespace of the OAI metadata prefix.
+        name:
+          type: string
+          description: The name of the OAI metadata prefix.
+          maxLength: 255
+          minLength: 1
+        description:
+          type: string
+          description: The description of the OAI metadata prefix.
+          maxLength: 1024
+          minLength: 1
+        enabled:
+          type: boolean
+          description: If the OAI metadata prefix is enable.
+        reference:
+          type: boolean
+          description: If the OAI metadata prefix is the reference prefix.
+        xmlClass:
+          type: string
+          description: The XML class of the OAI metadata prefix..
+        metadataSchema:
+          type: string
+          description: The XML schema content of the OAI metadata prefix.
+          maxLength: 102400
+          minLength: 0
+        metadataXmlTransformation:
+          type: string
+          description: The XML transformation from reference prefix to the OAI metadata prefix.
+          maxLength: 102400
+          minLength: 0
+        _links:
+          $ref: '#/components/schemas/Links'
+    ResumptionTokenType:
+      type: object
+      properties:
+        value:
+          type: string
+        expirationDate:
+          type: string
+          format: date-time
           xml:
             attribute: true
+        completeListSize:
+          type: integer
+          xml:
+            attribute: true
+        cursor:
+          type: integer
+          xml:
+            attribute: true
+    Links:
+      type: object
+      additionalProperties:
+        $ref: '#/components/schemas/Link'
     ListMetadataFormatsType:
       type: object
       properties:
@@ -1003,15 +1031,46 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/MetadataFormatType'
-    Module:
+    RequestType:
       type: object
-      description: The functional module.
       properties:
-        name:
+        value:
           type: string
-          description: The name of the module.
-        _links:
-          $ref: '#/components/schemas/Links'
+        verb:
+          type: string
+          enum:
+          - IDENTIFY
+          - LIST_METADATA_FORMATS
+          - LIST_SETS
+          - GET_RECORD
+          - LIST_IDENTIFIERS
+          - LIST_RECORDS
+          xml:
+            attribute: true
+        identifier:
+          type: string
+          xml:
+            attribute: true
+        metadataPrefix:
+          type: string
+          xml:
+            attribute: true
+        from:
+          type: string
+          xml:
+            attribute: true
+        until:
+          type: string
+          xml:
+            attribute: true
+        set:
+          type: string
+          xml:
+            attribute: true
+        resumptionToken:
+          type: string
+          xml:
+            attribute: true
     OAIPMHtype:
       type: object
       properties:
@@ -1048,49 +1107,6 @@ components:
           $ref: '#/components/schemas/ListRecordsType'
           xml:
             name: ListRecords
-    GetRecordType:
-      type: object
-      properties:
-        record:
-          $ref: '#/components/schemas/RecordType'
-    RestCollectionOAIMetadataPrefix:
-      type: object
-      description: 'The structure of the REST response:
-
-        - data: the list of objects
-
-        - page: the pagination information
-
-        - links: the HATEOAS links
-
-        - facets: the search information
-
-        '
-      properties:
-        _links:
-          $ref: '#/components/schemas/Links'
-        _data:
-          type: array
-          items:
-            $ref: '#/components/schemas/OAIMetadataPrefix'
-        _facets:
-          type: array
-          items:
-            $ref: '#/components/schemas/FacetResult'
-        _page:
-          $ref: '#/components/schemas/RestCollectionPage'
-    OAIPMH:
-      type: object
-      description: 'OAI-PMH Provider
-
-        Specifications: http://www.openarchives.org/OAI/openarchivesprotocol.html
-
-        '
-      properties:
-        oai:
-          $ref: '#/components/schemas/OAIPMHtype'
-        _links:
-          $ref: '#/components/schemas/Links'
     RestCollectionOAISet:
       type: object
       description: 'The structure of the REST response:
@@ -1155,6 +1171,35 @@ components:
           minLength: 1
         _links:
           $ref: '#/components/schemas/Links'
+    ChangeInfo:
+      type: object
+      description: The change information of an action.
+      properties:
+        fullName:
+          type: string
+          description: The full name of the user who did the action on the resource.
+          readOnly: true
+        who:
+          type: string
+          description: The user who did the action on the resource.
+          readOnly: true
+        when:
+          type: string
+          format: date-time
+          description: The date when the action was done on the resources.
+          readOnly: true
+    AboutType:
+      type: object
+      properties:
+        any: {}
+    FacetResultValue:
+      type: object
+      properties:
+        value:
+          type: string
+        count:
+          type: integer
+          format: int64
     MetadataFormatType:
       type: object
       properties:
@@ -1164,62 +1209,17 @@ components:
           type: string
         metadataNamespace:
           type: string
-    OAIMetadataPrefix:
+    SetType:
       type: object
-      description: The OAI metadata prefixes defined the metadata formats supported by OAI-PMH provider. The default metadata prefix is oai_dc, derived from Dublin Core.
       properties:
-        creation:
-          $ref: '#/components/schemas/ChangeInfo'
-        lastUpdate:
-          $ref: '#/components/schemas/ChangeInfo'
-        resId:
+        setSpec:
           type: string
-          description: The identifier of the resource. The default format is a Universally Unique IDentifier (UUID).
-          maxLength: 50
-          minLength: 0
-        prefix:
+        setName:
           type: string
-          description: The name of the OAI metadata prefix.
-          maxLength: 255
-          minLength: 1
-        schemaUrl:
-          type: string
-          format: uri
-          description: The XML schema URL of the OAI metadata prefix.
-        schemaNamespace:
-          type: string
-          description: The XML schema namespace of the OAI metadata prefix.
-        name:
-          type: string
-          description: The name of the OAI metadata prefix.
-          maxLength: 255
-          minLength: 1
-        description:
-          type: string
-          description: The description of the OAI metadata prefix.
-          maxLength: 1024
-          minLength: 1
-        enabled:
-          type: boolean
-          description: If the OAI metadata prefix is enable.
-        reference:
-          type: boolean
-          description: If the OAI metadata prefix is the reference prefix.
-        xmlClass:
-          type: string
-          description: The XML class of the OAI metadata prefix..
-        metadataSchema:
-          type: string
-          description: The XML schema content of the OAI metadata prefix.
-          maxLength: 102400
-          minLength: 0
-        metadataXmlTransformation:
-          type: string
-          description: The XML transformation from reference prefix to the OAI metadata prefix.
-          maxLength: 102400
-          minLength: 0
-        _links:
-          $ref: '#/components/schemas/Links'
+        setDescription:
+          type: array
+          items:
+            $ref: '#/components/schemas/DescriptionType'
   securitySchemes:
     auth:
       type: http
