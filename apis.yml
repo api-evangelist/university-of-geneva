@@ -292,6 +292,10 @@ apis:
   humanURL: https://gitlab.unige.ch/
   baseURL: https://gitlab.unige.ch/api/v4
   tags:
+  - Version Control
+  - GitLab
+  - Research Software
+  tags_raw:
   - Source Control
   - GitLab
   - Research Software
